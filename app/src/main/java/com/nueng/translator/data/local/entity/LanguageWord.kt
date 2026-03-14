@@ -10,12 +10,16 @@ import androidx.room.PrimaryKey
     indices = [
         Index(value = ["lang_code", "translation_lang_code"]),
         Index(value = ["word"]),
-        Index(value = ["translation"])
+        Index(value = ["translation"]),
+        Index(value = ["firebase_key"], unique = true)
     ]
 )
 data class LanguageWord(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
+
+    @ColumnInfo(name = "firebase_key")
+    val firebaseKey: String = "",
 
     @ColumnInfo(name = "word")
     val word: String,

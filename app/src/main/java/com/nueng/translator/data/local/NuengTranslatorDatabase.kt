@@ -18,7 +18,7 @@ import com.nueng.translator.data.local.entity.UserData
         UserData::class,
         ChatMessage::class
     ],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 abstract class NuengTranslatorDatabase : RoomDatabase() {

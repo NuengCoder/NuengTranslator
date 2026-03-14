@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.nueng.translator.data.local.PreferencesManager
 import com.nueng.translator.data.local.entity.LanguageWord
 import com.nueng.translator.data.local.entity.User
+import com.nueng.translator.data.repository.FirebaseWordRepository
 import com.nueng.translator.data.repository.LanguageWordRepository
 import com.nueng.translator.data.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,6 +27,7 @@ data class HomeUiState(
 class HomeViewModel @Inject constructor(
     private val userRepository: UserRepository,
     private val languageWordRepository: LanguageWordRepository,
+    private val firebaseWordRepository: FirebaseWordRepository,
     private val preferencesManager: PreferencesManager
 ) : ViewModel() {
 
@@ -33,6 +35,8 @@ class HomeViewModel @Inject constructor(
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
     init {
+        // Start real-time sync (runs once, listens continuously)
+        firebaseWordRepository.startRealtimeSync()
         loadUserAndWords()
     }
 
@@ -40,24 +44,15 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             val userId = preferencesManager.loggedInUserId.first()
             val isGuest = preferencesManager.isGuest.first()
-
-            val user = if (userId > 0 && !isGuest) {
-                userRepository.getUserById(userId)
-            } else null
-
-            if (userId > 0) {
-                userRepository.updateLastOnline(userId)
-            }
-
+            val user = if (userId > 0 && !isGuest) userRepository.getUserById(userId) else null
+            if (userId > 0) userRepository.updateLastOnline(userId)
             val greeting = getTimeGreeting()
+
+            // Wait for initial sync
+            kotlinx.coroutines.delay(1000)
             val words = languageWordRepository.getRandomWords(10)
 
-            _uiState.value = HomeUiState(
-                user = user,
-                isGuest = isGuest,
-                randomWords = words,
-                greeting = greeting
-            )
+            _uiState.value = HomeUiState(user = user, isGuest = isGuest, randomWords = words, greeting = greeting)
         }
     }
 

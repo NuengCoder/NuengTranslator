@@ -10,9 +10,9 @@ import javax.inject.Singleton
 @Singleton
 class UserRepository @Inject constructor(
     private val userDao: UserDao,
-    private val preferencesManager: PreferencesManager
+    private val preferencesManager: PreferencesManager,
+    private val firebaseUserRepository: FirebaseUserRepository
 ) {
-    // --- Auth ---
     suspend fun register(username: String, password: String, role: String = "user"): Result<User> {
         val existing = userDao.getUserByUsername(username)
         if (existing != null) {
@@ -23,6 +23,8 @@ class UserRepository @Inject constructor(
         val id = userDao.insertUser(user)
         val created = user.copy(id = id)
         preferencesManager.setLoggedInUser(id, isGuest = false)
+        // Sync to Firebase
+        firebaseUserRepository.registerUser(username, role)
         return Result.success(created)
     }
 
@@ -32,11 +34,12 @@ class UserRepository @Inject constructor(
             ?: return Result.failure(Exception("Invalid username or password"))
         userDao.updateLastOnline(user.id)
         preferencesManager.setLoggedInUser(user.id, isGuest = false)
+        // Update Firebase last online
+        firebaseUserRepository.updateLastOnline(username)
         return Result.success(user)
     }
 
     suspend fun loginAsGuest(): Result<User> {
-        // Create or reuse a guest user
         val guestUsername = "guest_${System.currentTimeMillis()}"
         val guest = User(username = guestUsername, passwordHash = "", role = "guest")
         val id = userDao.insertUser(guest)
@@ -50,16 +53,18 @@ class UserRepository @Inject constructor(
 
     suspend fun getUserById(id: Long): User? = userDao.getUserById(id)
 
-    suspend fun updateLastOnline(userId: Long) = userDao.updateLastOnline(userId)
+    suspend fun updateLastOnline(userId: Long) {
+        userDao.updateLastOnline(userId)
+        val user = userDao.getUserById(userId)
+        user?.let { firebaseUserRepository.updateLastOnline(it.username) }
+    }
 
-    // --- 30-day inactive cleanup ---
     suspend fun cleanupInactiveUsers(): Int {
         val thirtyDaysMs = 30L * 24 * 60 * 60 * 1000
         val cutoff = System.currentTimeMillis() - thirtyDaysMs
         return userDao.deleteInactiveUsers(cutoff)
     }
 
-    // --- Password hashing (SHA-256) ---
     private fun hashPassword(password: String): String {
         val bytes = MessageDigest.getInstance("SHA-256").digest(password.toByteArray())
         return bytes.joinToString("") { "%02x".format(it) }

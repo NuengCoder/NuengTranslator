@@ -16,11 +16,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CameraAlt
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Draw
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -28,16 +25,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -55,7 +47,6 @@ import com.nueng.translator.ui.theme.LightCardBorder
 @Composable
 fun TranslateScreen(
     modifier: Modifier = Modifier,
-    isAdmin: Boolean = false,
     onNavigateToStrokeDraw: (String) -> Unit = {},
     onNavigateToCamera: (String) -> Unit = {},
     viewModel: TranslateViewModel = hiltViewModel()
@@ -65,9 +56,6 @@ fun TranslateScreen(
     val lang2 by viewModel.lang2.collectAsState()
     val results by viewModel.searchResults.collectAsState()
 
-    var editingWord by remember { mutableStateOf<LanguageWord?>(null) }
-    var deletingWord by remember { mutableStateOf<LanguageWord?>(null) }
-
     Column(modifier = modifier.fillMaxSize()) {
         LanguageSelectorRow(
             lang1 = lang1, lang2 = lang2,
@@ -76,132 +64,77 @@ fun TranslateScreen(
             onSwap = { viewModel.swapLanguages() }
         )
 
-        // Search bar with voice + camera + stroke buttons
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+        Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
             OutlinedTextField(
-                value = searchQuery,
-                onValueChange = { viewModel.onSearchQueryChange(it) },
+                value = searchQuery, onValueChange = { viewModel.onSearchQueryChange(it) },
                 modifier = Modifier.weight(1f),
                 placeholder = { Text("Search word?") },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
                 singleLine = true
             )
-            // Voice input
-            VoiceInputButton(
-                langCode = lang1,
-                onResult = { spokenText -> viewModel.onSearchQueryChange(spokenText) }
-            )
-            // Camera OCR
+            VoiceInputButton(langCode = lang1, onResult = { viewModel.onSearchQueryChange(it) })
             IconButton(onClick = { onNavigateToCamera(lang1) }) {
-                Icon(Icons.Default.CameraAlt, contentDescription = "Camera OCR",
-                    tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
+                Icon(Icons.Default.CameraAlt, "Camera OCR", tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
             }
-            // Stroke draw
             IconButton(onClick = { onNavigateToStrokeDraw(lang1) }) {
-                Icon(Icons.Default.Draw, contentDescription = "Draw character",
-                    tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
+                Icon(Icons.Default.Draw, "Draw", tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
             }
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(Modifier.height(8.dp))
 
         if (results.isEmpty()) {
-            Column(modifier = Modifier.fillMaxWidth().padding(40.dp),
-                horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = if (searchQuery.isBlank()) "Search or browse words" else "No results found",
+            Column(Modifier.fillMaxWidth().padding(40.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(if (searchQuery.isBlank()) "Search or browse words" else "No results found",
                     fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         } else {
             LazyColumn {
                 items(items = results, key = { it.id }) { word ->
-                    TranslateWordCard(word = word, isAdmin = isAdmin,
-                        onEdit = { editingWord = it }, onDelete = { deletingWord = it })
+                    CleanWordCard(word = word)
                 }
-                item { Spacer(modifier = Modifier.height(16.dp)) }
+                item { Spacer(Modifier.height(16.dp)) }
             }
         }
-    }
-
-    editingWord?.let { word ->
-        EditLanguageWordDialog(word = word, onDismiss = { editingWord = null },
-            onSave = { updated -> viewModel.updateWord(updated); editingWord = null })
-    }
-
-    deletingWord?.let { word ->
-        AlertDialog(
-            onDismissRequest = { deletingWord = null },
-            title = { Text("Delete Word?") },
-            text = { Text("Delete " + word.word + " from the Language Table? This cannot be undone.") },
-            confirmButton = {
-                TextButton(onClick = { viewModel.deleteWord(word); deletingWord = null }) {
-                    Text("Delete", color = MaterialTheme.colorScheme.error) }
-            },
-            dismissButton = { TextButton(onClick = { deletingWord = null }) { Text("Cancel") } }
-        )
     }
 }
 
 @Composable
-private fun TranslateWordCard(
-    word: LanguageWord, isAdmin: Boolean,
-    onEdit: (LanguageWord) -> Unit, onDelete: (LanguageWord) -> Unit
-) {
+private fun CleanWordCard(word: LanguageWord) {
     val isDark = MaterialTheme.colorScheme.background.luminance() < 0.5f
     val borderColor = if (isDark) DarkCardBorder else LightCardBorder
-    val accentColor = borderColor
 
     Card(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp)
+        Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp)
             .border(2.dp, borderColor, RoundedCornerShape(12.dp)),
         colors = CardDefaults.cardColors(containerColor = CardDarkBg),
         shape = RoundedCornerShape(12.dp)
     ) {
-        Column(modifier = Modifier.padding(start = 16.dp, top = 12.dp,
-            end = if (isAdmin) 4.dp else 16.dp, bottom = 12.dp)) {
+        Column(Modifier.padding(16.dp)) {
             if (word.wordType.isNotBlank()) {
                 Text(word.wordType, fontSize = 11.sp, fontWeight = FontWeight.Bold,
-                    color = accentColor, fontStyle = FontStyle.Italic)
-                Spacer(modifier = Modifier.height(4.dp))
+                    color = borderColor, fontStyle = FontStyle.Italic)
+                Spacer(Modifier.height(4.dp))
             }
-            Row(modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically) {
-                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
-                    Text(word.word, fontSize = 20.sp, fontWeight = FontWeight.Bold, color = CardTextPrimary)
-                    if (word.pinyin.isNotBlank()) {
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(word.pinyin, fontSize = 14.sp, color = CardTextSecondary)
-                    }
-                }
-                if (isAdmin) {
-                    Row {
-                        IconButton(onClick = { onEdit(word) }, modifier = Modifier.size(36.dp)) {
-                            Icon(Icons.Default.Edit, "Edit", Modifier.size(18.dp), tint = accentColor)
-                        }
-                        IconButton(onClick = { onDelete(word) }, modifier = Modifier.size(36.dp)) {
-                            Icon(Icons.Default.Delete, "Delete", Modifier.size(18.dp), tint = Color(0xFFEF5350))
-                        }
-                    }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(word.word, fontSize = 20.sp, fontWeight = FontWeight.Bold, color = CardTextPrimary)
+                if (word.pinyin.isNotBlank()) {
+                    Spacer(Modifier.width(8.dp))
+                    Text(word.pinyin, fontSize = 14.sp, color = CardTextSecondary)
                 }
             }
-            Text(word.translation, fontSize = 16.sp, color = CardTextPrimary.copy(alpha = 0.85f))
+            Spacer(Modifier.height(4.dp))
+            Text(word.translation, fontSize = 16.sp, color = CardTextPrimary.copy(0.85f))
             if (word.exampleSentence.isNotBlank()) {
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(Modifier.height(8.dp))
                 Text(word.exampleSentence, fontSize = 13.sp, fontStyle = FontStyle.Italic, color = CardTextHint)
             }
             if (word.translationExampleSentence.isNotBlank()) {
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(word.translationExampleSentence, fontSize = 13.sp, fontStyle = FontStyle.Italic,
-                    color = CardTextHint.copy(alpha = 0.7f))
+                Spacer(Modifier.height(2.dp))
+                Text(word.translationExampleSentence, fontSize = 13.sp, fontStyle = FontStyle.Italic, color = CardTextHint.copy(0.7f))
             }
         }
     }
 }
 
-private fun androidx.compose.ui.graphics.Color.luminance(): Float {
-    return (0.299f * red + 0.587f * green + 0.114f * blue)
-}
+private fun androidx.compose.ui.graphics.Color.luminance(): Float = (0.299f * red + 0.587f * green + 0.114f * blue)

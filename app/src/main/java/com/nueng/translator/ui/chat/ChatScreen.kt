@@ -1,6 +1,5 @@
 package com.nueng.translator.ui.chat
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +20,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Send
+import androidx.compose.material.icons.filled.Cloud
+import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.filled.Forum
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -41,11 +42,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.nueng.translator.data.local.entity.ChatMessage
+import com.nueng.translator.data.model.FirebaseChatMessage
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -61,7 +63,6 @@ fun ChatScreen(
     var inputText by rememberSaveable { mutableStateOf("") }
     val listState = rememberLazyListState()
 
-    // Scroll to bottom when new message arrives
     LaunchedEffect(messages.size) {
         if (messages.isNotEmpty()) {
             listState.animateScrollToItem(0)
@@ -76,7 +77,14 @@ fun ChatScreen(
                         Icon(Icons.Default.Forum, contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(22.dp))
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Chat Room")
+                        Text("Online Chat")
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Icon(
+                            imageVector = if (uiState.isConnected) Icons.Default.Cloud else Icons.Default.CloudOff,
+                            contentDescription = if (uiState.isConnected) "Online" else "Offline",
+                            tint = if (uiState.isConnected) Color(0xFF4CAF50) else Color(0xFFEF5350),
+                            modifier = Modifier.size(16.dp)
+                        )
                     }
                 },
                 navigationIcon = {
@@ -88,31 +96,25 @@ fun ChatScreen(
         }
     ) { innerPadding ->
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
+            modifier = Modifier.fillMaxSize().padding(innerPadding)
         ) {
-            // Messages list (reversed - newest at bottom)
             LazyColumn(
                 modifier = Modifier.weight(1f).fillMaxWidth().padding(horizontal = 12.dp),
                 state = listState,
                 reverseLayout = true,
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                items(items = messages, key = { it.id }) { msg ->
+                items(items = messages, key = { it.id.ifBlank { it.timestamp.toString() } }) { msg ->
                     ChatBubble(
                         message = msg,
-                        isOwnMessage = msg.userId == uiState.userId
+                        isOwnMessage = msg.senderName == uiState.username
                     )
                 }
                 item { Spacer(modifier = Modifier.height(8.dp)) }
             }
 
-            // Input bar
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 OutlinedTextField(
@@ -135,12 +137,8 @@ fun ChatScreen(
                     }
                 ) {
                     Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.Send,
-                            contentDescription = "Send",
-                            tint = MaterialTheme.colorScheme.onPrimary,
-                            modifier = Modifier.size(22.dp)
-                        )
+                        Icon(Icons.AutoMirrored.Filled.Send, contentDescription = "Send",
+                            tint = MaterialTheme.colorScheme.onPrimary, modifier = Modifier.size(22.dp))
                     }
                 }
             }
@@ -149,7 +147,7 @@ fun ChatScreen(
 }
 
 @Composable
-private fun ChatBubble(message: ChatMessage, isOwnMessage: Boolean) {
+private fun ChatBubble(message: FirebaseChatMessage, isOwnMessage: Boolean) {
     val alignment = if (isOwnMessage) Arrangement.End else Arrangement.Start
     val bubbleColor = if (isOwnMessage)
         MaterialTheme.colorScheme.primary.copy(alpha = 0.2f)
@@ -172,9 +170,10 @@ private fun ChatBubble(message: ChatMessage, isOwnMessage: Boolean) {
             shape = bubbleShape
         ) {
             Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
+                // Always show sender name for others, never for own
                 if (!isOwnMessage) {
                     Text(
-                        text = message.username,
+                        text = message.senderName,
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.primary
@@ -187,11 +186,13 @@ private fun ChatBubble(message: ChatMessage, isOwnMessage: Boolean) {
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.height(2.dp))
-                Text(
-                    text = timeFormat.format(Date(message.createdAt)),
-                    fontSize = 10.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
-                )
+                if (message.timestamp > 0) {
+                    Text(
+                        text = timeFormat.format(Date(message.timestamp)),
+                        fontSize = 10.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
+                    )
+                }
             }
         }
     }

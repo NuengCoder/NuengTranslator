@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.google.firebase.database.FirebaseDatabase
 import com.nueng.translator.data.local.NuengTranslatorDatabase
 import com.nueng.translator.data.local.dao.ChatMessageDao
 import com.nueng.translator.data.local.dao.LanguageWordDao
@@ -51,6 +52,17 @@ object DatabaseModule {
                             role = "admin"
                         )
                     )
+                    // Push admin to Firebase
+                    try {
+                        val fbDb = FirebaseDatabase.getInstance("https://nuengtranslator-default-rtdb.asia-southeast1.firebasedatabase.app")
+                        val userMap = mapOf(
+                            "username" to "NuengAdmin",
+                            "role" to "admin",
+                            "createdAt" to System.currentTimeMillis(),
+                            "lastOnline" to System.currentTimeMillis()
+                        )
+                        fbDb.getReference("users").child("NuengAdmin").setValue(userMap)
+                    } catch (_: Exception) {}
                 }
             }
         })
@@ -62,19 +74,12 @@ object DatabaseModule {
         return bytes.joinToString("") { "%02x".format(it) }
     }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideUserDao(database: NuengTranslatorDatabase): UserDao = database.userDao()
-
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideLanguageWordDao(database: NuengTranslatorDatabase): LanguageWordDao = database.languageWordDao()
-
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideUserDataDao(database: NuengTranslatorDatabase): UserDataDao = database.userDataDao()
-
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideChatMessageDao(database: NuengTranslatorDatabase): ChatMessageDao = database.chatMessageDao()
 }

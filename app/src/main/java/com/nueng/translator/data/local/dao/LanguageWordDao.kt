@@ -24,14 +24,26 @@ interface LanguageWordDao {
     @Delete
     suspend fun deleteWord(word: LanguageWord)
 
-    @Query("SELECT * FROM language_words WHERE lang_code = :langCode AND translation_lang_code = :translationLangCode ORDER BY word ASC LIMIT :limit OFFSET :offset")
-    suspend fun getWordsByLanguagePairPaged(langCode: String, translationLangCode: String, limit: Int, offset: Int): List<LanguageWord>
+    @Query("SELECT * FROM language_words WHERE firebase_key = :key LIMIT 1")
+    suspend fun getByFirebaseKey(key: String): LanguageWord?
+
+    @Query("DELETE FROM language_words WHERE firebase_key = :key")
+    suspend fun deleteByFirebaseKey(key: String)
+
+    @Query("SELECT firebase_key FROM language_words WHERE firebase_key != ''")
+    suspend fun getAllFirebaseKeys(): List<String>
 
     @Query("SELECT * FROM language_words WHERE lang_code = :langCode AND translation_lang_code = :translationLangCode ORDER BY word ASC")
     fun getWordsByLanguagePair(langCode: String, translationLangCode: String): Flow<List<LanguageWord>>
 
     @Query("SELECT * FROM language_words WHERE (lang_code = :langCode AND translation_lang_code = :translationLangCode) AND (word LIKE '%' || :query || '%' OR translation LIKE '%' || :query || '%' OR pinyin LIKE '%' || :query || '%') ORDER BY word ASC LIMIT 50")
     fun searchWords(query: String, langCode: String, translationLangCode: String): Flow<List<LanguageWord>>
+
+    @Query("SELECT * FROM language_words WHERE word LIKE '%' || :query || '%' OR translation LIKE '%' || :query || '%' OR pinyin LIKE '%' || :query || '%' ORDER BY word ASC LIMIT 50")
+    fun searchAllWords(query: String): Flow<List<LanguageWord>>
+
+    @Query("SELECT * FROM language_words ORDER BY word ASC")
+    fun getAllWords(): Flow<List<LanguageWord>>
 
     @Query("SELECT * FROM language_words ORDER BY RANDOM() LIMIT :limit")
     suspend fun getRandomWords(limit: Int = 10): List<LanguageWord>
