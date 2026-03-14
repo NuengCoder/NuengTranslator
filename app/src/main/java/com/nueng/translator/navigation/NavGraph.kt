@@ -2,12 +2,15 @@ package com.nueng.translator.navigation
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.nueng.translator.data.local.dao.UserDao
 import com.nueng.translator.ui.auth.LoginScreen
 import com.nueng.translator.ui.auth.RegisterScreen
@@ -20,6 +23,8 @@ import com.nueng.translator.ui.settings.SettingsScreen
 import com.nueng.translator.ui.settings.SettingsViewModel
 import com.nueng.translator.ui.splash.SplashScreen
 import com.nueng.translator.ui.study.StudyScreen
+import com.nueng.translator.ui.translate.CameraOcrScreen
+import com.nueng.translator.ui.translate.StrokeDrawScreen
 import com.nueng.translator.ui.translate.TranslateScreen
 import com.nueng.translator.ui.translate.TranslateViewModel
 
@@ -68,11 +73,37 @@ fun NavGraph(
             }
         }
 
-        composable(Screen.Translate.route) {
+        composable(Screen.Translate.route) { backStackEntry ->
             MainScaffold(navController = navController) { paddingModifier ->
                 val settingsVm: SettingsViewModel = hiltViewModel()
                 val settingsState by settingsVm.uiState.collectAsState()
-                TranslateScreen(modifier = paddingModifier, isAdmin = settingsState.isAdmin)
+                val translateVm: TranslateViewModel = hiltViewModel()
+                val lang1 by translateVm.lang1.collectAsState()
+
+                // Listen for results from stroke draw or camera
+                val strokeResult = backStackEntry.savedStateHandle.get<String>("stroke_result")
+                val cameraResult = backStackEntry.savedStateHandle.get<String>("camera_result")
+
+                LaunchedEffect(strokeResult) {
+                    strokeResult?.let {
+                        translateVm.onSearchQueryChange(it)
+                        backStackEntry.savedStateHandle.remove<String>("stroke_result")
+                    }
+                }
+
+                LaunchedEffect(cameraResult) {
+                    cameraResult?.let {
+                        translateVm.onSearchQueryChange(it)
+                        backStackEntry.savedStateHandle.remove<String>("camera_result")
+                    }
+                }
+
+                TranslateScreen(
+                    modifier = paddingModifier,
+                    isAdmin = settingsState.isAdmin,
+                    onNavigateToStrokeDraw = { lang -> navController.navigate("stroke_draw/$lang") },
+                    onNavigateToCamera = { lang -> navController.navigate("camera_ocr/$lang") }
+                )
             }
         }
 
@@ -115,6 +146,38 @@ fun NavGraph(
 
         composable(Screen.Chat.route) {
             ChatScreen(onNavigateBack = { navController.popBackStack() })
+        }
+
+        // Stroke Drawing
+        composable(
+            route = "stroke_draw/{lang}",
+            arguments = listOf(navArgument("lang") { type = NavType.StringType; defaultValue = "zh" })
+        ) { backStackEntry ->
+            val lang = backStackEntry.arguments?.getString("lang") ?: "zh"
+            StrokeDrawScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onCharacterSelected = { character ->
+                    navController.previousBackStackEntry?.savedStateHandle?.set("stroke_result", character)
+                    navController.popBackStack()
+                },
+                lang1 = lang
+            )
+        }
+
+        // Camera OCR
+        composable(
+            route = "camera_ocr/{lang}",
+            arguments = listOf(navArgument("lang") { type = NavType.StringType; defaultValue = "en" })
+        ) { backStackEntry ->
+            val lang = backStackEntry.arguments?.getString("lang") ?: "en"
+            CameraOcrScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onTextExtracted = { text ->
+                    navController.previousBackStackEntry?.savedStateHandle?.set("camera_result", text)
+                    navController.popBackStack()
+                },
+                lang1 = lang
+            )
         }
     }
 }

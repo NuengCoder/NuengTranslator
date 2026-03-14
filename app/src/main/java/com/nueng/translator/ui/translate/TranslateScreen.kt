@@ -15,7 +15,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Draw
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
@@ -54,6 +56,8 @@ import com.nueng.translator.ui.theme.LightCardBorder
 fun TranslateScreen(
     modifier: Modifier = Modifier,
     isAdmin: Boolean = false,
+    onNavigateToStrokeDraw: (String) -> Unit = {},
+    onNavigateToCamera: (String) -> Unit = {},
     viewModel: TranslateViewModel = hiltViewModel()
 ) {
     val searchQuery by viewModel.searchQuery.collectAsState()
@@ -72,14 +76,35 @@ fun TranslateScreen(
             onSwap = { viewModel.swapLanguages() }
         )
 
-        OutlinedTextField(
-            value = searchQuery,
-            onValueChange = { viewModel.onSearchQueryChange(it) },
+        // Search bar with voice + camera + stroke buttons
+        Row(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-            placeholder = { Text("Search word?") },
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
-            singleLine = true
-        )
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            OutlinedTextField(
+                value = searchQuery,
+                onValueChange = { viewModel.onSearchQueryChange(it) },
+                modifier = Modifier.weight(1f),
+                placeholder = { Text("Search word?") },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
+                singleLine = true
+            )
+            // Voice input
+            VoiceInputButton(
+                langCode = lang1,
+                onResult = { spokenText -> viewModel.onSearchQueryChange(spokenText) }
+            )
+            // Camera OCR
+            IconButton(onClick = { onNavigateToCamera(lang1) }) {
+                Icon(Icons.Default.CameraAlt, contentDescription = "Camera OCR",
+                    tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
+            }
+            // Stroke draw
+            IconButton(onClick = { onNavigateToStrokeDraw(lang1) }) {
+                Icon(Icons.Default.Draw, contentDescription = "Draw character",
+                    tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
+            }
+        }
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -142,7 +167,6 @@ private fun TranslateWordCard(
                     color = accentColor, fontStyle = FontStyle.Italic)
                 Spacer(modifier = Modifier.height(4.dp))
             }
-
             Row(modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically) {
@@ -164,9 +188,7 @@ private fun TranslateWordCard(
                     }
                 }
             }
-
             Text(word.translation, fontSize = 16.sp, color = CardTextPrimary.copy(alpha = 0.85f))
-
             if (word.exampleSentence.isNotBlank()) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(word.exampleSentence, fontSize = 13.sp, fontStyle = FontStyle.Italic, color = CardTextHint)
