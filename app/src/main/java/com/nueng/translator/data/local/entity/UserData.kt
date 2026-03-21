@@ -18,7 +18,8 @@ import androidx.room.PrimaryKey
     ],
     indices = [
         Index(value = ["user_id"]),
-        Index(value = ["user_id", "word"])
+        Index(value = ["user_id", "word"]),
+        Index(value = ["directory_id"])
     ]
 )
 data class UserData(
@@ -27,6 +28,9 @@ data class UserData(
 
     @ColumnInfo(name = "user_id")
     val userId: Long,
+
+    @ColumnInfo(name = "directory_id")
+    val directoryId: Long = 0L, // 0 = no directory (orphaned); >0 = belongs to a directory
 
     @ColumnInfo(name = "word")
     val word: String,

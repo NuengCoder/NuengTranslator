@@ -1,0 +1,36 @@
+{
+  "pack": "HSK4",
+  "version": "1.0",
+  "source_lang": "zh",
+  "words": [
+    {
+      "id": 1,
+      "type": "n.",
+      "word": "经济",
+      "pinyin": {
+        "ch": "jīngjì",
+        "en": "economy",
+        "th": "set-tha-kit",
+        "lo": "set-tha-kit",
+        "vi": "kinh-te",
+        "id": "ekonomi"
+      },
+      "translations": {
+        "en": "economy",
+        "th": "เศรษฐกิจ",
+        "lo": "ເສດຖະກິດ",
+        "vi": "kinh tế",
+        "id": "ekonomi"
+      },
+      "example": {
+        "zh": "中国经济发展很快。",
+        "pinyin": "Zhōngguó jīngjì fāzhǎn hěn kuài.",
+        "en": "China's economy develops very fast.",
+        "th": "เศรษฐกิจจีนพัฒนาเร็วมาก",
+        "lo": "ເສດຖະກິດຈີນພັດທະນາໄວຫຼາຍ",
+        "vi": "Kinh tế Trung Quốc phát triển rất nhanh.",
+        "id": "Ekonomi Tiongkok berkembang sangat cepat."
+      }
+    }
+  ]
+}

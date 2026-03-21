@@ -1,0 +1,35 @@
+{
+  "pack": "IELTS2",
+  "version": "1.0",
+  "source_lang": "en",
+  "words": [
+    {
+      "id": 1,
+      "type": "n.",
+      "word": "government",
+      "pinyin": {
+        "en": "/ˈɡʌvərnmənt/",
+        "zh": "政府",
+        "th": "rat-tha-baan",
+        "lo": "lat-tha-baan",
+        "vi": "chinh-phu",
+        "id": "pemerintah"
+      },
+      "translations": {
+        "zh": "政府",
+        "th": "รัฐบาล",
+        "lo": "ລັດຖະບານ",
+        "vi": "chính phủ",
+        "id": "pemerintah"
+      },
+      "example": {
+        "en": "The government announced new policies.",
+        "zh": "政府宣布了新政策。",
+        "th": "รัฐบาลประกาศนโยบายใหม่",
+        "lo": "ລັດຖະບານປະກາດນະໂຍບາຍໃໝ່",
+        "vi": "Chính phủ công bố chính sách mới.",
+        "id": "Pemerintah mengumumkan kebijakan baru."
+      }
+    }
+  ]
+}

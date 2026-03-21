@@ -1,0 +1,36 @@
+{
+  "pack": "HSK5",
+  "version": "1.0",
+  "source_lang": "zh",
+  "words": [
+    {
+      "id": 1,
+      "type": "v.",
+      "word": "缺乏",
+      "pinyin": {
+        "ch": "quēfá",
+        "en": "to lack",
+        "th": "khat-klaen",
+        "lo": "khat-khaen",
+        "vi": "thieu",
+        "id": "kekurangan"
+      },
+      "translations": {
+        "en": "to lack",
+        "th": "ขาดแคลน",
+        "lo": "ຂາດແຄນ",
+        "vi": "thiếu",
+        "id": "kekurangan"
+      },
+      "example": {
+        "zh": "他缺乏经验。",
+        "pinyin": "Tā quēfá jīngyàn.",
+        "en": "He lacks experience.",
+        "th": "เขาขาดประสบการณ์",
+        "lo": "ລາວຂາດປະສົບການ",
+        "vi": "Anh ấy thiếu kinh nghiệm.",
+        "id": "Dia kurang pengalaman."
+      }
+    }
+  ]
+}

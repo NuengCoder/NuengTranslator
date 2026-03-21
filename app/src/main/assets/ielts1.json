@@ -1,0 +1,35 @@
+{
+  "pack": "IELTS1",
+  "version": "1.0",
+  "source_lang": "en",
+  "words": [
+    {
+      "id": 1,
+      "type": "n.",
+      "word": "environment",
+      "pinyin": {
+        "en": "/ɪnˈvaɪrənmənt/",
+        "zh": "环境",
+        "th": "sing-waet-lom",
+        "lo": "sing-vaed-lom",
+        "vi": "moi-truong",
+        "id": "lingkungan"
+      },
+      "translations": {
+        "zh": "环境",
+        "th": "สิ่งแวดล้อม",
+        "lo": "ສິ່ງແວດລ້ອມ",
+        "vi": "môi trường",
+        "id": "lingkungan"
+      },
+      "example": {
+        "en": "We must protect the environment.",
+        "zh": "我们必须保护环境。",
+        "th": "เราต้องปกป้องสิ่งแวดล้อม",
+        "lo": "ພວກເຮົາຕ້ອງປົກປ້ອງສິ່ງແວດລ້ອມ",
+        "vi": "Chúng ta phải bảo vệ môi trường.",
+        "id": "Kita harus melindungi lingkungan."
+      }
+    }
+  ]
+}

@@ -10,13 +10,17 @@ import javax.inject.Singleton
 class UserDataRepository @Inject constructor(
     private val userDataDao: UserDataDao
 ) {
-    fun getNotesByUserId(userId: Long): Flow<List<UserData>> {
-        return userDataDao.getNotesByUserId(userId)
-    }
+    fun getNotesByUserId(userId: Long): Flow<List<UserData>> =
+        userDataDao.getNotesByUserId(userId)
 
-    fun searchNotes(userId: Long, query: String): Flow<List<UserData>> {
-        return userDataDao.searchNotes(userId, query)
-    }
+    fun getNotesByDirectory(userId: Long, directoryId: Long): Flow<List<UserData>> =
+        userDataDao.getNotesByDirectory(userId, directoryId)
+
+    fun searchNotes(userId: Long, query: String): Flow<List<UserData>> =
+        userDataDao.searchNotes(userId, query)
+
+    fun searchNotesInDirectory(userId: Long, directoryId: Long, query: String): Flow<List<UserData>> =
+        userDataDao.searchNotesInDirectory(userId, directoryId, query)
 
     suspend fun addNote(note: UserData): Long = userDataDao.insertNote(note)
 
@@ -27,4 +31,7 @@ class UserDataRepository @Inject constructor(
     suspend fun deleteAllNotes(userId: Long): Int = userDataDao.deleteAllNotesByUserId(userId)
 
     suspend fun getNoteCount(userId: Long): Int = userDataDao.getNoteCount(userId)
+
+    suspend fun getNoteCountByDirectory(directoryId: Long): Int =
+        userDataDao.getNoteCountByDirectory(directoryId)
 }

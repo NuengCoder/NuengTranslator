@@ -1,0 +1,35 @@
+{
+  "pack": "IELTS6",
+  "version": "1.0",
+  "source_lang": "en",
+  "words": [
+    {
+      "id": 1,
+      "type": "v.",
+      "word": "exacerbate",
+      "pinyin": {
+        "en": "/ɪɡˈzæsərbeɪt/",
+        "zh": "加剧",
+        "th": "tham-hai-yae-long",
+        "lo": "het-hai-haai-haeng-khuen",
+        "vi": "lam-tram-trong-them",
+        "id": "memperburuk"
+      },
+      "translations": {
+        "zh": "加剧",
+        "th": "ทำให้แย่ลง",
+        "lo": "ເຮັດໃຫ້ຮ້າຍແຮງຂຶ້ນ",
+        "vi": "làm trầm trọng thêm",
+        "id": "memperburuk"
+      },
+      "example": {
+        "en": "Pollution exacerbates climate change.",
+        "zh": "污染加剧了气候变化。",
+        "th": "มลพิษทำให้การเปลี่ยนแปลงสภาพภูมิอากาศแย่ลง",
+        "lo": "ມົນລະພິດເຮັດໃຫ້ການປ່ຽນແປງດິນຟ້າອາກາດຮ້າຍແຮງຂຶ້ນ",
+        "vi": "Ô nhiễm làm trầm trọng thêm biến đổi khí hậu.",
+        "id": "Polusi memperburuk perubahan iklim."
+      }
+    }
+  ]
+}

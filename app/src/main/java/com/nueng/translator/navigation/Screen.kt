@@ -13,4 +13,6 @@ sealed class Screen(val route: String) {
     object AdminPanel : Screen("admin_panel")
     object StrokeDraw : Screen("stroke_draw/{lang}")
     object CameraOcr : Screen("camera_ocr/{lang}")
+    object StudyPack : Screen("study_pack/{pack}/{file}/{type}")
+    object DirectoryWords : Screen("directory_words/{directoryId}/{directoryName}")
 }

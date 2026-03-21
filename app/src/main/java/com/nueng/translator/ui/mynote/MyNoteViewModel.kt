@@ -3,8 +3,8 @@ package com.nueng.translator.ui.mynote
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nueng.translator.data.local.PreferencesManager
-import com.nueng.translator.data.local.entity.UserData
-import com.nueng.translator.data.repository.UserDataRepository
+import com.nueng.translator.data.local.entity.UserDirectory
+import com.nueng.translator.data.repository.UserDirectoryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -24,7 +24,7 @@ import javax.inject.Inject
 @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class MyNoteViewModel @Inject constructor(
-    private val userDataRepository: UserDataRepository,
+    private val userDirectoryRepository: UserDirectoryRepository,
     private val preferencesManager: PreferencesManager
 ) : ViewModel() {
 
@@ -35,21 +35,17 @@ class MyNoteViewModel @Inject constructor(
     val isGuest: StateFlow<Boolean> = _isGuest.asStateFlow()
 
     private val _userId = MutableStateFlow(-1L)
+    val userId: StateFlow<Long> = _userId.asStateFlow()
 
-    val notes: StateFlow<List<UserData>> = combine(
+    val directories: StateFlow<List<UserDirectory>> = combine(
         _searchQuery.debounce(300),
         _userId
-    ) { query, uid ->
-        Pair(query, uid)
-    }.flatMapLatest { (query, uid) ->
-        if (uid <= 0) {
-            flowOf(emptyList())
-        } else if (query.isBlank()) {
-            userDataRepository.getNotesByUserId(uid)
-        } else {
-            userDataRepository.searchNotes(uid, query)
-        }
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+    ) { query, uid -> Pair(query, uid) }
+        .flatMapLatest { (query, uid) ->
+            if (uid <= 0) flowOf(emptyList())
+            else if (query.isBlank()) userDirectoryRepository.getDirectoriesByUserId(uid)
+            else userDirectoryRepository.searchDirectories(uid, query)
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     init {
         viewModelScope.launch {
@@ -58,45 +54,43 @@ class MyNoteViewModel @Inject constructor(
         }
     }
 
-    fun onSearchQueryChange(query: String) {
-        _searchQuery.value = query
-    }
+    fun onSearchQueryChange(query: String) { _searchQuery.value = query }
 
-    fun addNote(
-        word: String,
-        pinyin: String,
-        langCode: String,
-        translation: String,
-        translationLangCode: String,
-        exampleSentence: String,
-        translationExampleSentence: String,
-        wordType: String = ""
-    ) {
+    fun addDirectory(name: String) {
+        if (name.isBlank()) return
         viewModelScope.launch {
-            val note = UserData(
-                userId = _userId.value,
-                word = word.trim(),
-                wordType = wordType.trim(),
-                pinyin = pinyin.trim(),
-                langCode = langCode,
-                translation = translation.trim(),
-                translationLangCode = translationLangCode,
-                exampleSentence = exampleSentence.trim(),
-                translationExampleSentence = translationExampleSentence.trim()
+            val count = userDirectoryRepository.getDirectoryCount(_userId.value)
+            userDirectoryRepository.addDirectory(
+                UserDirectory(
+                    userId = _userId.value,
+                    name = name.trim(),
+                    sortIndex = count
+                )
             )
-            userDataRepository.addNote(note)
         }
     }
 
-    fun updateNote(note: UserData) {
+    fun renameDirectory(directory: UserDirectory, newName: String) {
+        if (newName.isBlank()) return
         viewModelScope.launch {
-            userDataRepository.updateNote(note)
+            userDirectoryRepository.updateDirectory(directory.copy(name = newName.trim()))
         }
     }
 
-    fun deleteNote(note: UserData) {
+    fun deleteDirectory(directory: UserDirectory) {
         viewModelScope.launch {
-            userDataRepository.deleteNote(note)
+            userDirectoryRepository.deleteDirectory(directory)
+        }
+    }
+
+    // Called after drag-to-reorder: save new order to DB
+    fun reorderDirectories(reordered: List<UserDirectory>) {
+        viewModelScope.launch {
+            reordered.forEachIndexed { index, dir ->
+                if (dir.sortIndex != index) {
+                    userDirectoryRepository.updateSortIndex(dir.id, index)
+                }
+            }
         }
     }
 }

@@ -1,0 +1,35 @@
+{
+  "pack": "IELTS4",
+  "version": "1.0",
+  "source_lang": "en",
+  "words": [
+    {
+      "id": 1,
+      "type": "v.",
+      "word": "implement",
+      "pinyin": {
+        "en": "/ˈɪmpləmɛnt/",
+        "zh": "实施",
+        "th": "dam-nern-kaan",
+        "lo": "dam-nern-kaan",
+        "vi": "thuc-hien",
+        "id": "menerapkan"
+      },
+      "translations": {
+        "zh": "实施",
+        "th": "ดำเนินการ",
+        "lo": "ດຳເນີນການ",
+        "vi": "thực hiện",
+        "id": "menerapkan"
+      },
+      "example": {
+        "en": "We need to implement this plan.",
+        "zh": "我们需要实施这个计划。",
+        "th": "เราต้องดำเนินแผนนี้",
+        "lo": "ພວກເຮົາຕ້ອງດຳເນີນແຜນນີ້",
+        "vi": "Chúng ta cần thực hiện kế hoạch này.",
+        "id": "Kita perlu menerapkan rencana ini."
+      }
+    }
+  ]
+}

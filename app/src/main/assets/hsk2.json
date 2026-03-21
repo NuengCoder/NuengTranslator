@@ -1,0 +1,4357 @@
+{
+  "pack": "HSK2",
+  "version": "1.0",
+  "source_lang": "zh",
+  "words": [
+    {
+      "id": 1,
+      "type": "None.",
+      "word": "吧",
+      "pinyin": {
+        "ch": "ba",
+        "en": "ba",
+        "th": "theu , na",
+        "lo": "tho , na",
+        "vi": "di , nhe",
+        "id": "kan , lah"
+      },
+      "translations": {
+        "en": "(modal particle for suggestion)",
+        "th": "เถอะ , นะ",
+        "lo": "ເຖີດ , ນະ",
+        "vi": "đi , nhé",
+        "id": "kan , lah"
+      },
+      "example": {
+        "zh": "我们走吧。",
+        "pinyin": "Wǒmen zǒu ba.",
+        "en": "Let's go.",
+        "th": "พวกเราไปกันเถอะ",
+        "lo": "ພວກເຮົາໄປກັນເຖີດ",
+        "vi": "Chúng ta đi thôi.",
+        "id": "Ayo kita pergi."
+      }
+    },
+    {
+      "id": 2,
+      "type": "adj.",
+      "word": "白",
+      "pinyin": {
+        "ch": "bái",
+        "en": "wait",
+        "th": "khao",
+        "lo": "khao",
+        "vi": "trang",
+        "id": "pu-tih"
+      },
+      "translations": {
+        "en": "white",
+        "th": "ขาว",
+        "lo": "ຂາວ",
+        "vi": "trắng",
+        "id": "putih"
+      },
+      "example": {
+        "zh": "我不喜欢白色的。",
+        "pinyin": "Wǒ bù xǐhuan báisè de.",
+        "en": "I don't like white ones.",
+        "th": "ฉันไม่ชอบสีขาว",
+        "lo": "ຂ້ອຍບໍ່ມັກສີຂາວ",
+        "vi": "Tôi không thích màu trắng.",
+        "id": "Saya tidak suka warna putih."
+      }
+    },
+    {
+      "id": 3,
+      "type": "num.",
+      "word": "百",
+      "pinyin": {
+        "ch": "bǎi",
+        "en": "hun-dred",
+        "th": "roi",
+        "lo": "loi",
+        "vi": "tram",
+        "id": "ra-tus"
+      },
+      "translations": {
+        "en": "hundred",
+        "th": "ร้อย",
+        "lo": "ຮ້ອຍ",
+        "vi": "trăm",
+        "id": "ratus"
+      },
+      "example": {
+        "zh": "这里有一百块钱。",
+        "pinyin": "Zhèlǐ yǒu yī bǎi kuài qián.",
+        "en": "There is one hundred yuan here.",
+        "th": "ที่นี่มีเงินหนึ่งร้อยหยวน",
+        "lo": "ຢູ່ນີ້ມີເງິນໜຶ່ງຮ້ອຍຢວນ",
+        "vi": "Ở đây có một trăm tệ.",
+        "id": "Di sini ada seratus yuan."
+      }
+    },
+    {
+      "id": 4,
+      "type": "v.",
+      "word": "帮助",
+      "pinyin": {
+        "ch": "bāngzhù",
+        "en": "help",
+        "th": "chuay-luea",
+        "lo": "chuay-lua",
+        "vi": "giup do",
+        "id": "ban-tu"
+      },
+      "translations": {
+        "en": "to help",
+        "th": "ช่วยเหลือ",
+        "lo": "ຊ່ວຍເຫຼືອ",
+        "vi": "giúp đỡ",
+        "id": "membantu"
+      },
+      "example": {
+        "zh": "谢谢你的帮助。",
+        "pinyin": "Xièxie nǐ de bāngzhù.",
+        "en": "Thank you for your help.",
+        "th": "ขอบคุณสำหรับความช่วยเหลือของคุณ",
+        "lo": "ຂອບໃຈສຳລັບຄວາມຊ່ວຍເຫຼືອຂອງເຈົ້າ",
+        "vi": "Cảm ơn sự giúp đỡ của bạn.",
+        "id": "Terima kasih atas bantuanmu."
+      }
+    },
+    {
+      "id": 5,
+      "type": "n.",
+      "word": "报纸",
+      "pinyin": {
+        "ch": "bàozhǐ",
+        "en": "nyuz-pei-per",
+        "th": "nang-seu-phim",
+        "lo": "nang-seu-phim",
+        "vi": "bao",
+        "id": "ko-ran"
+      },
+      "translations": {
+        "en": "newspaper",
+        "th": "หนังสือพิมพ์",
+        "lo": "ໜັງສືພິມ",
+        "vi": "báo",
+        "id": "koran"
+      },
+      "example": {
+        "zh": "爸爸在看报纸。",
+        "pinyin": "Bàba zài kàn bàozhǐ.",
+        "en": "Dad is reading the newspaper.",
+        "th": "พ่อกำลังอ่านหนังสือพิมพ์",
+        "lo": "ພໍ່ກຳລັງອ່ານໜັງສືພິມ",
+        "vi": "Bố đang đọc báo.",
+        "id": "Ayah sedang membaca koran."
+      }
+    },
+    {
+      "id": 6,
+      "type": "prep.",
+      "word": "比",
+      "pinyin": {
+        "ch": "bǐ",
+        "en": "bi , den",
+        "th": "kwa",
+        "lo": "kwa",
+        "vi": "so voi",
+        "id": "da-ri-pa-da"
+      },
+      "translations": {
+        "en": "than , compared to",
+        "th": "กว่า , เปรียบเทียบ",
+        "lo": "ກວ່າ , ປຽບທຽບ",
+        "vi": "so với",
+        "id": "daripada , dibanding"
+      },
+      "example": {
+        "zh": "他比我高。",
+        "pinyin": "Tā bǐ wǒ gāo.",
+        "en": "He is taller than me.",
+        "th": "เขาสูงกว่าฉัน",
+        "lo": "ລາວສູງກວ່າຂ້ອຍ",
+        "vi": "Anh ấy cao hơn tôi.",
+        "id": "Dia lebih tinggi daripada saya."
+      }
+    },
+    {
+      "id": 7,
+      "type": "adv.",
+      "word": "别",
+      "pinyin": {
+        "ch": "bié",
+        "en": "dont",
+        "th": "ya",
+        "lo": "ya",
+        "vi": "dung",
+        "id": "ja-ngan"
+      },
+      "translations": {
+        "en": "don't , other",
+        "th": "อย่า , อื่น",
+        "lo": "ຢ່າ , ອື່ນ",
+        "vi": "đừng , khác",
+        "id": "jangan , lain"
+      },
+      "example": {
+        "zh": "别说话。",
+        "pinyin": "Bié shuōhuà.",
+        "en": "Don't speak.",
+        "th": "อย่าพูด",
+        "lo": "ຢ່າເວົ້າ",
+        "vi": "Đừng nói chuyện.",
+        "id": "Jangan bicara."
+      }
+    },
+    {
+      "id": 8,
+      "type": "n.",
+      "word": "宾馆",
+      "pinyin": {
+        "ch": "bīnguǎn",
+        "en": "ho-tel",
+        "th": "rong-raem",
+        "lo": "hong-haem",
+        "vi": "khach san",
+        "id": "ho-tel"
+      },
+      "translations": {
+        "en": "hotel",
+        "th": "โรงแรม",
+        "lo": "ໂຮງແຮມ",
+        "vi": "khách sạn",
+        "id": "hotel , penginapan"
+      },
+      "example": {
+        "zh": "我住在这个宾馆。",
+        "pinyin": "Wǒ zhù zài zhège bīnguǎn.",
+        "en": "I live in this hotel.",
+        "th": "ฉันพักอยู่ที่โรงแรมนี้",
+        "lo": "ຂ້ອຍພັກຢູ່ໂຮງແຮມນີ້",
+        "vi": "Tôi ở khách sạn này.",
+        "id": "Saya menginap di hotel ini."
+      }
+    },
+    {
+      "id": 9,
+      "type": "adj.",
+      "word": "长",
+      "pinyin": {
+        "ch": "cháng",
+        "en": "long",
+        "th": "yao",
+        "lo": "yao",
+        "vi": "dai",
+        "id": "pan-jang"
+      },
+      "translations": {
+        "en": "long",
+        "th": "ยาว",
+        "lo": "ຍາວ",
+        "vi": "dài",
+        "id": "panjang"
+      },
+      "example": {
+        "zh": "这条路很长。",
+        "pinyin": "Zhè tiáo lù hěn cháng.",
+        "en": "This road is very long.",
+        "th": "ถนนเส้นนี้ยาวมาก",
+        "lo": "ທາງເສັ້ນນີ້ຍາວຫຼາຍ",
+        "vi": "Con đường này rất dài.",
+        "id": "Jalan ini sangat panjang."
+      }
+    },
+    {
+      "id": 10,
+      "type": "v.",
+      "word": "唱歌",
+      "pinyin": {
+        "ch": "chànggē",
+        "en": "sing",
+        "th": "rong-pleng",
+        "lo": "hong-peng",
+        "vi": "hat",
+        "id": "me-nyi-nyi"
+      },
+      "translations": {
+        "en": "to sing",
+        "th": "ร้องเพลง",
+        "lo": "ຮ້ອງເພງ",
+        "vi": "hát",
+        "id": "bernyanyi"
+      },
+      "example": {
+        "zh": "她喜欢唱歌。",
+        "pinyin": "Tā xǐhuan chànggē.",
+        "en": "She likes singing.",
+        "th": "เธอชอบร้องเพลง",
+        "lo": "ລາວມັກຮ້ອງເພງ",
+        "vi": "Cô ấy thích hát.",
+        "id": "Dia suka bernyanyi."
+      }
+    },
+    {
+      "id": 11,
+      "type": "v.",
+      "word": "出",
+      "pinyin": {
+        "ch": "chū",
+        "en": "go-aut",
+        "th": "ork",
+        "lo": "ork",
+        "vi": "ra",
+        "id": "ke-lu-ar"
+      },
+      "translations": {
+        "en": "to go out , to exit",
+        "th": "ออก",
+        "lo": "ອອກ",
+        "vi": "ra",
+        "id": "keluar"
+      },
+      "example": {
+        "zh": "他出去了。",
+        "pinyin": "Tā chūqù le.",
+        "en": "He has gone out.",
+        "th": "เขาออกไปแล้ว",
+        "lo": "ລາວອອກໄປແລ້ວ",
+        "vi": "Anh ấy ra ngoài rồi.",
+        "id": "Dia sudah keluar."
+      }
+    },
+    {
+      "id": 12,
+      "type": "v.",
+      "word": "穿",
+      "pinyin": {
+        "ch": "chuān",
+        "en": "wer , put-on",
+        "th": "suam-sai",
+        "lo": "nung-sai",
+        "vi": "mac",
+        "id": "pa-kai"
+      },
+      "translations": {
+        "en": "to wear , to put on",
+        "th": "สวม , ใส่",
+        "lo": "ນຸ່ງ , ໃສ່",
+        "vi": "mặc",
+        "id": "memakai , mengenakan"
+      },
+      "example": {
+        "zh": "你应该多穿点儿衣服。",
+        "pinyin": "Nǐ yīnggāi duō chuān diǎnr yīfu.",
+        "en": "You should wear more clothes.",
+        "th": "คุณควรใส่เสื้อผ้าให้มากขึ้นหน่อย",
+        "lo": "ເຈົ້າຄວນນຸ່ງເສື້ອຜ້າໃຫ້ຫຼາຍຂຶ້ນແດ່",
+        "vi": "Bạn nên mặc nhiều áo một chút.",
+        "id": "Kamu harus memakai lebih banyak pakaian."
+      }
+    },
+    {
+      "id": 13,
+      "type": "mw.",
+      "word": "次",
+      "pinyin": {
+        "ch": "cì",
+        "en": "taim , neks",
+        "th": "krang",
+        "lo": "khang",
+        "vi": "lan",
+        "id": "ka-li"
+      },
+      "translations": {
+        "en": "time , (measure word for frequency)",
+        "th": "ครั้ง",
+        "lo": "ຄັ້ງ",
+        "vi": "lần",
+        "id": "kali"
+      },
+      "example": {
+        "zh": "我去过一次北京。",
+        "pinyin": "Wǒ qùguo yī cì Běijīng.",
+        "en": "I have been to Beijing once.",
+        "th": "ฉันเคยไปปักกิ่งครั้งหนึ่ง",
+        "lo": "ຂ້ອຍເຄີຍໄປປັກກິ່ງຄັ້ງໜຶ່ງ",
+        "vi": "Tôi đã đi Bắc Kinh một lần.",
+        "id": "Saya pernah ke Beijing satu kali."
+      }
+    },
+    {
+      "id": 14,
+      "type": "prep.",
+      "word": "从",
+      "pinyin": {
+        "ch": "cóng",
+        "en": "frum",
+        "th": "jak",
+        "lo": "chak",
+        "vi": "tu",
+        "id": "da-ri"
+      },
+      "translations": {
+        "en": "from",
+        "th": "จาก",
+        "lo": "ຈາກ",
+        "vi": "từ",
+        "id": "dari"
+      },
+      "example": {
+        "zh": "我从中国来。",
+        "pinyin": "Wǒ cóng Zhōngguó lái.",
+        "en": "I come from China.",
+        "th": "ฉันมาจากประเทศจีน",
+        "lo": "ຂ້ອຍມາຈາກປະເທດຈີນ",
+        "vi": "Tôi đến từ Trung Quốc.",
+        "id": "Saya datang dari China."
+      }
+    },
+    {
+      "id": 15,
+      "type": "adj.",
+      "word": "错",
+      "pinyin": {
+        "ch": "cuò",
+        "en": "wrong , mis-teik",
+        "th": "phit",
+        "lo": "phit",
+        "vi": "sai",
+        "id": "sa-lah"
+      },
+      "translations": {
+        "en": "wrong , mistaken",
+        "th": "ผิด",
+        "lo": "ຜິດ",
+        "vi": "sai",
+        "id": "salah"
+      },
+      "example": {
+        "zh": "这个字你写错了。",
+        "pinyin": "Zhège zì nǐ xiě cuò le.",
+        "en": "You wrote this character wrong.",
+        "th": "ตัวอักษรนี้คุณเขียนผิดแล้ว",
+        "lo": "ຕົວອັກສອນນີ້ເຈົ້າຂຽນຜິດແລ້ວ",
+        "vi": "Chữ này bạn viết sai rồi.",
+        "id": "Huruf ini kamu tulis salah."
+      }
+    },
+    {
+      "id": 16,
+      "type": "v.",
+      "word": "打篮球",
+      "pinyin": {
+        "ch": "dǎ lánqiú",
+        "en": "plei-bas-ket-bawl",
+        "th": "len-bas",
+        "lo": "len-bas",
+        "vi": "choi bong ro",
+        "id": "ber-ma-in ba-set"
+      },
+      "translations": {
+        "en": "to play basketball",
+        "th": "เล่นบาสเกตบอล",
+        "lo": "ຫຼິ້ນບານບ້ວງ",
+        "vi": "chơi bóng rổ",
+        "id": "bermain basket"
+      },
+      "example": {
+        "zh": "我们去打篮球吧。",
+        "pinyin": "Wǒmen qù dǎ lánqiú ba.",
+        "en": "Let's go play basketball.",
+        "th": "พวกเราไปเล่นบาสเกตบอลกันเถอะ",
+        "lo": "ພວກເຮົາໄປຫຼິ້ນບານບ້ວງກັນເຖີດ",
+        "vi": "Chúng ta đi chơi bóng rổ thôi.",
+        "id": "Ayo kita bermain basket."
+      }
+    },
+    {
+      "id": 17,
+      "type": "None.",
+      "word": "大家",
+      "pinyin": {
+        "ch": "dàjiā",
+        "en": "ev-ree-wan",
+        "th": "thuk-khon",
+        "lo": "thuk-khon",
+        "vi": "moi nguoi",
+        "id": "se-mu-a o-rang"
+      },
+      "translations": {
+        "en": "everyone",
+        "th": "ทุกคน",
+        "lo": "ທຸກຄົນ",
+        "vi": "mọi người",
+        "id": "semua orang"
+      },
+      "example": {
+        "zh": "大家请坐。",
+        "pinyin": "Dàjiā qǐng zuò.",
+        "en": "Everyone, please sit down.",
+        "th": "ทุกคนเชิญนั่งครับ",
+        "lo": "ທຸກຄົນເຊີນນັ່ງ",
+        "vi": "Mời mọi người ngồi.",
+        "id": "Semua orang silakan duduk."
+      }
+    },
+    {
+      "id": 18,
+      "type": "v.",
+      "word": "到",
+      "pinyin": {
+        "ch": "dào",
+        "en": "er-raiv , too",
+        "th": "theung",
+        "lo": "theung",
+        "vi": "den",
+        "id": "sam-pai"
+      },
+      "translations": {
+        "en": "to arrive , to reach",
+        "th": "ถึง",
+        "lo": "ເຖິງ",
+        "vi": "đến",
+        "id": "sampai , tiba"
+      },
+      "example": {
+        "zh": "我到家了。",
+        "pinyin": "Wǒ dào jiā le.",
+        "en": "I have arrived home.",
+        "th": "ฉันถึงบ้านแล้ว",
+        "lo": "ຂ້ອຍເຖິງບ້ານແລ້ວ",
+        "vi": "Tôi đến nhà rồi.",
+        "id": "Saya sudah sampai di rumah."
+      }
+    },
+    {
+      "id": 19,
+      "type": "None.",
+      "word": "得",
+      "pinyin": {
+        "ch": "de",
+        "en": "pa-ti-kel",
+        "th": "yang",
+        "lo": "yang",
+        "vi": "den muc",
+        "id": "de-ngan"
+      },
+      "translations": {
+        "en": "(complement particle)",
+        "th": "ได้ , อย่าง",
+        "lo": "ໄດ້ , ຢ່າງ",
+        "vi": "đến mức , một cách",
+        "id": "dengan"
+      },
+      "example": {
+        "zh": "他说得很好。",
+        "pinyin": "Tā shuō de hěn hǎo.",
+        "en": "He speaks very well.",
+        "th": "เขาพูดได้ดีมาก",
+        "lo": "ລາວເວົ້າໄດ້ດີຫຼາຍ",
+        "vi": "Anh ấy nói rất tốt.",
+        "id": "Dia berbicara dengan sangat baik."
+      }
+    },
+    {
+      "id": 20,
+      "type": "v.",
+      "word": "等",
+      "pinyin": {
+        "ch": "děng",
+        "en": "weit",
+        "th": "ror",
+        "lo": "thor",
+        "vi": "cho",
+        "id": "tungg-gu"
+      },
+      "translations": {
+        "en": "to wait",
+        "th": "รอ",
+        "lo": "ຖ້າ , ລໍຖ້າ",
+        "vi": "chờ , đợi",
+        "id": "tunggu"
+      },
+      "example": {
+        "zh": "请等我一下。",
+        "pinyin": "Qǐng děng wǒ yīxià.",
+        "en": "Please wait for me a moment.",
+        "th": "โปรดรอฉันสักครู่",
+        "lo": "ຖ້າຂ້ອຍຄາວໜຶ່ງ",
+        "vi": "Vui lòng đợi tôi một chút.",
+        "id": "Tunggu saya sebentar."
+      }
+    },
+    {
+      "id": 21,
+      "type": "n.",
+      "word": "弟弟",
+      "pinyin": {
+        "ch": "dìdi",
+        "en": "young-ger-bra-ther",
+        "th": "nong-chai",
+        "lo": "nong-chai",
+        "vi": "em trai",
+        "id": "a-dik la-ki-la-ki"
+      },
+      "translations": {
+        "en": "younger brother",
+        "th": "น้องชาย",
+        "lo": "ນ້ອງຊາຍ",
+        "vi": "em trai",
+        "id": "adik laki-laki"
+      },
+      "example": {
+        "zh": "我弟弟八岁了。",
+        "pinyin": "Wǒ dìdi bā suì le.",
+        "en": "My younger brother is eight years old.",
+        "th": "น้องชายของฉันอายุแปดขวบแล้ว",
+        "lo": "ນ້ອງຊາຍຂອງຂ້ອຍອາຍຸແປດປີແລ້ວ",
+        "vi": "Em trai tôi tám tuổi rồi.",
+        "id": "Adik laki-laki saya berumur delapan tahun."
+      }
+    },
+    {
+      "id": 22,
+      "type": "None.",
+      "word": "第一",
+      "pinyin": {
+        "ch": "dì-yī",
+        "en": "ferst",
+        "th": "thee-nueng",
+        "lo": "thee-nueng",
+        "vi": "thu nhat",
+        "id": "per-ta-ma"
+      },
+      "translations": {
+        "en": "first , number one",
+        "th": "ที่หนึ่ง",
+        "lo": "ທີໜຶ່ງ",
+        "vi": "thứ nhất",
+        "id": "pertama"
+      },
+      "example": {
+        "zh": "这是我第一次来中国。",
+        "pinyin": "Zhè shì wǒ dì-yī cì lái Zhōngguó.",
+        "en": "This is my first time coming to China.",
+        "th": "นี่เป็นครั้งแรกที่ฉันมาประเทศจีน",
+        "lo": "ນີ້ແມ່ນຄັ້ງທຳອິດທີ່ຂ້ອຍມາປະເທດຈີນ",
+        "vi": "Đây là lần đầu tiên tôi đến Trung Quốc.",
+        "id": "Ini adalah pertama kalinya saya ke China."
+      }
+    },
+    {
+      "id": 23,
+      "type": "v.",
+      "word": "懂",
+      "pinyin": {
+        "ch": "dǒng",
+        "en": "un-der-stend",
+        "th": "kao-jai",
+        "lo": "khao-chai",
+        "vi": "hieu",
+        "id": "me-nger-ti"
+      },
+      "translations": {
+        "en": "to understand",
+        "th": "เข้าใจ",
+        "lo": "ເຂົ້າໃຈ",
+        "vi": "hiểu",
+        "id": "mengerti , paham"
+      },
+      "example": {
+        "zh": "你听懂了吗？",
+        "pinyin": "Nǐ tīng dǒng le ma?",
+        "en": "Did you understand?",
+        "th": "คุณฟังเข้าใจไหม",
+        "lo": "ເຈົ້າຟັງເຂົ້າໃຈບໍ່",
+        "vi": "Bạn nghe có hiểu không?",
+        "id": "Apakah kamu mengerti?"
+      }
+    },
+    {
+      "id": 24,
+      "type": "prep.",
+      "word": "对",
+      "pinyin": {
+        "ch": "duì",
+        "en": "too , for , at",
+        "th": "tor , kub",
+        "lo": "tor , kup",
+        "vi": "voi , doi voi",
+        "id": "ke-pa-da"
+      },
+      "translations": {
+        "en": "toward , for , at",
+        "th": "ต่อ , กับ",
+        "lo": "ຕໍ່ , ກັບ",
+        "vi": "với , đối với",
+        "id": "kepada , terhadap"
+      },
+      "example": {
+        "zh": "他对我很友好。",
+        "pinyin": "Tā duì wǒ hěn yǒuhǎo.",
+        "en": "He is very friendly to me.",
+        "th": "เขาเป็นมิตรกับฉันมาก",
+        "lo": "ລາວເປັນມິດກັບຂ້ອຍຫຼາຍ",
+        "vi": "Anh ấy rất thân thiện với tôi.",
+        "id": "Dia sangat ramah kepada saya."
+      }
+    },
+    {
+      "id": 25,
+      "type": "adj.",
+      "word": "对",
+      "pinyin": {
+        "ch": "duì",
+        "en": "ko-rekt , rait",
+        "th": "thook , chai",
+        "lo": "thook , maen",
+        "vi": "dung",
+        "id": "be-nar"
+      },
+      "translations": {
+        "en": "correct , right",
+        "th": "ถูก , ใช่",
+        "lo": "ຖືກ , ແມ່ນ",
+        "vi": "đúng",
+        "id": "benar , tepat"
+      },
+      "example": {
+        "zh": "你说得对。",
+        "pinyin": "Nǐ shuō de duì.",
+        "en": "You are right.",
+        "th": "คุณพูดถูกแล้ว",
+        "lo": "ເຈົ້າເວົ້າຖືກແລ້ວ",
+        "vi": "Bạn nói đúng rồi.",
+        "id": "Kamu benar."
+      }
+    },
+    {
+      "id": 26,
+      "type": "n.",
+      "word": "房间",
+      "pinyin": {
+        "ch": "fángjiān",
+        "en": "rum",
+        "th": "hong",
+        "lo": "hong",
+        "vi": "phong",
+        "id": "ka-mar"
+      },
+      "translations": {
+        "en": "room",
+        "th": "ห้อง",
+        "lo": "ຫ້ອງ",
+        "vi": "phòng",
+        "id": "kamar"
+      },
+      "example": {
+        "zh": "这个房间很大。",
+        "pinyin": "Zhège fángjiān hěn dà.",
+        "en": "This room is very big.",
+        "th": "ห้องนี้ใหญ่มาก",
+        "lo": "ຫ້ອງນີ້ໃຫຍ່ຫຼາຍ",
+        "vi": "Căn phòng này rất lớn.",
+        "id": "Kamar ini sangat besar."
+      }
+    },
+    {
+      "id": 27,
+      "type": "adv.",
+      "word": "非常",
+      "pinyin": {
+        "ch": "fēicháng",
+        "en": "ve-ree , ek-strem-lee",
+        "th": "mak-mak",
+        "lo": "lay-lay",
+        "vi": "rat",
+        "id": "sa-ngat"
+      },
+      "translations": {
+        "en": "very , extremely",
+        "th": "มาก , อย่างยิ่ง",
+        "lo": "ຫຼາຍ , ຢ່າງຍິ່ງ",
+        "vi": "rất , vô cùng",
+        "id": "sangat , amat"
+      },
+      "example": {
+        "zh": "我非常喜欢这儿。",
+        "pinyin": "Wǒ fēicháng xǐhuan zhèr.",
+        "en": "I like it here very much.",
+        "th": "ฉันชอบที่นี่มาก",
+        "lo": "ຂ້ອຍມັກຢູ່ນີ້ຫຼາຍ",
+        "vi": "Tôi rất thích ở đây.",
+        "id": "Saya sangat suka di sini."
+      }
+    },
+    {
+      "id": 28,
+      "type": "n.",
+      "word": "服务员",
+      "pinyin": {
+        "ch": "fúwùyuán",
+        "en": "wei-ter",
+        "th": "pa-nak-ngan",
+        "lo": "pha-nak-ngan",
+        "vi": "phuc vu",
+        "id": "pe-la-yan"
+      },
+      "translations": {
+        "en": "waiter , waitress",
+        "th": "พนักงานเสิร์ฟ",
+        "lo": "ພະນັກງານເສີບ",
+        "vi": "người phục vụ",
+        "id": "pelayan"
+      },
+      "example": {
+        "zh": "服务员，请给我一杯水。",
+        "pinyin": "Fúwùyuán, qǐng gěi wǒ yī bēi shuǐ.",
+        "en": "Waiter, please give me a glass of water.",
+        "th": "พนักงานครับ ขอน้ำหนึ่งแก้วครับ",
+        "lo": "ພະນັກງານ, ຂໍນ້ຳຈອກໜຶ່ງແດ່",
+        "vi": "Phục vụ, cho tôi một ly nước.",
+        "id": "Pelayan, tolong beri saya segelas air."
+      }
+    },
+    {
+      "id": 29,
+      "type": "adj.",
+      "word": "高",
+      "pinyin": {
+        "ch": "gāo",
+        "en": "tol , hai",
+        "th": "sung",
+        "lo": "sung",
+        "vi": "cao",
+        "id": "ting-gi"
+      },
+      "translations": {
+        "en": "tall , high",
+        "th": "สูง",
+        "lo": "ສູງ",
+        "vi": "cao",
+        "id": "tinggi"
+      },
+      "example": {
+        "zh": "他比我高。",
+        "pinyin": "Tā bǐ wǒ gāo.",
+        "en": "He is taller than me.",
+        "th": "เขาสูงกว่าฉัน",
+        "lo": "ລາວສູງກວ່າຂ້ອຍ",
+        "vi": "Anh ấy cao hơn tôi.",
+        "id": "Dia lebih tinggi dari saya."
+      }
+    },
+    {
+      "id": 30,
+      "type": "v.",
+      "word": "告诉",
+      "pinyin": {
+        "ch": "gàosu",
+        "en": "tel",
+        "th": "bok",
+        "lo": "bok",
+        "vi": "bao",
+        "id": "mem-be-ri-ta-hu"
+      },
+      "translations": {
+        "en": "to tell",
+        "th": "บอก",
+        "lo": "ບອກ",
+        "vi": "bảo , kể",
+        "id": "memberitahu"
+      },
+      "example": {
+        "zh": "你能告诉我吗？",
+        "pinyin": "Nǐ néng gàosu wǒ ma?",
+        "en": "Can you tell me?",
+        "th": "คุณบอกฉันได้ไหม",
+        "lo": "ເຈົ້າບອກຂ້ອຍໄດ້ບໍ່",
+        "vi": "Bạn có thể bảo tôi không?",
+        "id": "Bisakah kamu memberitahu saya?"
+      }
+    },
+    {
+      "id": 31,
+      "type": "n.",
+      "word": "哥哥",
+      "pinyin": {
+        "ch": "gēge",
+        "en": "ol-der-bra-ther",
+        "th": "pee-chai",
+        "lo": "ai",
+        "vi": "anh trai",
+        "id": "a-bang"
+      },
+      "translations": {
+        "en": "older brother",
+        "th": "พี่ชาย",
+        "lo": "ອ້າຍ",
+        "vi": "anh trai",
+        "id": "kakak laki-laki"
+      },
+      "example": {
+        "zh": "我哥哥在公司工作。",
+        "pinyin": "Wǒ gēge zài gōngsī gōngzuò.",
+        "en": "My older brother works in a company.",
+        "th": "พี่ชายของฉันทำงานในบริษัท",
+        "lo": "ອ້າຍຂອງຂ້ອຍເຮັດວຽກຢູ່ບໍລິສັດ",
+        "vi": "Anh trai tôi làm việc ở công ty.",
+        "id": "Abang saya bekerja di perusahaan."
+      }
+    },
+    {
+      "id": 32,
+      "type": "v. prep.",
+      "word": "给",
+      "pinyin": {
+        "ch": "gěi",
+        "en": "giv , for , too",
+        "th": "hai",
+        "lo": "hai",
+        "vi": "cho",
+        "id": "ka-si , un-tuk"
+      },
+      "translations": {
+        "en": "to give , for , to",
+        "th": "ให้",
+        "lo": "ໃຫ້",
+        "vi": "cho",
+        "id": "memberi , kepada"
+      },
+      "example": {
+        "zh": "请给我一杯咖啡。",
+        "pinyin": "Qǐng gěi wǒ yī bēi kāfēi.",
+        "en": "Please give me a cup of coffee.",
+        "th": "ขอกาแฟหนึ่งแก้วครับ",
+        "lo": "ຂໍກາເຟຈອກໜຶ່ງແດ່",
+        "vi": "Cho tôi một ly cà phê.",
+        "id": "Tolong beri saya secangkir kopi."
+      }
+    },
+    {
+      "id": 33,
+      "type": "n.",
+      "word": "公共汽车",
+      "pinyin": {
+        "ch": "gōnggòng qìchē",
+        "en": "bas",
+        "th": "rot-may",
+        "lo": "lot-may",
+        "vi": "xe buyt",
+        "id": "bus"
+      },
+      "translations": {
+        "en": "bus",
+        "th": "รถเมล์ , รถประจำทาง",
+        "lo": "ລົດເມ",
+        "vi": "xe buýt",
+        "id": "bus umum"
+      },
+      "example": {
+        "zh": "我坐公共汽车去学校。",
+        "pinyin": "Wǒ zuò gōnggòng qìchē qù xuéxiào.",
+        "en": "I go to school by bus.",
+        "th": "ฉันไปโรงเรียนด้วยรถเมล์",
+        "lo": "ຂ້ອຍໄປໂຮງຮຽນດ້ວຍລົດເມ",
+        "vi": "Tôi đi học bằng xe buýt.",
+        "id": "Saya pergi ke sekolah naik bus."
+      }
+    },
+    {
+      "id": 34,
+      "type": "n.",
+      "word": "公司",
+      "pinyin": {
+        "ch": "gōngsī",
+        "en": "kom-pa-nee",
+        "th": "bor-ri-sat",
+        "lo": "bor-ri-sat",
+        "vi": "cong ty",
+        "id": "pe-ru-sa-ha-an"
+      },
+      "translations": {
+        "en": "company",
+        "th": "บริษัท",
+        "lo": "ບໍລິສັດ",
+        "vi": "công ty",
+        "id": "perusahaan"
+      },
+      "example": {
+        "zh": "他在一家中国公司工作。",
+        "pinyin": "Tā zài yī jiā Zhōngguó gōngsī gōngzuò.",
+        "en": "He works in a Chinese company.",
+        "th": "เขาทำงานในบริษัทจีน",
+        "lo": "ລາວເຮັດວຽກຢູ່ບໍລິສັດຈີນ",
+        "vi": "Anh ấy làm việc ở một công ty Trung Quốc.",
+        "id": "Dia bekerja di perusahaan China."
+      }
+    },
+    {
+      "id": 35,
+      "type": "adj.",
+      "word": "贵",
+      "pinyin": {
+        "ch": "guì",
+        "en": "ek-spen-siv",
+        "th": "paeng",
+        "lo": "phaeng",
+        "vi": "dat , quy",
+        "id": "ma-hal"
+      },
+      "translations": {
+        "en": "expensive , precious",
+        "th": "แพง",
+        "lo": "ແພງ",
+        "vi": "đắt , quý",
+        "id": "mahal"
+      },
+      "example": {
+        "zh": "太贵了，能不能便宜点儿？",
+        "pinyin": "Tài guì le, néng bù néng piányi diǎnr?",
+        "en": "Too expensive, can it be cheaper?",
+        "th": "แพงเกินไป ลดหน่อยได้ไหม",
+        "lo": "ແພງໂພດ, ຫຼຸດໜ້ອຍໜຶ່ງໄດ້ບໍ່",
+        "vi": "Đắt quá, có thể rẻ hơn một chút không?",
+        "id": "Terlalu mahal, bisa lebih murah sedikit?"
+      }
+    },
+    {
+      "id": 36,
+      "type": "None.",
+      "word": "过",
+      "pinyin": {
+        "ch": "guo",
+        "en": "yuz-too , don-it",
+        "th": "koey",
+        "lo": "khoy",
+        "vi": "qua , tung",
+        "id": "per-nah"
+      },
+      "translations": {
+        "en": "(indicates past experience)",
+        "th": "เคย",
+        "lo": "ເຄີຍ",
+        "vi": "từng , qua",
+        "id": "pernah"
+      },
+      "example": {
+        "zh": "我去过中国。",
+        "pinyin": "Wǒ qùguo Zhōngguó.",
+        "en": "I have been to China before.",
+        "th": "ฉันเคยไปประเทศจีน",
+        "lo": "ຂ້ອຍເຄີຍໄປປະເທດຈີນ",
+        "vi": "Tôi từng đến Trung Quốc.",
+        "id": "Saya pernah ke China."
+      }
+    },
+    {
+      "id": 37,
+      "type": "n.",
+      "word": "孩子",
+      "pinyin": {
+        "ch": "háizi",
+        "en": "kid , chai-uld",
+        "th": "dek , look",
+        "lo": "dek , luk",
+        "vi": "tre em",
+        "id": "a-nak"
+      },
+      "translations": {
+        "en": "child , kid",
+        "th": "เด็ก , ลูก",
+        "lo": "ເດັກ , ລູກ",
+        "vi": "trẻ em , con cái",
+        "id": "anak"
+      },
+      "example": {
+        "zh": "他有三个孩子。",
+        "pinyin": "Tā yǒu sān gè háizi.",
+        "en": "He has three children.",
+        "th": "เขามีลูกสามคน",
+        "lo": "ລາວມີລູກສາມຄົນ",
+        "vi": "Anh ấy có ba đứa con.",
+        "id": "Dia punya tiga anak."
+      }
+    },
+    {
+      "id": 38,
+      "type": "adv.",
+      "word": "还",
+      "pinyin": {
+        "ch": "hái",
+        "en": "stil , awl-so",
+        "th": "yang , iak",
+        "lo": "yang , ik",
+        "vi": "van , con",
+        "id": "ma-sih"
+      },
+      "translations": {
+        "en": "still , yet , also",
+        "th": "ยัง , อีก",
+        "lo": "ຍັງ , ອີກ",
+        "vi": "vẫn , còn",
+        "id": "masih , juga"
+      },
+      "example": {
+        "zh": "他还没来。",
+        "pinyin": "Tā hái méi lái.",
+        "en": "He still hasn't come.",
+        "th": "เขายังไม่มา",
+        "lo": "ລາວຍັງບໍ່ມາ",
+        "vi": "Anh ấy vẫn chưa đến.",
+        "id": "Dia masih belum datang."
+      }
+    },
+    {
+      "id": 39,
+      "type": "adj.",
+      "word": "好吃",
+      "pinyin": {
+        "ch": "hǎochī",
+        "en": "de-li-shus",
+        "th": "a-roy",
+        "lo": "แซบ , a-loy",
+        "vi": "ngon",
+        "id": "e-nak"
+      },
+      "translations": {
+        "en": "delicious , tasty",
+        "th": "อร่อย",
+        "lo": "ແຊບ , ອະລ່ອຍ",
+        "vi": "ngon",
+        "id": "enak , lezat"
+      },
+      "example": {
+        "zh": "中国菜很好吃。",
+        "pinyin": "Zhōngguócài hěn hǎochī.",
+        "en": "Chinese food is very delicious.",
+        "th": "อาหารจีนอร่อยมาก",
+        "lo": "ອາຫານຈີນແຊບຫຼາຍ",
+        "vi": "Món ăn Trung Quốc rất ngon.",
+        "id": "Masakan China sangat enak."
+      }
+    },
+    {
+      "id": 40,
+      "type": "adj.",
+      "word": "黑",
+      "pinyin": {
+        "ch": "hēi",
+        "en": "blak , dark",
+        "th": "dam",
+        "lo": "dam",
+        "vi": "den",
+        "id": "hi-tam"
+      },
+      "translations": {
+        "en": "black , dark",
+        "th": "ดำ",
+        "lo": "ດຳ",
+        "vi": "đen",
+        "id": "hitam"
+      },
+      "example": {
+        "zh": "我不喜欢黑色的衣服。",
+        "pinyin": "Wǒ bù xǐhuan hēisè de yīfu.",
+        "en": "I don't like black clothes.",
+        "th": "ฉันไม่ชอบเสื้อผ้าสีดำ",
+        "lo": "ຂ້ອຍບໍ່ມັກເສື້ອຜ້າສີດຳ",
+        "vi": "Tôi không thích quần áo màu đen.",
+        "id": "Saya tidak suka pakaian warna hitam."
+      }
+    },
+    {
+      "id": 41,
+      "type": "adj.",
+      "word": "红",
+      "pinyin": {
+        "ch": "hóng",
+        "en": "red",
+        "th": "daeng",
+        "lo": "daeng",
+        "vi": "do",
+        "id": "me-rah"
+      },
+      "translations": {
+        "en": "red",
+        "th": "แดง",
+        "lo": "ແດງ",
+        "vi": "đỏ",
+        "id": "merah"
+      },
+      "example": {
+        "zh": "她喜欢红色的苹果。",
+        "pinyin": "Tā xǐhuan hóngsè de píngguǒ.",
+        "en": "She likes red apples.",
+        "th": "เธอชอบแอปเปิ้ลสีแดง",
+        "lo": "ລາວມັກໝາກແອັບເປິ້ນສີແດງ",
+        "vi": "Cô ấy thích quả táo màu đỏ.",
+        "id": "Dia suka apel merah."
+      }
+    },
+    {
+      "id": 42,
+      "type": "n.",
+      "word": "火车站",
+      "pinyin": {
+        "ch": "huǒchēzhàn",
+        "en": "trein-stei-shun",
+        "th": "sa-tha-nee-rot-fai",
+        "lo": "sa-tha-nee-lot-fai",
+        "vi": "ga tau hoa",
+        "id": "sta-si-un ke-re-ta"
+      },
+      "translations": {
+        "en": "train station",
+        "th": "สถานีรถไฟ",
+        "lo": "ສະຖານີລົດໄຟ",
+        "vi": "ga tàu hỏa",
+        "id": "stasiun kereta api"
+      },
+      "example": {
+        "zh": "我在火车站等你。",
+        "pinyin": "Wǒ zài huǒchēzhàn děng nǐ.",
+        "en": "I am waiting for you at the train station.",
+        "th": "ฉันรอคุณอยู่ที่สถานีรถไฟ",
+        "lo": "ຂ້ອຍຖ້າເຈົ້າຢູ່ສະຖານີລົດໄຟ",
+        "vi": "Tôi đợi bạn ở ga tàu hỏa.",
+        "id": "Saya menunggumu di stasiun kereta api."
+      }
+    },
+    {
+      "id": 43,
+      "type": "n.",
+      "word": "机场",
+      "pinyin": {
+        "ch": "jīchǎng",
+        "en": "er-port",
+        "th": "sa-nam-bin",
+        "lo": "deu-an-bin",
+        "vi": "san bay",
+        "id": "ban-da-ra"
+      },
+      "translations": {
+        "en": "airport",
+        "th": "สนามบิน",
+        "lo": "ເດີ່ນບິນ",
+        "vi": "sân bay",
+        "id": "bandara"
+      },
+      "example": {
+        "zh": "去机场怎么走？",
+        "pinyin": "Qù jīchǎng zěnme zǒu?",
+        "en": "How do I get to the airport?",
+        "th": "ไปสนามบินไปยังไง",
+        "lo": "ໄປເດີ່ນບິນໄປແນວໃດ",
+        "vi": "Đi đến sân bay đi thế nào?",
+        "id": "Bagaimana cara pergi ke bandara?"
+      }
+    },
+    {
+      "id": 44,
+      "type": "n.",
+      "word": "鸡蛋",
+      "pinyin": {
+        "ch": "jīdàn",
+        "en": "eg",
+        "th": "khai-gai",
+        "lo": "khai-kai",
+        "vi": "trung ga",
+        "id": "te-lur"
+      },
+      "translations": {
+        "en": "egg",
+        "th": "ไข่ไก่",
+        "lo": "ໄຂ່ໄກ່",
+        "vi": "trứng gà",
+        "id": "telur ayam"
+      },
+      "example": {
+        "zh": "我每天吃一个鸡蛋。",
+        "pinyin": "Wǒ měitiān chī yī gè jīdàn.",
+        "en": "I eat an egg every day.",
+        "th": "ฉันกินไข่ไก่หนึ่งฟองทุกวัน",
+        "lo": "ຂ້ອຍກິນໄຂ່ໄກ່ໜຶ່ງໜ່ວຍທຸກມື້",
+        "vi": "Mỗi ngày tôi ăn một quả trứng gà.",
+        "id": "Saya makan sebutir telur setiap hari."
+      }
+    },
+    {
+      "id": 45,
+      "type": "mw.",
+      "word": "件",
+      "pinyin": {
+        "ch": "jiàn",
+        "en": "peess , i-tem",
+        "th": "tua , chin",
+        "lo": "to , chin",
+        "vi": "chiec , kien",
+        "id": "po-tong , bu-ah"
+      },
+      "translations": {
+        "en": "item , piece (for clothes, etc.)",
+        "th": "ตัว , ชิ้น",
+        "lo": "ໂຕ , ຊິ້ນ",
+        "vi": "chiếc , bộ , kiện",
+        "id": "potong , helai"
+      },
+      "example": {
+        "zh": "这件衣服很漂亮。",
+        "pinyin": "Zhè jiàn yīfu hěn piàoliang.",
+        "en": "This piece of clothing is beautiful.",
+        "th": "เสื้อผ้าตัวนี้สวยมาก",
+        "lo": "ເສື້ອຜ້າໂຕນີ້ງາມຫຼາຍ",
+        "vi": "Bộ quần áo này rất đẹp.",
+        "id": "Pakaian ini sangat bagus."
+      }
+    },
+    {
+      "id": 46,
+      "type": "n.",
+      "word": "教室",
+      "pinyin": {
+        "ch": "jiàoshì",
+        "en": "clahs-rum",
+        "th": "hong-rian",
+        "lo": "hong-hien",
+        "vi": "lop hoc",
+        "id": "ru-ang ke-las"
+      },
+      "translations": {
+        "en": "classroom",
+        "th": "ห้องเรียน",
+        "lo": "ຫ້ອງຮຽນ",
+        "vi": "lớp học , phòng học",
+        "id": "ruang kelas"
+      },
+      "example": {
+        "zh": "教室里有学生。",
+        "pinyin": "Jiàoshì lǐ yǒu xuésheng.",
+        "en": "There are students in the classroom.",
+        "th": "มีนักเรียนอยู่ในห้องเรียน",
+        "lo": "ມີນັກຮຽນຢູ່ໃນຫ້ອງຮຽນ",
+        "vi": "Trong lớp học có học sinh.",
+        "id": "Ada murid di dalam kelas."
+      }
+    },
+    {
+      "id": 47,
+      "type": "n.",
+      "word": "姐姐",
+      "pinyin": {
+        "ch": "jiějie",
+        "en": "ol-der-sis-ter",
+        "th": "pee-sao",
+        "lo": "uey",
+        "vi": "chi gai",
+        "id": "ka-kak"
+      },
+      "translations": {
+        "en": "older sister",
+        "th": "พี่สาว",
+        "lo": "ເອື້ອຍ",
+        "vi": "chị gái",
+        "id": "kakak perempuan"
+      },
+      "example": {
+        "zh": "我姐姐很漂亮。",
+        "pinyin": "Wǒ jiějie hěn piàoliang.",
+        "en": "My older sister is very beautiful.",
+        "th": "พี่สาวของฉันสวยมาก",
+        "lo": "ເອື້ອຍຂອງຂ້ອຍງາມຫຼາຍ",
+        "vi": "Chị gái tôi rất đẹp.",
+        "id": "Kakak perempuan saya sangat cantik."
+      }
+    },
+    {
+      "id": 48,
+      "type": "v.",
+      "word": "介绍",
+      "pinyin": {
+        "ch": "jièshào",
+        "en": "in-tro-dyus",
+        "th": "nae-nam",
+        "lo": "nae-nam",
+        "vi": "gioi thieu",
+        "id": "per-ke-nal-kan"
+      },
+      "translations": {
+        "en": "to introduce",
+        "th": "แนะนำ",
+        "lo": "ແນະນຳ",
+        "vi": "giới thiệu",
+        "id": "memperkenalkan"
+      },
+      "example": {
+        "zh": "我给你介绍一下。",
+        "pinyin": "Wǒ gěi nǐ jièshào yīxià.",
+        "en": "Let me introduce you.",
+        "th": "ฉันขอแนะนำให้คุณรู้จักหน่อย",
+        "lo": "ຂ້ອຍຂໍແນະນຳໃຫ້ເຈົ້າຮູ້ຈັກແດ່",
+        "vi": "Để tôi giới thiệu cho bạn một chút.",
+        "id": "Izinkan saya memperkenalkan Anda sebentar."
+      }
+    },
+    {
+      "id": 49,
+      "type": "adj.",
+      "word": "近",
+      "pinyin": {
+        "ch": "jìn",
+        "en": "neer , klos",
+        "th": "klai",
+        "lo": "khay",
+        "vi": "gan",
+        "id": "de-kat"
+      },
+      "translations": {
+        "en": "near , close",
+        "th": "ใกล้",
+        "lo": "ໃກ້",
+        "vi": "gần",
+        "id": "dekat"
+      },
+      "example": {
+        "zh": "我家离学校很近。",
+        "pinyin": "Wǒ jiā lí xuéxiào hěn jìn.",
+        "en": "My house is very close to the school.",
+        "th": "บ้านของฉันอยู่ใกล้โรงเรียนมาก",
+        "lo": "ບ້ານຂອງຂ້ອຍຢູ່ໃກ້ໂຮງຮຽນຫຼາຍ",
+        "vi": "Nhà tôi rất gần trường học.",
+        "id": "Rumah saya sangat dekat dengan sekolah."
+      }
+    },
+    {
+      "id": 50,
+      "type": "v.",
+      "word": "进",
+      "pinyin": {
+        "ch": "jìn",
+        "en": "en-ter , kom-in",
+        "th": "kao",
+        "lo": "khao",
+        "vi": "vao",
+        "id": "ma-suk"
+      },
+      "translations": {
+        "en": "to enter , to come in",
+        "th": "เข้า",
+        "lo": "ເຂົ້າ",
+        "vi": "vào",
+        "id": "masuk"
+      },
+      "example": {
+        "zh": "请进。",
+        "pinyin": "Qǐng jìn.",
+        "en": "Please come in.",
+        "th": "เชิญเข้าข้างในครับ",
+        "lo": "ເຊີນເຂົ້າຂ້າງໃນ",
+        "vi": "Mời vào.",
+        "id": "Silakan masuk."
+      }
+    },
+    {
+      "id": 51,
+      "type": "adv.",
+      "word": "就",
+      "pinyin": {
+        "ch": "jiù",
+        "en": "dhen , soon , jus",
+        "th": "kor , loey",
+        "lo": "kor , loey",
+        "vi": "chinh , ngay",
+        "id": "ma-ka , ha-nya"
+      },
+      "translations": {
+        "en": "then , at once , exactly",
+        "th": "ก็ , เลย",
+        "lo": "ກໍ , ເລີຍ",
+        "vi": "chính , ngay , thì",
+        "id": "maka , segera"
+      },
+      "example": {
+        "zh": "我吃了饭就去。",
+        "pinyin": "Wǒ chīle fàn jiù qù.",
+        "en": "I'll go right after eating.",
+        "th": "ฉันกินข้าวเสร็จแล้วก็จะไป",
+        "lo": "ຂ້ອຍກິນເຂົ້າແລ້ວຈະໄປເລີຍ",
+        "vi": "Tôi ăn cơm xong rồi đi ngay.",
+        "id": "Saya akan pergi segera setelah makan."
+      }
+    },
+    {
+      "id": 52,
+      "type": "v.",
+      "word": "觉得",
+      "pinyin": {
+        "ch": "juéde",
+        "en": "feel , think",
+        "th": "ru-seuk , khit-wa",
+        "lo": "ru-seuk , khit-wa",
+        "vi": "cam thay",
+        "id": "me-ra-sa"
+      },
+      "translations": {
+        "en": "to feel , to think",
+        "th": "รู้สึก , คิดว่า",
+        "lo": "ຮູ້ສຶກ , ຄິດວ່າ",
+        "vi": "cảm thấy , thấy rằng",
+        "id": "merasa , berpikir"
+      },
+      "example": {
+        "zh": "我觉得他很好。",
+        "pinyin": "Wǒ juéde tā hěn hǎo.",
+        "en": "I think he is very good.",
+        "th": "ฉันรู้สึกว่าเขาดีมาก",
+        "lo": "ຂ້ອຍຮູ້ສຶກວ່າລາວດີຫຼາຍ",
+        "vi": "Tôi thấy anh ấy rất tốt.",
+        "id": "Saya rasa dia sangat baik."
+      }
+    },
+    {
+      "id": 53,
+      "type": "n.",
+      "word": "咖啡",
+      "pinyin": {
+        "ch": "kāfēi",
+        "en": "ko-fee",
+        "th": "ka-fae",
+        "lo": "ka-fae",
+        "vi": "ca phe",
+        "id": "ko-pi"
+      },
+      "translations": {
+        "en": "coffee",
+        "th": "กาแฟ",
+        "lo": "ກາເຟ",
+        "vi": "cà phê",
+        "id": "kopi"
+      },
+      "example": {
+        "zh": "你想喝咖啡吗？",
+        "pinyin": "Nǐ xiǎng hē kāfēi ma?",
+        "en": "Do you want to drink coffee?",
+        "th": "คุณอยากดื่มกาแฟไหม",
+        "lo": "ເຈົ້າຢາກດື່ມກາເຟບໍ່",
+        "vi": "Bạn có muốn uống cà phê không?",
+        "id": "Apakah Anda ingin minum kopi?"
+      }
+    },
+    {
+      "id": 54,
+      "type": "v. n.",
+      "word": "开始",
+      "pinyin": {
+        "ch": "kāishǐ",
+        "en": "be-gin , start",
+        "th": "rerm",
+        "lo": "lem",
+        "vi": "bat dau",
+        "id": "mu-la-i"
+      },
+      "translations": {
+        "en": "to start , to begin",
+        "th": "เริ่ม , เริ่มต้น",
+        "lo": "ເລີ່ມ , ເລີ່ມຕົ້ນ",
+        "vi": "bắt đầu",
+        "id": "mulai"
+      },
+      "example": {
+        "zh": "现在开始吧。",
+        "pinyin": "Xiànzài kāishǐ ba.",
+        "en": "Let's start now.",
+        "th": "เริ่มกันตอนนี้เลยเถอะ",
+        "lo": "ເລີ່ມກັນຕອນນີ້ເລີຍເຖີດ",
+        "vi": "Bây giờ bắt đầu đi.",
+        "id": "Ayo kita mulai sekarang."
+      }
+    },
+    {
+      "id": 55,
+      "type": "v. n.",
+      "word": "考试",
+      "pinyin": {
+        "ch": "kǎoshì",
+        "en": "ek-sam , test",
+        "th": "sorp",
+        "lo": "sop",
+        "vi": "thi , kiem tra",
+        "id": "u-ji-an"
+      },
+      "translations": {
+        "en": "exam , to take a test",
+        "th": "สอบ , การสอบ",
+        "lo": "ສອບ , ການສອບ",
+        "vi": "thi , kiểm tra",
+        "id": "ujian"
+      },
+      "example": {
+        "zh": "明天我要考试。",
+        "pinyin": "Míngtiān wǒ yào kǎoshì.",
+        "en": "I have an exam tomorrow.",
+        "th": "พรุ่งนี้ฉันต้องสอบ",
+        "lo": "ມື້ອື່ນຂ້ອຍຕ້ອງສອບ",
+        "vi": "Ngày mai tôi phải đi thi.",
+        "id": "Besok saya ada ujian."
+      }
+    },
+    {
+      "id": 56,
+      "type": "adv. v.",
+      "word": "可能",
+      "pinyin": {
+        "ch": "kěnéng",
+        "en": "may-bee , pos-si-bel",
+        "th": "art-ja",
+        "lo": "art-cha",
+        "vi": "co the",
+        "id": "mung-kin"
+      },
+      "translations": {
+        "en": "maybe , possible",
+        "th": "อาจจะ , เป็นไปได้",
+        "lo": "ອາດຈະ , ເປັນໄປໄດ້",
+        "vi": "có thể , có lẽ",
+        "id": "mungkin"
+      },
+      "example": {
+        "zh": "明天可能会下雨。",
+        "pinyin": "Míngtiān kěnéng huì xià yǔ.",
+        "en": "It might rain tomorrow.",
+        "th": "พรุ่งนี้ฝนอาจจะตก",
+        "lo": "ມື້ອື່ນຝົນອາດຈະຕົກ",
+        "vi": "Ngày mai có thể sẽ mưa.",
+        "id": "Besok mungkin akan hujan."
+      }
+    },
+    {
+      "id": 57,
+      "type": "v.m.",
+      "word": "可以",
+      "pinyin": {
+        "ch": "kěyǐ",
+        "en": "ken , may",
+        "th": "dai",
+        "lo": "dai",
+        "vi": "co the",
+        "id": "bo-leh"
+      },
+      "translations": {
+        "en": "can , may",
+        "th": "ได้ , สามารถ",
+        "lo": "ໄດ້ , ສາມາດ",
+        "vi": "có thể , được",
+        "id": "boleh , bisa"
+      },
+      "example": {
+        "zh": "我可以进来吗？",
+        "pinyin": "Wǒ kěyǐ jìnlai ma?",
+        "en": "May I come in?",
+        "th": "ฉันขอเข้าไปได้ไหม",
+        "lo": "ຂ້ອຍຂໍເຂົ້າໄປໄດ້ບໍ່",
+        "vi": "Tôi có thể vào không?",
+        "id": "Bolehkah saya masuk?"
+      }
+    },
+    {
+      "id": 58,
+      "type": "n.",
+      "word": "课",
+      "pinyin": {
+        "ch": "kè",
+        "en": "klahs , les-son",
+        "th": "bot-rian",
+        "lo": "bot-hien",
+        "vi": "bai hoc",
+        "id": "pe-la-ja-ran"
+      },
+      "translations": {
+        "en": "class , lesson",
+        "th": "บทเรียน , วิชา",
+        "lo": "ບົດຮຽນ , ວິຊາ",
+        "vi": "bài học , môn học",
+        "id": "pelajaran , kuliah"
+      },
+      "example": {
+        "zh": "今天我有汉语课。",
+        "pinyin": "Jīntiān wǒ yǒu Hànyǔ kè.",
+        "en": "I have Chinese class today.",
+        "th": "วันนี้ฉันมีเรียนภาษาจีน",
+        "lo": "ມື້ນີ້ຂ້ອຍມີຮຽນພາສາຈີນ",
+        "vi": "Hôm nay tôi có tiết học tiếng Hán.",
+        "id": "Hari ini saya ada pelajaran bahasa Mandarin."
+      }
+    },
+    {
+      "id": 59,
+      "type": "adj. adv.",
+      "word": "快",
+      "pinyin": {
+        "ch": "kuài",
+        "en": "fast , kwik-lee",
+        "th": "rew",
+        "lo": "vai",
+        "vi": "nhanh",
+        "id": "ce-pat"
+      },
+      "translations": {
+        "en": "fast , quick , soon",
+        "th": "เร็ว , ด่วน",
+        "lo": "ໄວ , ດ່ວນ",
+        "vi": "nhanh , sắp",
+        "id": "cepat"
+      },
+      "example": {
+        "zh": "他跑得很快。",
+        "pinyin": "Tā pǎo de hěn kuài.",
+        "en": "He runs very fast.",
+        "th": "เขาวิ่งเร็วมาก",
+        "lo": "ລາວແລ່ນໄວຫຼາຍ",
+        "vi": "Anh ấy chạy rất nhanh.",
+        "id": "Dia lari dengan sangat cepat."
+      }
+    },
+    {
+      "id": 60,
+      "type": "adj.",
+      "word": "快乐",
+      "pinyin": {
+        "ch": "kuàilè",
+        "en": "hap-pee",
+        "th": "mee-kuam-sook",
+        "lo": "mee-khuam-suk",
+        "vi": "vui ve",
+        "id": "se-nang"
+      },
+      "translations": {
+        "en": "happy , joyful",
+        "th": "มีความสุข",
+        "lo": "ມີຄວາມສຸກ",
+        "vi": "vui vẻ , hạnh phúc",
+        "id": "senang , bahagia"
+      },
+      "example": {
+        "zh": "生日快乐！",
+        "pinyin": "Shēngrì kuàilè!",
+        "en": "Happy Birthday!",
+        "th": "สุขสันต์วันเกิด",
+        "lo": "ສຸກສັນວັນເກີດ",
+        "vi": "Chúc mừng sinh nhật!",
+        "id": "Selamat ulang tahun!"
+      }
+    },
+    {
+      "id": 61,
+      "type": "adj.",
+      "word": "累",
+      "pinyin": {
+        "ch": "lèi",
+        "en": "tai-erd",
+        "th": "nueay",
+        "lo": "mueay",
+        "vi": "met",
+        "id": "le-lah"
+      },
+      "translations": {
+        "en": "tired",
+        "th": "เหนื่อย",
+        "lo": "ເມື່ອຍ",
+        "vi": "mệt",
+        "id": "lelah , capek"
+      },
+      "example": {
+        "zh": "我很累，想睡觉。",
+        "pinyin": "Wǒ hěn lèi, xiǎng shuìjiào.",
+        "en": "I'm very tired, I want to sleep.",
+        "th": "ฉันเหนื่อยมาก อยากนอน",
+        "lo": "ຂ້ອຍເມື່ອຍຫຼາຍ ຢາກນອນ",
+        "vi": "Tôi rất mệt, muốn đi ngủ.",
+        "id": "Saya sangat lelah, ingin tidur."
+      }
+    },
+    {
+      "id": 62,
+      "type": "prep.",
+      "word": "离",
+      "pinyin": {
+        "ch": "lí",
+        "en": "frum , a-wei",
+        "th": "hang-chak",
+        "lo": "hang-chak",
+        "vi": "cach",
+        "id": "da-ri"
+      },
+      "translations": {
+        "en": "away from",
+        "th": "ห่างจาก",
+        "lo": "ຫ່າງຈາກ",
+        "vi": "cách",
+        "id": "dari , berjarak"
+      },
+      "example": {
+        "zh": "学校离我家很近。",
+        "pinyin": "Xuéxiào lí wǒ jiā hěn jìn.",
+        "en": "The school is very close to my house.",
+        "th": "โรงเรียนอยู่ใกล้บ้านฉันมาก",
+        "lo": "ໂຮງຮຽນຢູ່ໃກ້ບ້านຂ້ອຍຫຼາຍ",
+        "vi": "Trường học cách nhà tôi rất gần.",
+        "id": "Sekolah sangat dekat dari rumah saya."
+      }
+    },
+    {
+      "id": 63,
+      "type": "num.",
+      "word": "两",
+      "pinyin": {
+        "ch": "liǎng",
+        "en": "tu , per",
+        "th": "song",
+        "lo": "song",
+        "vi": "hai",
+        "id": "du-a"
+      },
+      "translations": {
+        "en": "two , a pair",
+        "th": "สอง",
+        "lo": "ສອງ",
+        "vi": "hai",
+        "id": "dua"
+      },
+      "example": {
+        "zh": "我有两个哥哥。",
+        "pinyin": "Wǒ yǒu liǎng gè gēge.",
+        "en": "I have two older brothers.",
+        "th": "ฉันมีพี่ชายสองคน",
+        "lo": "ຂ້ອຍມີອ້າຍສາມຄົນ",
+        "vi": "Tôi có hai người anh trai.",
+        "id": "Saya punya dua orang kakak laki-laki."
+      }
+    },
+    {
+      "id": 64,
+      "type": "num.",
+      "word": "零",
+      "pinyin": {
+        "ch": "líng",
+        "en": "zee-row",
+        "th": "soon",
+        "lo": "soon",
+        "vi": "khong",
+        "id": "nol"
+      },
+      "translations": {
+        "en": "zero",
+        "th": "ศูนย์",
+        "lo": "ສູນ",
+        "vi": "không",
+        "id": "nol , kosong"
+      },
+      "example": {
+        "zh": "现在是三点零五分。",
+        "pinyin": "Xiànzài shì sān diǎn líng wǔ fēn.",
+        "en": "It's 3:05 now.",
+        "th": "ตอนนี้สามโมงห้านาที",
+        "lo": "ດຽວນີ້ແມ່ນສາມໂມງຫ້ານາທີ",
+        "vi": "Bây giờ là 3 giờ 5 phút.",
+        "id": "Sekarang jam 3 lewat 5 menit."
+      }
+    },
+    {
+      "id": 65,
+      "type": "n.",
+      "word": "路",
+      "pinyin": {
+        "ch": "lù",
+        "en": "rowd , way",
+        "th": "tha-non",
+        "lo": "tha-non",
+        "vi": "du-ong",
+        "id": "ja-lan"
+      },
+      "translations": {
+        "en": "road , path , way",
+        "th": "ถนน , ทาง",
+        "lo": "ຖະໜົນ , ທາງ",
+        "vi": "đường , lối đi",
+        "id": "jalan"
+      },
+      "example": {
+        "zh": "这条路很长。",
+        "pinyin": "Zhè tiáo lù hěn cháng.",
+        "en": "This road is very long.",
+        "th": "ถนนเส้นนี้ยาวมาก",
+        "lo": "ຖະໜົນເສັ້ນນີ້ຍາວຫຼາຍ",
+        "vi": "Con đường này rất dài.",
+        "id": "Jalan ini sangat panjang."
+      }
+    },
+    {
+      "id": 66,
+      "type": "v.",
+      "word": "旅游",
+      "pinyin": {
+        "ch": "lǚyóu",
+        "en": "tra-vel , tor",
+        "th": "thiao",
+        "lo": "thiao",
+        "vi": "du lich",
+        "id": "ber-wi-sa-ta"
+      },
+      "translations": {
+        "en": "to travel , tourism",
+        "th": "ท่องเที่ยว",
+        "lo": "ທ່ອງທ່ຽວ",
+        "vi": "du lịch",
+        "id": "berwisata , jalan-jalan"
+      },
+      "example": {
+        "zh": "我喜欢去中国旅游。",
+        "pinyin": "Wǒ xǐhuan qù Zhōngguó lǚyóu.",
+        "en": "I like to travel to China.",
+        "th": "ฉันชอบไปเที่ยวเมืองจีน",
+        "lo": "ຂ້ອຍມັກໄປທ່ຽວເມືອງຈີນ",
+        "vi": "Tôi thích đi du lịch Trung Quốc.",
+        "id": "Saya suka berwisata ke China."
+      }
+    },
+    {
+      "id": 67,
+      "type": "v.",
+      "word": "卖",
+      "pinyin": {
+        "ch": "mài",
+        "en": "sel",
+        "th": "khai",
+        "lo": "khai",
+        "vi": "ban",
+        "id": "ju-al"
+      },
+      "translations": {
+        "en": "to sell",
+        "th": "ขาย",
+        "lo": "ຂາຍ",
+        "vi": "bán",
+        "id": "menjual"
+      },
+      "example": {
+        "zh": "这里卖苹果吗？",
+        "pinyin": "Zhèlǐ mài píngguǒ ma?",
+        "en": "Do they sell apples here?",
+        "th": "ที่นี่มีแอปเปิ้ลขายไหม",
+        "lo": "ຢູ່ນີ້ມີໝາກແອັບເປິ້ນຂາຍບໍ່",
+        "vi": "Ở đây có bán táo không?",
+        "id": "Apakah di sini menjual apel?"
+      }
+    },
+    {
+      "id": 68,
+      "type": "adj.",
+      "word": "慢",
+      "pinyin": {
+        "ch": "màn",
+        "en": "slo",
+        "th": "cha",
+        "lo": "cha",
+        "vi": "cham",
+        "id": "lam-bat"
+      },
+      "translations": {
+        "en": "slow",
+        "th": "ช้า",
+        "lo": "ຊ້າ",
+        "vi": "chậm",
+        "id": "lambat"
+      },
+      "example": {
+        "zh": "请说慢一点儿。",
+        "pinyin": "Qǐng shuō màn yīdiǎnr.",
+        "en": "Please speak a bit slower.",
+        "th": "กรุณาพูดช้าลงหน่อย",
+        "lo": "ກະລຸນາເວົ້າຊ້າລົງແດ່",
+        "vi": "Làm ơn nói chậm một chút.",
+        "id": "Tolong bicara sedikit lebih lambat."
+      }
+    },
+    {
+      "id": 69,
+      "type": "adj.",
+      "word": "忙",
+      "pinyin": {
+        "ch": "máng",
+        "en": "bi-zee",
+        "th": "yung",
+        "lo": "yung",
+        "vi": "ban",
+        "id": "si-buk"
+      },
+      "translations": {
+        "en": "busy",
+        "th": "ยุ่ง",
+        "lo": "ຍຸ້ງ",
+        "vi": "bận",
+        "id": "sibuk"
+      },
+      "example": {
+        "zh": "你最近忙吗？",
+        "pinyin": "Nǐ zuìjìn máng ma?",
+        "en": "Are you busy lately?",
+        "th": "ช่วงนี้คุณยุ่งไหม",
+        "lo": "ຊ່ວງນີ້ເຈົ້າຍຸ້ງບໍ່",
+        "vi": "Dạo này bạn có bận không?",
+        "id": "Apakah akhir-akhir ini kamu sibuk?"
+      }
+    },
+    {
+      "id": 70,
+      "type": "pron.",
+      "word": "每",
+      "pinyin": {
+        "ch": "měi",
+        "en": "ev-ree",
+        "th": "thuk",
+        "lo": "thuk",
+        "vi": "moi",
+        "id": "se-ti-ap"
+      },
+      "translations": {
+        "en": "every , each",
+        "th": "ทุก , แต่ละ",
+        "lo": "ທຸກ , ແຕ່ລະ",
+        "vi": "mỗi",
+        "id": "setiap"
+      },
+      "example": {
+        "zh": "我每天都去运动。",
+        "pinyin": "Wǒ měitiān dōu qù yùndòng.",
+        "en": "I go to exercise every day.",
+        "th": "ฉันไปออกกำลังกายทุกวัน",
+        "lo": "ຂ້ອຍໄປອອກກຳລັງກາຍທຸກມື້",
+        "vi": "Mỗi ngày tôi đều đi vận động.",
+        "id": "Saya pergi berolahraga setiap hari."
+      }
+    },
+    {
+      "id": 71,
+      "type": "n.",
+      "word": "妹妹",
+      "pinyin": {
+        "ch": "mèimei",
+        "en": "young-ger-sis-ter",
+        "th": "nong-sao",
+        "lo": "nong-sao",
+        "vi": "em gai",
+        "id": "a-dik pe-rem-pu-an"
+      },
+      "translations": {
+        "en": "younger sister",
+        "th": "น้องสาว",
+        "lo": "ນ້ອງສາວ",
+        "vi": "em gái",
+        "id": "adik perempuan"
+      },
+      "example": {
+        "zh": "我妹妹在学汉语。",
+        "pinyin": "Wǒ mèimei zài xué Hànyǔ.",
+        "en": "My younger sister is studying Chinese.",
+        "th": "น้องสาวของฉันกำลังเรียนภาษาจีน",
+        "lo": "ນ້ອງສາວຂອງຂ້ອຍກຳລັງຮຽນພາສາຈີນ",
+        "vi": "Em gái tôi đang học tiếng Hán.",
+        "id": "Adik perempuan saya sedang belajar bahasa Mandarin."
+      }
+    },
+    {
+      "id": 72,
+      "type": "n.",
+      "word": "门",
+      "pinyin": {
+        "ch": "mén",
+        "en": "dor",
+        "th": "pra-too",
+        "lo": "pa-too",
+        "vi": "cua",
+        "id": "pin-tu"
+      },
+      "translations": {
+        "en": "door , gate",
+        "th": "ประตู",
+        "lo": "ປະຕູ",
+        "vi": "cửa",
+        "id": "pintu"
+      },
+      "example": {
+        "zh": "请开门。",
+        "pinyin": "Qǐng kāi mén.",
+        "en": "Please open the door.",
+        "th": "กรุณาเปิดประตูด้วย",
+        "lo": "ກະລຸນາເປີດປະຕູແດ່",
+        "vi": "Làm ơn mở cửa.",
+        "id": "Tolong buka pintunya."
+      }
+    },
+    {
+      "id": 73,
+      "type": "n.",
+      "word": "面条",
+      "pinyin": {
+        "ch": "miàntiáo",
+        "en": "nu-del",
+        "th": "kuay-tiao",
+        "lo": "kao-pien",
+        "vi": "mi",
+        "id": "mi"
+      },
+      "translations": {
+        "en": "noodles",
+        "th": "ก๋วยเตี๋ยว , บะหมี่",
+        "lo": "ໝີ່ , ເຂົ້າປຽກ",
+        "vi": "mì , mì sợi",
+        "id": "mie"
+      },
+      "example": {
+        "zh": "我想吃面条。",
+        "pinyin": "Wǒ xiǎng chī miàntiáo.",
+        "en": "I want to eat noodles.",
+        "th": "ฉันอยากกินก๋วยเตี๋ยว",
+        "lo": "ຂ້ອຍຢາກກິນເຂົ້າປຽກ",
+        "vi": "Tôi muốn ăn mì.",
+        "id": "Saya ingin makan mie."
+      }
+    },
+    {
+      "id": 74,
+      "type": "n. adj.",
+      "word": "男",
+      "pinyin": {
+        "ch": "nán",
+        "en": "meil , boy",
+        "th": "chai",
+        "lo": "chai",
+        "vi": "nam",
+        "id": "la-ki-la-ki"
+      },
+      "translations": {
+        "en": "male , man",
+        "th": "ชาย , ผู้ชาย",
+        "lo": "ຊາຍ , ຜູ້ຊາຍ",
+        "vi": "nam , đàn ông",
+        "id": "laki-laki , pria"
+      },
+      "example": {
+        "zh": "那个男的是谁？",
+        "pinyin": "Nàge nán de shì shéi?",
+        "en": "Who is that man?",
+        "th": "ผู้ชายคนนั้นคือใคร",
+        "lo": "ຜູ້ຊາຍຄົນນັ້ນແມ່ນໃຜ",
+        "vi": "Người đàn ông kia là ai?",
+        "id": "Siapa laki-laki itu?"
+      }
+    },
+    {
+      "id": 75,
+      "type": "pn.",
+      "word": "您",
+      "pinyin": {
+        "ch": "nín",
+        "en": "yu (po-lait)",
+        "th": "than , khun",
+        "lo": "than , chao",
+        "vi": "ngai , ong , ba",
+        "id": "an-da"
+      },
+      "translations": {
+        "en": "you (polite)",
+        "th": "ท่าน , คุณ (สุภาพ)",
+        "lo": "ທ່ານ , ເຈົ້າ (ສຸພາບ)",
+        "vi": "ngài , ông , bà",
+        "id": "Anda"
+      },
+      "example": {
+        "zh": "老师，您好！",
+        "pinyin": "Lǎoshī, nín hǎo!",
+        "en": "Hello, teacher!",
+        "th": "สวัสดีครับคุณครู",
+        "lo": "ສະບາຍດີທ່ານຄູ",
+        "vi": "Chào ngài giáo viên!",
+        "id": "Halo, Pak,Bu Guru!"
+      }
+    },
+    {
+      "id": 76,
+      "type": "n.",
+      "word": "牛奶",
+      "pinyin": {
+        "ch": "niúnǎi",
+        "en": "milk",
+        "th": "nom-ua",
+        "lo": "nom-ngua",
+        "vi": "sua bo",
+        "id": "su-su sa-pi"
+      },
+      "translations": {
+        "en": "milk",
+        "th": "นมวัว",
+        "lo": "ນົມງົວ",
+        "vi": "sữa bò",
+        "id": "susu sapi"
+      },
+      "example": {
+        "zh": "我每天早上喝牛奶。",
+        "pinyin": "Wǒ měitiān zǎoshang hē niúnǎi.",
+        "en": "I drink milk every morning.",
+        "th": "ฉันดื่มนมวัวทุกเช้า",
+        "lo": "ຂ້ອຍດື່ມນົມງົວທຸກເຊົ້າ",
+        "vi": "Mỗi sáng tôi đều uống sữa.",
+        "id": "Saya minum susu setiap pagi."
+      }
+    },
+    {
+      "id": 77,
+      "type": "n.",
+      "word": "旁边",
+      "pinyin": {
+        "ch": "pángbiān",
+        "en": "bi-said , neks-too",
+        "th": "khang-khang",
+        "lo": "khang-khang",
+        "vi": "ben canh",
+        "id": "di sam-ping"
+      },
+      "translations": {
+        "en": "beside , next to",
+        "th": "ข้างๆ , ด้านข้าง",
+        "lo": "ຂ້າງໆ , ດ້ານຂ້າງ",
+        "vi": "bên cạnh",
+        "id": "di samping , sebelah"
+      },
+      "example": {
+        "zh": "书在电脑旁边。",
+        "pinyin": "Shū zài diànnǎo pángbiān.",
+        "en": "The book is next to the computer.",
+        "th": "หนังสืออยู่ข้างๆ คอมพิวเตอร์",
+        "lo": "ປຶ້ມຢູ່ຂ້າງໆ ຄອມພິວເຕີ",
+        "vi": "Sách ở bên cạnh máy tính.",
+        "id": "Buku ada di samping komputer."
+      }
+    },
+    {
+      "id": 78,
+      "type": "v.",
+      "word": "跑步",
+      "pinyin": {
+        "ch": "pǎobù",
+        "en": "ra-ning , jog-ging",
+        "th": "wing",
+        "lo": "len-laen",
+        "vi": "chay bo",
+        "id": "ber-la-ri"
+      },
+      "translations": {
+        "en": "to run , to jog",
+        "th": "วิ่ง",
+        "lo": "ແລ່ນ",
+        "vi": "chạy bộ",
+        "id": "berlari"
+      },
+      "example": {
+        "zh": "他每天去跑步。",
+        "pinyin": "Tā měitiān qù pǎobù.",
+        "en": "He goes running every day.",
+        "th": "เขาวิ่งทุกวัน",
+        "lo": "ລາວແລ່ນທຸກມື້",
+        "vi": "Anh ấy đi chạy bộ mỗi ngày.",
+        "id": "Dia pergi berlari setiap hari."
+      }
+    },
+    {
+      "id": 79,
+      "type": "adj.",
+      "word": "便宜",
+      "pinyin": {
+        "ch": "piányi",
+        "en": "cheep",
+        "th": "took",
+        "lo": "thook",
+        "vi": "re",
+        "id": "mu-rah"
+      },
+      "translations": {
+        "en": "cheap",
+        "th": "ถูก (ราคา)",
+        "lo": "ຖືກ (ລາຄາ)",
+        "vi": "rẻ",
+        "id": "murah"
+      },
+      "example": {
+        "zh": "这件衣服很便宜。",
+        "pinyin": "Zhè jiàn yīfu hěn piányi.",
+        "en": "This piece of clothing is very cheap.",
+        "th": "เสื้อผ้าตัวนี้ราคาถูกมาก",
+        "lo": "ເສື້ອຜ້າໂຕນີ້ລາຄາຖືກຫຼາຍ",
+        "vi": "Bộ quần áo này rất rẻ.",
+        "id": "Pakaian ini sangat murah."
+      }
+    },
+    {
+      "id": 80,
+      "type": "n.",
+      "word": "票",
+      "pinyin": {
+        "ch": "piào",
+        "en": "ti-ket",
+        "th": "tua",
+        "lo": "phee",
+        "vi": "ve",
+        "id": "ti-ket"
+      },
+      "translations": {
+        "en": "ticket",
+        "th": "ตั๋ว",
+        "lo": "ປີ້ , ປີ້ລົດ",
+        "vi": "vé",
+        "id": "tiket , karcis"
+      },
+      "example": {
+        "zh": "我买了两张火车票。",
+        "pinyin": "Wǒ mǎile liǎng zhāng huǒchē piào.",
+        "en": "I bought two train tickets.",
+        "th": "ฉันซื้อตั๋วรถไฟสองใบ",
+        "lo": "ຂ້ອຍຊື້ປີ້ລົດໄຟສອງໃບ",
+        "vi": "Tôi đã mua hai chiếc vé tàu hỏa.",
+        "id": "Saya membeli dua tiket kereta api."
+      }
+    },
+    {
+      "id": 81,
+      "type": "n.",
+      "word": "妻子",
+      "pinyin": {
+        "ch": "qīzi",
+        "en": "waif",
+        "th": "par-ra-ya",
+        "lo": "mia",
+        "vi": "vo",
+        "id": "is-tri"
+      },
+      "translations": {
+        "en": "wife",
+        "th": "ภรรยา , เมีย",
+        "lo": "ເມຍ , ພັນລະຍາ",
+        "vi": "vợ",
+        "id": "istri"
+      },
+      "example": {
+        "zh": "我妻子是医生。",
+        "pinyin": "Wǒ qīzi shì yīshēng.",
+        "en": "My wife is a doctor.",
+        "th": "ภรรยาของฉันเป็นหมอ",
+        "lo": "ເມຍຂອງຂ້ອຍເປັນໝໍ",
+        "vi": "Vợ tôi là bác sĩ.",
+        "id": "Istri saya adalah dokter."
+      }
+    },
+    {
+      "id": 82,
+      "type": "v.",
+      "word": "起床",
+      "pinyin": {
+        "ch": "qǐchuáng",
+        "en": "get-ap",
+        "th": "teun-non",
+        "lo": "teun-non",
+        "vi": "thuc day",
+        "id": "ba-ngun ti-dur"
+      },
+      "translations": {
+        "en": "to get up (from bed)",
+        "th": "ตื่นนอน",
+        "lo": "ຕື່ນນອນ",
+        "vi": "thức dậy",
+        "id": "bangun tidur"
+      },
+      "example": {
+        "zh": "我早上六点起床。",
+        "pinyin": "Wǒ zǎoshang liù diǎn qǐchuáng.",
+        "en": "I get up at six in the morning.",
+        "th": "ฉันตื่นนอนตอนหกโมงเช้า",
+        "lo": "ຂ້ອຍຕື່ນນອນຕອນຫົກໂມງເຊົ້າ",
+        "vi": "Tôi thức dậy lúc 6 giờ sáng.",
+        "id": "Saya bangun tidur jam 6 pagi."
+      }
+    },
+    {
+      "id": 83,
+      "type": "num.",
+      "word": "千",
+      "pinyin": {
+        "ch": "qiān",
+        "en": "thao-sand",
+        "th": "phan",
+        "lo": "phan",
+        "vi": "ngan",
+        "id": "ri-bu"
+      },
+      "translations": {
+        "en": "thousand",
+        "th": "พัน",
+        "lo": "ພັນ",
+        "vi": "nghìn , ngàn",
+        "id": "ribu"
+      },
+      "example": {
+        "zh": "这个手机一千块钱。",
+        "pinyin": "Zhège shǒujī yīqiān kuài qián.",
+        "en": "This phone costs one thousand yuan.",
+        "th": "โทรศัพท์เครื่องนี้ราคาหนึ่งพันหยวน",
+        "lo": "ໂທລະສັບໜ່ວຍນີ້ລາຄາໜຶ່ງພັນຢວນ",
+        "vi": "Cái điện thoại này giá một nghìn tệ.",
+        "id": "HP ini harganya seribu yuan."
+      }
+    },
+    {
+      "id": 84,
+      "type": "n.",
+      "word": "铅笔",
+      "pinyin": {
+        "ch": "qiānbǐ",
+        "en": "pen-sol",
+        "th": "din-sor",
+        "lo": "din-sor",
+        "vi": "but chi",
+        "id": "pen-sil"
+      },
+      "translations": {
+        "en": "pencil",
+        "th": "ดินสอ",
+        "lo": "ດິນສໍ",
+        "vi": "bút chì",
+        "id": "pensil"
+      },
+      "example": {
+        "zh": "借我一支铅笔用用。",
+        "pinyin": "Jiè wǒ yī zhī qiānbǐ yòng yòng.",
+        "en": "Lend me a pencil to use.",
+        "th": "ขอยืมดินสอหน่อย",
+        "lo": "ຂ້ອຍຂໍຢືມດິນສໍແດ່",
+        "vi": "Cho tôi mượn một cây bút chì.",
+        "id": "Pinjamkan saya pensil."
+      }
+    },
+    {
+      "id": 85,
+      "type": "adj.",
+      "word": "晴",
+      "pinyin": {
+        "ch": "qíng",
+        "en": "sa-nee , kler",
+        "th": "fa-sai",
+        "lo": "fa-chai",
+        "vi": "troi nang",
+        "id": "ce-rah"
+      },
+      "translations": {
+        "en": "sunny , clear weather",
+        "th": "แจ่มใส , แดดออก",
+        "lo": "ແຈ່ມໃສ , ແດດອອກ",
+        "vi": "trời nắng , quang đãng",
+        "id": "cerah , terang"
+      },
+      "example": {
+        "zh": "今天是个晴天。",
+        "pinyin": "Jīntiān shì gè qíngtiān.",
+        "en": "Today is a sunny day.",
+        "th": "วันนี้ท้องฟ้าแจ่มใส",
+        "lo": "ມື້ນີ້ທ້ອງຟ້າແຈ່ມໃສ",
+        "vi": "Hôm nay là một ngày nắng.",
+        "id": "Hari ini cuacanya cerah."
+      }
+    },
+    {
+      "id": 86,
+      "type": "n.",
+      "word": "去年",
+      "pinyin": {
+        "ch": "qùnián",
+        "en": "las-yeer",
+        "th": "pee-tee-laew",
+        "lo": "pee-kai",
+        "vi": "nam ngoai",
+        "id": "ta-hun la-lu"
+      },
+      "translations": {
+        "en": "last year",
+        "th": "ปีที่แล้ว",
+        "lo": "ປີກາຍ",
+        "vi": "năm ngoái",
+        "id": "tahun lalu"
+      },
+      "example": {
+        "zh": "我去年在中国。",
+        "pinyin": "Wǒ qùnián zài Zhōngguó.",
+        "en": "I was in China last year.",
+        "th": "ปีที่แล้วฉันอยู่ที่เมืองจีน",
+        "lo": "ປີກາຍຂ້ອຍຢູ່ເມືອງຈີນ",
+        "vi": "Năm ngoái tôi ở Trung Quốc.",
+        "id": "Tahun lalu saya berada di China."
+      }
+    },
+    {
+      "id": 87,
+      "type": "v.",
+      "word": "让",
+      "pinyin": {
+        "ch": "ràng",
+        "en": "let , a-low",
+        "th": "hai , yorm",
+        "lo": "hai , yom",
+        "vi": "cho phep , nhuong",
+        "id": "mem-bi-ar-kan"
+      },
+      "translations": {
+        "en": "to let , to allow , to make",
+        "th": "ให้ , ยอม , อนุญาต",
+        "lo": "ໃຫ້ , ຍອມ , ອະນຸຍາດ",
+        "vi": "cho phép , nhường , khiến cho",
+        "id": "membiarkan , menyuruh"
+      },
+      "example": {
+        "zh": "他不让我去。",
+        "pinyin": "Tā bù ràng wǒ qù.",
+        "en": "He doesn't let me go.",
+        "th": "เขาไม่ให้ฉันไป",
+        "lo": "ລາວບໍ່ໃຫ້ຂ້ອຍໄປ",
+        "vi": "Anh ấy không cho tôi đi.",
+        "id": "Dia tidak membiarkan saya pergi."
+      }
+    },
+    {
+      "id": 88,
+      "type": "n.",
+      "word": "日",
+      "pinyin": {
+        "ch": "rì",
+        "en": "dei , dei-t",
+        "th": "wan , wan-thee",
+        "lo": "wan , wan-thee",
+        "vi": "ngay",
+        "id": "ha-ri , tang-gal"
+      },
+      "translations": {
+        "en": "day , date",
+        "th": "วัน , วันที่",
+        "lo": "ວັນ , ວັນທີ",
+        "vi": "ngày",
+        "id": "hari , tanggal"
+      },
+      "example": {
+        "zh": "今天是十月一 日。",
+        "pinyin": "Jīntiān shì shíyuè yī rì.",
+        "en": "Today is October 1st.",
+        "th": "วันนี้คือวันที่หนึ่งตุลาคม",
+        "lo": "ມື້ນີ້ແມ່ນວັນທີໜຶ່ງຕຸລາ",
+        "vi": "Hôm nay là ngày 1 tháng 10.",
+        "id": "Hari ini tanggal 1 Oktober."
+      }
+    },
+    {
+      "id": 89,
+      "type": "v.",
+      "word": "上班",
+      "pinyin": {
+        "ch": "shàngbān",
+        "en": "go-too-werk",
+        "th": "kao-ngan",
+        "lo": "khao-kan",
+        "vi": "di lam",
+        "id": "per-gi ber-ker-ja"
+      },
+      "translations": {
+        "en": "to go to work , to be on duty",
+        "th": "เข้างาน , ทำงาน",
+        "lo": "ເຂົ້າການ , ເຮັດວຽກ",
+        "vi": "đi làm",
+        "id": "pergi bekerja , masuk kerja"
+      },
+      "example": {
+        "zh": "我八点去上班。",
+        "pinyin": "Wǒ bā diǎn qù shàngbān.",
+        "en": "I go to work at eight.",
+        "th": "ฉันไปทำงานตอนแปดโมง",
+        "lo": "ຂ້ອຍໄປເຮັດວຽກຕອນແປດໂມງ",
+        "vi": "Tôi đi làm lúc 8 giờ.",
+        "id": "Saya pergi bekerja jam 8."
+      }
+    },
+    {
+      "id": 90,
+      "type": "n.",
+      "word": "身体",
+      "pinyin": {
+        "ch": "shēntǐ",
+        "en": "bo-dee , helt",
+        "th": "rang-kai",
+        "lo": "hang-kai",
+        "vi": "than the , suc khoe",
+        "id": "tu-buh"
+      },
+      "translations": {
+        "en": "body , health",
+        "th": "ร่างกาย , สุขภาพ",
+        "lo": "ຮ່າງກາຍ , ສຸຂະພາບ",
+        "vi": "thân thể , sức khỏe",
+        "id": "tubuh , badan , kesehatan"
+      },
+      "example": {
+        "zh": "你身体好吗？",
+        "pinyin": "Nǐ shēntǐ hǎo ma?",
+        "en": "How is your health?",
+        "th": "สุขภาพคุณแข็งแรงดีไหม",
+        "lo": "ສຸຂະພາບເຈົ້າແຂງແຮງດີບໍ່",
+        "vi": "Sức khỏe bạn tốt không?",
+        "id": "Bagaimana kesehatan Anda?"
+      }
+    },
+    {
+      "id": 91,
+      "type": "v.",
+      "word": "生病",
+      "pinyin": {
+        "ch": "shēngbìng",
+        "en": "get-sik",
+        "th": "puay",
+        "lo": "puay",
+        "vi": "bi om",
+        "id": "sa-kit"
+      },
+      "translations": {
+        "en": "to fall ill , to get sick",
+        "th": "ป่วย , ไม่สบาย",
+        "lo": "ປ່ວຍ , ບໍ່ສະບາຍ",
+        "vi": "bị ốm , bị bệnh",
+        "id": "sakit"
+      },
+      "example": {
+        "zh": "他生病了，没去学校。",
+        "pinyin": "Tā shēngbìng le, méi qù xuéxiào.",
+        "en": "He got sick and didn't go to school.",
+        "th": "เขาป่วยเลยไม่ได้ไปโรงเรียน",
+        "lo": "ລາວປ່ວຍເລີຍບໍ່ໄດ້ໄປໂຮງຮຽນ",
+        "vi": "Anh ấy bị ốm rồi, không đi học.",
+        "id": "Dia sakit, tidak pergi ke sekolah."
+      }
+    },
+    {
+      "id": 92,
+      "type": "n.",
+      "word": "生日",
+      "pinyin": {
+        "ch": "shēngrì",
+        "en": "berth-dei",
+        "th": "wan-kerd",
+        "lo": "wan-kerd",
+        "vi": "sinh nhat",
+        "id": "u-lang ta-hun"
+      },
+      "translations": {
+        "en": "birthday",
+        "th": "วันเกิด",
+        "lo": "ວັນເກີດ",
+        "vi": "sinh nhật",
+        "id": "ulang tahun"
+      },
+      "example": {
+        "zh": "祝你生日快乐！",
+        "pinyin": "Zhù nǐ shēngrì kuàilè!",
+        "en": "Happy birthday to you!",
+        "th": "สุขสันต์วันเกิดนะ",
+        "lo": "ສຸກສັນວັນເກີດເດີ້",
+        "vi": "Chúc bạn sinh nhật vui vẻ!",
+        "id": "Selamat ulang tahun!"
+      }
+    },
+    {
+      "id": 93,
+      "type": "n.",
+      "word": "时间",
+      "pinyin": {
+        "ch": "shíjiān",
+        "en": "taim",
+        "th": "ve-la",
+        "lo": "ve-la",
+        "vi": "thoi gian",
+        "id": "wak-tu"
+      },
+      "translations": {
+        "en": "time",
+        "th": "เวลา",
+        "lo": "ເວລາ",
+        "vi": "thời gian",
+        "id": "waktu"
+      },
+      "example": {
+        "zh": "我没有时间去北京。",
+        "pinyin": "Wǒ méiyǒu shíjiān qù Běijīng.",
+        "en": "I don't have time to go to Beijing.",
+        "th": "ฉันไม่มีเวลาไปปักกิ่ง",
+        "lo": "ຂ້ອຍບໍ່ມີເວລາໄປປັກກິ່ງ",
+        "vi": "Tôi không có thời gian đi Bắc Kinh.",
+        "id": "Saya tidak punya waktu ke Beijing."
+      }
+    },
+    {
+      "id": 94,
+      "type": "n.",
+      "word": "事情",
+      "pinyin": {
+        "ch": "shìqing",
+        "en": "thing , mat-ter",
+        "th": "rueang , tu-ra",
+        "lo": "leu-ang , thu-la",
+        "vi": "su viec",
+        "id": "u-ru-san"
+      },
+      "translations": {
+        "en": "thing , matter , business",
+        "th": "เรื่อง , ธุระ",
+        "lo": "ເລື່ອງ , ທຸລະ",
+        "vi": "sự việc , chuyện",
+        "id": "hal , urusan , perkara"
+      },
+      "example": {
+        "zh": "你有什么事情吗？",
+        "pinyin": "Nǐ yǒu shénme shìqing ma?",
+        "en": "Do you have any business?",
+        "th": "คุณมีธุระอะไรไหม",
+        "lo": "ເຈົ້າມີທຸລະຫຍັງບໍ່",
+        "vi": "Bạn có chuyện gì không?",
+        "id": "Apakah Anda ada urusan?"
+      }
+    },
+    {
+      "id": 95,
+      "type": "n.",
+      "word": "手表",
+      "pinyin": {
+        "ch": "shǒubiǎo",
+        "en": "woch",
+        "th": "na-li-ka",
+        "lo": "na-li-ka",
+        "vi": "dong ho",
+        "id": "jam ta-ngan"
+      },
+      "translations": {
+        "en": "watch , wristwatch",
+        "th": "นาฬิกาข้อมือ",
+        "lo": "ໂມງຂໍ່ມື",
+        "vi": "đồng hồ đeo tay",
+        "id": "jam tangan"
+      },
+      "example": {
+        "zh": "这块手表很贵。",
+        "pinyin": "Zhè kuài shǒubiǎo hěn guì.",
+        "en": "This watch is very expensive.",
+        "th": "นาฬิกาเรือนนี้แพงมาก",
+        "lo": "ໂມງໜ່ວຍນີ້ແພງຫຼາຍ",
+        "vi": "Chiếc đồng hồ này rất đắt.",
+        "id": "Jam tangan ini sangat mahal."
+      }
+    },
+    {
+      "id": 96,
+      "type": "n.",
+      "word": "手机",
+      "pinyin": {
+        "ch": "shǒujī",
+        "en": "mo-bail-fon",
+        "th": "mue-theu",
+        "lo": "mue-theu",
+        "vi": "dien thoai",
+        "id": "pon-sel"
+      },
+      "translations": {
+        "en": "mobile phone",
+        "th": "มือถือ , โทรศัพท์มือถือ",
+        "lo": "ມືຖື , ໂທລະສັບມືຖື",
+        "vi": "điện thoại di động",
+        "id": "ponsel , telepon genggam"
+      },
+      "example": {
+        "zh": "这是我的新手机。",
+        "pinyin": "Zhè shì wǒ de xīn shǒujī.",
+        "en": "This is my new mobile phone.",
+        "th": "นี่คือโทรศัพท์มือถือเครื่องใหม่ของฉัน",
+        "lo": "ນີ້ແມ່ນໂທລະສັບມືຖືເຄື່ອງໃໝ່ຂອງຂ້ອຍ",
+        "vi": "Đây là điện thoại mới của tôi.",
+        "id": "Ini adalah ponsel baru saya."
+      }
+    },
+    {
+      "id": 97,
+      "type": "v.",
+      "word": "说话",
+      "pinyin": {
+        "ch": "shuōhuà",
+        "en": "spik , tok",
+        "th": "poot",
+        "lo": "pao , ven",
+        "vi": "noi chuyen",
+        "id": "ber-bi-ca-ra"
+      },
+      "translations": {
+        "en": "to speak , to talk",
+        "th": "พูด , คุย",
+        "lo": "ເວົ້າ , ລົມ",
+        "vi": "nói chuyện",
+        "id": "berbicara , ngobrol"
+      },
+      "example": {
+        "zh": "请不要说话。",
+        "pinyin": "Qǐng bùyào shuōhuà.",
+        "en": "Please don't speak.",
+        "th": "กรุณาอย่าพูด",
+        "lo": "ກະລຸນາຢ່າເວົ້າ",
+        "vi": "Làm ơn đừng nói chuyện.",
+        "id": "Tolong jangan berbicara."
+      }
+    },
+    {
+      "id": 98,
+      "type": "v.",
+      "word": "送",
+      "pinyin": {
+        "ch": "sòng",
+        "en": "send , giv , de-li-ver",
+        "th": "song",
+        "lo": "song",
+        "vi": "tang , dua",
+        "id": "meng-an-tar"
+      },
+      "translations": {
+        "en": "to send , to give (as a gift) , to deliver",
+        "th": "ส่ง , ให้ (เป็นของขวัญ)",
+        "lo": "ສົ່ງ , ໃຫ້ (ເປັນຂອງຂວັນ)",
+        "vi": "tặng , đưa tiễn , gửi",
+        "id": "mengantar , memberi hadiah"
+      },
+      "example": {
+        "zh": "我送你一个礼物。",
+        "pinyin": "Wǒ sòng nǐ yī gè lǐwù.",
+        "en": "I give you a gift.",
+        "th": "ฉันให้ของขวัญคุณชิ้นหนึ่ง",
+        "lo": "ຂ້ອຍໃຫ້ຂອງຂວັນເຈົ້າຢ່າງໜຶ່ງ",
+        "vi": "Tôi tặng bạn một món quà.",
+        "id": "Saya memberi Anda sebuah hadiah."
+      }
+    },
+    {
+      "id": 99,
+      "type": "conj.",
+      "word": "虽然...但是...",
+      "pinyin": {
+        "ch": "suīrán... dànshì...",
+        "en": "ol-dho... but",
+        "th": "theung... tae",
+        "lo": "theung... tae",
+        "vi": "tuy... nhung",
+        "id": "wa-lau-pun... te-ta-pi"
+      },
+      "translations": {
+        "en": "although... but...",
+        "th": "ถึงแม้... แต่ว่า...",
+        "lo": "ເຖິງແມ່ນ... ແຕ່ວ່າ...",
+        "vi": "tuy rằng... nhưng...",
+        "id": "walaupun... tetapi..."
+      },
+      "example": {
+        "zh": "虽然下雨了，但是我们要去。",
+        "pinyin": "Suīrán xià yǔ le, dànshì wǒmen yào qù.",
+        "en": "Although it's raining, we're going.",
+        "th": "ถึงแม้นว่าฝนจะตก แต่พวกเราก็จะไป",
+        "lo": "ເຖິງແມ່ນວ່າຝົນຈະຕົກ ແຕ່ພວກເຮົາກໍຈະໄປ",
+        "vi": "Tuy rằng trời mưa nhưng chúng tôi vẫn đi.",
+        "id": "Walaupun hujan, tetapi kami akan pergi."
+      }
+    },
+    {
+      "id": 100,
+      "type": "pron.",
+      "word": "它",
+      "pinyin": {
+        "ch": "tā",
+        "en": "it",
+        "th": "man",
+        "lo": "man",
+        "vi": "no",
+        "id": "i-tu"
+      },
+      "translations": {
+        "en": "it",
+        "th": "มัน",
+        "lo": "ມັນ",
+        "vi": "nó",
+        "id": "itu , dia (benda,hewan)"
+      },
+      "example": {
+        "zh": "它是一只小狗。",
+        "pinyin": "Tā shì yī zhī xiǎo gǒu.",
+        "en": "It is a puppy.",
+        "th": "มันคือลูกหมาตัวหนึ่ง",
+        "lo": "ມັນແມ່ນລູກໝາໂຕໜຶ່ງ",
+        "vi": "Nó là một con chó con.",
+        "id": "Itu adalah seekor anak anjing."
+      }
+    },
+    {
+      "id": 101,
+      "type": "v.",
+      "word": "踢足球",
+      "pinyin": {
+        "ch": "tī zúqiú",
+        "en": "plei-fuk-bawl",
+        "th": "te-fuk-bon",
+        "lo": "te-ban",
+        "vi": "da bong",
+        "id": "ber-ma-in se-pak bo-la"
+      },
+      "translations": {
+        "en": "to play soccer , to play football",
+        "th": "เตะฟุตบอล",
+        "lo": "ເຕະບານ",
+        "vi": "đá bóng",
+        "id": "bermain sepak bola"
+      },
+      "example": {
+        "zh": "我喜欢和朋友去踢足球。",
+        "pinyin": "Wǒ xǐhuan hé péngyou qù tī zúqiú.",
+        "en": "I like to go play soccer with friends.",
+        "th": "ฉันชอบไปเตะฟุตบอลกับเพื่อน",
+        "lo": "ຂ້ອຍມັກໄປເຕະບານກັບໝູ່",
+        "vi": "Tôi thích đi đá bóng cùng bạn bè.",
+        "id": "Saya suka bermain sepak bola dengan teman."
+      }
+    },
+    {
+      "id": 102,
+      "type": "n.",
+      "word": "题",
+      "pinyin": {
+        "ch": "tí",
+        "en": "ques-shun , pro-blem",
+        "th": "kor-sorp , joat",
+        "lo": "kho-sop",
+        "vi": "cau hoi",
+        "id": "per-ta-nyan"
+      },
+      "translations": {
+        "en": "topic , question , problem",
+        "th": "ข้อสอบ , โจทย์",
+        "lo": "ຂໍ້ສອບ , ບົດເລກ",
+        "vi": "câu hỏi , đề bài",
+        "id": "pertanyaan , soal"
+      },
+      "example": {
+        "zh": "这个题很难。",
+        "pinyin": "Zhège tí hěn nán.",
+        "en": "This question is very difficult.",
+        "th": "ข้อนี้ยากมาก",
+        "lo": "ຂໍ້ນີ້ຍາກຫຼາຍ",
+        "vi": "Câu hỏi này rất khó.",
+        "id": "Soal ini sangat sulit."
+      }
+    },
+    {
+      "id": 103,
+      "type": "v. n.",
+      "word": "跳舞",
+      "pinyin": {
+        "ch": "tiàowǔ",
+        "en": "den-sing",
+        "th": "ten",
+        "lo": "ten",
+        "vi": "nhay mua",
+        "id": "me-na-ri"
+      },
+      "translations": {
+        "en": "to dance",
+        "th": "เต้น , เต้นรำ",
+        "lo": "ເຕັ້ນ , ຟ້ອນ",
+        "vi": "nhảy múa",
+        "id": "menari , berdansa"
+      },
+      "example": {
+        "zh": "妹妹在跳舞呢。",
+        "pinyin": "Mèimei zài tiàowǔ ne.",
+        "en": "Younger sister is dancing.",
+        "th": "น้องสาวกำลังเต้นอยู่",
+        "lo": "ນ້ອງສາວກຳລັງເຕັ້ນຢູ່",
+        "vi": "Em gái đang nhảy múa.",
+        "id": "Adik perempuan sedang menari."
+      }
+    },
+    {
+      "id": 104,
+      "type": "n.",
+      "word": "外",
+      "pinyin": {
+        "ch": "wài",
+        "en": "aut-said",
+        "th": "khang-nok",
+        "lo": "khang-nok",
+        "vi": "ngoai",
+        "id": "lu-ar"
+      },
+      "translations": {
+        "en": "outside , external",
+        "th": "ข้างนอก , ด้านนอก",
+        "lo": "ຂ້າງນອກ , ດ້ານນອກ",
+        "vi": "ngoài , bên ngoài",
+        "id": "luar , di luar"
+      },
+      "example": {
+        "zh": "教室外有很多学生。",
+        "pinyin": "Jiàoshì wài yǒu hěn duō xuésheng.",
+        "en": "There are many students outside the classroom.",
+        "th": "ข้างนอกห้องเรียนมีนักเรียนเยอะมาก",
+        "lo": "ຂ້າງນອກຫ້ອງຮຽນມີນັກຮຽນຫຼາຍ",
+        "vi": "Bên ngoài lớp học có rất nhiều học sinh.",
+        "id": "Ada banyak murid di luar kelas."
+      }
+    },
+    {
+      "id": 105,
+      "type": "v. adv.",
+      "word": "完",
+      "pinyin": {
+        "ch": "wán",
+        "en": "fi-nish , dan",
+        "th": "set",
+        "lo": "set",
+        "vi": "xong , het",
+        "id": "se-le-sai"
+      },
+      "translations": {
+        "en": "to finish , to end , complete",
+        "th": "เสร็จ , จบ , หมด",
+        "lo": "ແລ້ວ , ເສັດ , ຈົບ",
+        "vi": "xong , hết",
+        "id": "selesai , habis"
+      },
+      "example": {
+        "zh": "我写完作业了。",
+        "pinyin": "Wǒ xiě wán zuòyè le.",
+        "en": "I have finished my homework.",
+        "th": "ฉันทำการบ้านเสร็จแล้ว",
+        "lo": "ຂ້ອຍເຮັດວຽກບ້ານແລ້ວແລ້ວ",
+        "vi": "Tôi đã làm xong bài tập về nhà rồi.",
+        "id": "Saya sudah menyelesaikan tugas sekolah."
+      }
+    },
+    {
+      "id": 106,
+      "type": "v.",
+      "word": "玩",
+      "pinyin": {
+        "ch": "wán",
+        "en": "plei , hev-fan",
+        "th": "len",
+        "lo": "len",
+        "vi": "choi",
+        "id": "ber-ma-in"
+      },
+      "translations": {
+        "en": "to play , to have fun",
+        "th": "เล่น , เที่ยวเล่น",
+        "lo": "ຫຼິ້ນ , ທ່ຽວຫຼິ້ນ",
+        "vi": "chơi",
+        "id": "bermain"
+      },
+      "example": {
+        "zh": "他在外面玩儿。",
+        "pinyin": "Tā zài wàimiàn wánr.",
+        "en": "He is playing outside.",
+        "th": "เขาเล่นอยู่ข้างนอก",
+        "lo": "ລາວຫຼິ້ນຢູ່ຂ້າງນອກ",
+        "vi": "Anh ấy đang chơi ở bên ngoài.",
+        "id": "Dia sedang bermain di luar."
+      }
+    },
+    {
+      "id": 107,
+      "type": "n.",
+      "word": "晚上",
+      "pinyin": {
+        "ch": "wǎnshang",
+        "en": "eev-ning , nait",
+        "th": "ton-yen , klang-keun",
+        "lo": "ton-laeng , kang-khuen",
+        "vi": "buoi toi",
+        "id": "ma-lam"
+      },
+      "translations": {
+        "en": "evening , night",
+        "th": "ตอนเย็น , กลางคืน",
+        "lo": "ຕອນແລງ , ກາງຄືນ",
+        "vi": "buổi tối",
+        "id": "malam , waktu malam"
+      },
+      "example": {
+        "zh": "我晚上在家里看电视。",
+        "pinyin": "Wǒ wǎnshang zài jiālǐ kàn diànshì.",
+        "en": "I watch TV at home in the evening.",
+        "th": "ฉันดูทีวีอยู่ที่บ้านตอนกลางคืน",
+        "lo": "ຂ້ອຍເບິ່ງທີວີຢູ່ບ້ານຕອນກາງຄືນ",
+        "vi": "Buổi tối tôi xem tivi ở nhà.",
+        "id": "Saya menonton TV di rumah pada malam hari."
+      }
+    },
+    {
+      "id": 108,
+      "type": "prep.",
+      "word": "往",
+      "pinyin": {
+        "ch": "wǎng",
+        "en": "tu-word , tu",
+        "th": "pai-thang , su",
+        "lo": "pai-thang , su",
+        "vi": "huong ve",
+        "id": "ke , me-nu-ju"
+      },
+      "translations": {
+        "en": "towards , to",
+        "th": "ไปทาง , สู่",
+        "lo": "ໄປທາງ , ສູ່",
+        "vi": "hướng về , đi về phía",
+        "id": "ke , menuju"
+      },
+      "example": {
+        "zh": "往前走。",
+        "pinyin": "Wǎng qián zǒu.",
+        "en": "Walk forward.",
+        "th": "เดินไปข้างหน้า",
+        "lo": "ຍ່າງໄປທາງໜ້າ",
+        "vi": "Đi về phía trước.",
+        "id": "Jalan ke depan."
+      }
+    },
+    {
+      "id": 109,
+      "type": "pron.",
+      "word": "为什么",
+      "pinyin": {
+        "ch": "wèishénme",
+        "en": "wai",
+        "th": "tham-mai",
+        "lo": "pen-yang",
+        "vi": "tai sao",
+        "id": "me-ng-a-pa"
+      },
+      "translations": {
+        "en": "why",
+        "th": "ทำไม",
+        "lo": "ເປັນຫຍັງ",
+        "vi": "tại sao",
+        "id": "mengapa , kenapa"
+      },
+      "example": {
+        "zh": "你为什么没来？",
+        "pinyin": "Nǐ wèishénme méi lái?",
+        "en": "Why didn't you come?",
+        "th": "ทำไมคุณไม่มา",
+        "lo": "ເປັນຫຍັງເຈົ້າບໍ່ມາ",
+        "vi": "Tại sao bạn không đến?",
+        "id": "Mengapa Anda tidak datang?"
+      }
+    },
+    {
+      "id": 110,
+      "type": "v.",
+      "word": "问",
+      "pinyin": {
+        "ch": "wèn",
+        "en": "ahsk",
+        "th": "tham",
+        "lo": "tham",
+        "vi": "hoi",
+        "id": "ta-nya"
+      },
+      "translations": {
+        "en": "to ask",
+        "th": "ถาม",
+        "lo": "ຖາມ",
+        "vi": "hỏi",
+        "id": "bertanya"
+      },
+      "example": {
+        "zh": "我想问你一个问题。",
+        "pinyin": "Wǒ xiǎng wèn nǐ yī gè wèntí.",
+        "en": "I want to ask you a question.",
+        "th": "ฉันอยากถามคุณหนึ่งคำถาม",
+        "lo": "ຂ້ອຍຢາກຖາມເຈົ້າໜຶ່ງຄຳຖາມ",
+        "vi": "Tôi muốn hỏi bạn một câu hỏi.",
+        "id": "Saya ingin bertanya satu pertanyaan kepada Anda."
+      }
+    },
+    {
+      "id": 111,
+      "type": "n.",
+      "word": "问题",
+      "pinyin": {
+        "ch": "wèntí",
+        "en": "ques-shun , pro-blem",
+        "th": "kum-tham",
+        "lo": "kham-tham",
+        "vi": "van de , cau hoi",
+        "id": "ma-sa-lah"
+      },
+      "translations": {
+        "en": "question , problem",
+        "th": "คำถาม , ปัญหา",
+        "lo": "ຄຳຖາມ , ບັນຫາ",
+        "vi": "vấn đề , câu hỏi",
+        "id": "pertanyaan , masalah"
+      },
+      "example": {
+        "zh": "我有一个问题。",
+        "pinyin": "Wǒ yǒu yī gè wèntí.",
+        "en": "I have a question.",
+        "th": "ฉันมีคำถามหนึ่งข้อ",
+        "lo": "ຂ້ອຍມີຄຳຖາມໜຶ່ງຂໍ້",
+        "vi": "Tôi có một câu hỏi.",
+        "id": "Saya punya satu pertanyaan."
+      }
+    },
+    {
+      "id": 112,
+      "type": "v. n.",
+      "word": "希望",
+      "pinyin": {
+        "ch": "xīwàng",
+        "en": "hop , wish",
+        "th": "wang",
+        "lo": "wang",
+        "vi": "hy vong",
+        "id": "ha-rap"
+      },
+      "translations": {
+        "en": "to hope , to wish , hope",
+        "th": "หวัง , ความหวัง",
+        "lo": "ຫວັງ , ຄວາມຫວັງ",
+        "vi": "hy vọng",
+        "id": "berharap , harapan"
+      },
+      "example": {
+        "zh": "我希望你能来。",
+        "pinyin": "Wǒ xīwàng nǐ néng lái.",
+        "en": "I hope you can come.",
+        "th": "ฉันหวังว่าคุณจะมาได้",
+        "lo": "ຂ້ອຍຫວັງວ່າເຈົ້າຈະມາໄດ້",
+        "vi": "Tôi hy vọng bạn có thể đến.",
+        "id": "Saya harap Anda bisa datang."
+      }
+    },
+    {
+      "id": 113,
+      "type": "n.",
+      "word": "西瓜",
+      "pinyin": {
+        "ch": "xīguā",
+        "en": "wa-ter-me-lon",
+        "th": "taeng-mo",
+        "lo": "ma-mo",
+        "vi": "dua hau",
+        "id": "se-mang-ka"
+      },
+      "translations": {
+        "en": "watermelon",
+        "th": "แตงโม",
+        "lo": "ໝາກໂມ",
+        "vi": "dưa hấu",
+        "id": "semangka"
+      },
+      "example": {
+        "zh": "夏天的西瓜很好吃。",
+        "pinyin": "Xiàtiān de xīguā hěn hǎochī.",
+        "en": "Watermelon in summer is delicious.",
+        "th": "แตงโมในฤดูร้อนอร่อยมาก",
+        "lo": "ໝາກໂມໃນລະດູຮ້ອນແຊບຫຼາຍ",
+        "vi": "Dưa hấu mùa hè rất ngon.",
+        "id": "Semangka di musim panas sangat enak."
+      }
+    },
+    {
+      "id": 114,
+      "type": "v.",
+      "word": "洗",
+      "pinyin": {
+        "ch": "xǐ",
+        "en": "wosh",
+        "th": "sak , lang",
+        "lo": "sak , lang",
+        "vi": "rua , giat",
+        "id": "cu-ci"
+      },
+      "translations": {
+        "en": "to wash",
+        "th": "ซัก , ล้าง",
+        "lo": "ຊັກ , ລ້າງ",
+        "vi": "rửa , giặt",
+        "id": "mencuci"
+      },
+      "example": {
+        "zh": "记得洗手。",
+        "pinyin": "Jìde xǐshǒu.",
+        "en": "Remember to wash your hands.",
+        "th": "อย่าลืมล้างมือนะ",
+        "lo": "ຢ່າລືມລ້າງມືເດີ້",
+        "vi": "Nhớ rửa tay nhé.",
+        "id": "Ingat untuk mencuci tangan."
+      }
+    },
+    {
+      "id": 115,
+      "type": "n.",
+      "word": "小时",
+      "pinyin": {
+        "ch": "xiǎoshí",
+        "en": "a-wer",
+        "th": "chu-a-mong",
+        "lo": "chu-a-mong",
+        "vi": "tieng , gio",
+        "id": "jam"
+      },
+      "translations": {
+        "en": "hour",
+        "th": "ชั่วโมง",
+        "lo": "ຊົ່ວໂມງ",
+        "vi": "tiếng , giờ",
+        "id": "jam"
+      },
+      "example": {
+        "zh": "我学了两个小时汉语。",
+        "pinyin": "Wǒ xuéle liǎng gè xiǎoshí Hànyǔ.",
+        "en": "I studied Chinese for two hours.",
+        "th": "ฉันเรียนภาษาจีนมาสองชั่วโมงแล้ว",
+        "lo": "ຂ້ອຍຮຽນພາສາຈີນມາສອງຊົ່ວໂມງແລ້ວ",
+        "vi": "Tôi đã học tiếng Hán được hai tiếng.",
+        "id": "Saya belajar bahasa Mandarin selama dua jam."
+      }
+    },
+    {
+      "id": 116,
+      "type": "v.",
+      "word": "笑",
+      "pinyin": {
+        "ch": "xiào",
+        "en": "laf , smai-ul",
+        "th": "hua-rau , yim",
+        "lo": "hua-kho , yim",
+        "vi": "cuoi",
+        "id": "ter-ta-wa"
+      },
+      "translations": {
+        "en": "to laugh , to smile",
+        "th": "หัวเราะ , ยิ้ม",
+        "lo": "ຫົວຂວັນ , ຍິ້ມ",
+        "vi": "cười",
+        "id": "tertawa , tersenyum"
+      },
+      "example": {
+        "zh": "他笑着说：“没关系”。",
+        "pinyin": "Tā xiàozhe shuō: “Méiguānxì”.",
+        "en": "He said with a smile: \"It's okay.\"",
+        "th": "เขายิ้มแล้วพูดว่า “ไม่เป็นไร”",
+        "lo": "ລາວຍິ້ມແລ້ວເວົ້າວ່າ “ບໍ່ເປັນຫຍັງ”",
+        "vi": "Anh ấy cười nói: \"Không sao đâu\".",
+        "id": "Dia tersenyum dan berkata: \"Tidak apa-apa\"."
+      }
+    },
+    {
+      "id": 117,
+      "type": "adj.",
+      "word": "新",
+      "pinyin": {
+        "ch": "xīn",
+        "en": "nyu",
+        "th": "mai",
+        "lo": "mai",
+        "vi": "moi",
+        "id": "ba-ru"
+      },
+      "translations": {
+        "en": "new",
+        "th": "ใหม่",
+        "lo": "ໃໝ່",
+        "vi": "mới",
+        "id": "baru"
+      },
+      "example": {
+        "zh": "这是我的新衣服。",
+        "pinyin": "Zhè shì wǒ de xīn yīfu.",
+        "en": "These are my new clothes.",
+        "th": "นี่คือเสื้อผ้าใหม่ของฉัน",
+        "lo": "ນີ້ແມ່ນເສື້ອຜ້າໃໝ່ຂອງຂ້ອຍ",
+        "vi": "Đây là quần áo mới của tôi.",
+        "id": "Ini adalah baju baru saya."
+      }
+    },
+    {
+      "id": 118,
+      "type": "v. n.",
+      "word": "姓",
+      "pinyin": {
+        "ch": "xìng",
+        "en": "sur-neim",
+        "th": "nam-sa-kun",
+        "lo": "nam-sa-kun",
+        "vi": "ho",
+        "id": "mar-ga"
+      },
+      "translations": {
+        "en": "surname , family name",
+        "th": "นามสกุล , แซ่",
+        "lo": "ນາມສະກຸນ",
+        "vi": "họ",
+        "id": "marga , nama keluarga"
+      },
+      "example": {
+        "zh": "我姓张。",
+        "pinyin": "Wǒ xìng Zhāng.",
+        "en": "My surname is Zhang.",
+        "th": "ฉันนามสกุลจาง",
+        "lo": "ຂ້ອຍນາມສະກຸນຈາງ",
+        "vi": "Tôi họ Trương.",
+        "id": "Marga saya Zhang."
+      }
+    },
+    {
+      "id": 119,
+      "type": "v.",
+      "word": "休息",
+      "pinyin": {
+        "ch": "xiūxi",
+        "en": "rest",
+        "th": "pak-pon",
+        "lo": "pak-phon",
+        "vi": "nghi ngoi",
+        "id": "is-ti-ra-hat"
+      },
+      "translations": {
+        "en": "to rest , to take a break",
+        "th": "พักผ่อน",
+        "lo": "ພັກຜ່ອນ",
+        "vi": "nghỉ ngơi",
+        "id": "istirahat"
+      },
+      "example": {
+        "zh": "你累了，去休息吧。",
+        "pinyin": "Nǐ lèi le, qù xiūxi ba.",
+        "en": "You're tired, go take a rest.",
+        "th": "คุณเหนื่อยแล้ว ไปพักผ่อนเถอะ",
+        "lo": "ເຈົ້າເມື່ອຍແລ້ວ ໄປພັກຜ່ອນສາ",
+        "vi": "Bạn mệt rồi, đi nghỉ ngơi đi.",
+        "id": "Kamu lelah, pergilah istirahat."
+      }
+    },
+    {
+      "id": 120,
+      "type": "n.",
+      "word": "雪",
+      "pinyin": {
+        "ch": "xuě",
+        "en": "sno",
+        "th": "hi-ma-na",
+        "lo": "hi-ma-na",
+        "vi": "tuyet",
+        "id": "sal-ju"
+      },
+      "translations": {
+        "en": "snow",
+        "th": "หิมะ",
+        "lo": "ຫິມະ",
+        "vi": "tuyết",
+        "id": "salju"
+      },
+      "example": {
+        "zh": "北京下大雪了。",
+        "pinyin": "Běijīng xià dà xuě le.",
+        "en": "It's snowing heavily in Beijing.",
+        "th": "ปักกิ่งหิมะตกหนักมาก",
+        "lo": "ປັກກິ່ງຫິມະຕົກໜັກຫຼາຍ",
+        "vi": "Bắc Kinh có tuyết rơi lớn rồi.",
+        "id": "Beijing turun salju lebat."
+      }
+    },
+    {
+      "id": 121,
+      "type": "n.",
+      "word": "颜色",
+      "pinyin": {
+        "ch": "yánsè",
+        "en": "ka-ler",
+        "th": "see",
+        "lo": "see",
+        "vi": "mau sac",
+        "id": "war-na"
+      },
+      "translations": {
+        "en": "color",
+        "th": "สี",
+        "lo": "ສີ",
+        "vi": "màu sắc",
+        "id": "warna"
+      },
+      "example": {
+        "zh": "你喜欢什么颜色？",
+        "pinyin": "Nǐ xǐhuan shénme yánsè?",
+        "en": "What color do you like?",
+        "th": "คุณชอบสีอะไร",
+        "lo": "ເຈົ້າມັກສີຫຍັງ",
+        "vi": "Bạn thích màu gì?",
+        "id": "Kamu suka warna apa?"
+      }
+    },
+    {
+      "id": 122,
+      "type": "n.",
+      "word": "眼睛",
+      "pinyin": {
+        "ch": "yǎnjing",
+        "en": "ai",
+        "th": "ta",
+        "lo": "ta",
+        "vi": "mat",
+        "id": "ma-ta"
+      },
+      "translations": {
+        "en": "eye",
+        "th": "ตา , ดวงตา",
+        "lo": "ຕາ , ດວງຕາ",
+        "vi": "mắt",
+        "id": "mata"
+      },
+      "example": {
+        "zh": "她的眼睛很大。",
+        "pinyin": "Tā de yǎnjing hěn dà.",
+        "en": "Her eyes are very big.",
+        "th": "ตาของเธอโตมาก",
+        "lo": "ຕາຂອງລາວໃຫຍ່ຫຼາຍ",
+        "vi": "Mắt của cô ấy rất to.",
+        "id": "Matanya sangat besar."
+      }
+    },
+    {
+      "id": 123,
+      "type": "n.",
+      "word": "羊肉",
+      "pinyin": {
+        "ch": "yángròu",
+        "en": "mut-ton , lam",
+        "th": "neua-kae",
+        "lo": "neua-kae",
+        "vi": "thit cuu",
+        "id": "da-ging kam-bing"
+      },
+      "translations": {
+        "en": "mutton , lamb",
+        "th": "เนื้อแกะ",
+        "lo": "ຊີ້ນແກະ",
+        "vi": "thịt cừu",
+        "id": "daging kambing , domba"
+      },
+      "example": {
+        "zh": "我不喜欢吃羊肉。",
+        "pinyin": "Wǒ bù xǐhuan chī yángròu.",
+        "en": "I don't like eating mutton.",
+        "th": "ฉันไม่ชอบกินเนื้อแกะ",
+        "lo": "ຂ້ອຍບໍ່ມັກກິນຊີ້ນແກະ",
+        "vi": "Tôi không thích ăn thịt cừu.",
+        "id": "Saya tidak suka makan daging kambing."
+      }
+    },
+    {
+      "id": 124,
+      "type": "n.",
+      "word": "药",
+      "pinyin": {
+        "ch": "yào",
+        "en": "me-de-sin",
+        "th": "ya",
+        "lo": "ya",
+        "vi": "thuoc",
+        "id": "o-bat"
+      },
+      "translations": {
+        "en": "medicine , drug",
+        "th": "ยา",
+        "lo": "ຢາ",
+        "vi": "thuốc",
+        "id": "obat"
+      },
+      "example": {
+        "zh": "你吃药了吗？",
+        "pinyin": "Nǐ chī yào le ma?",
+        "en": "Have you taken the medicine?",
+        "th": "คุณกินยาหรือยัง",
+        "lo": "ເຈົ້າກິນຢາແລ້ວບໍ່",
+        "vi": "Bạn uống thuốc chưa?",
+        "id": "Apakah Anda sudah minum obat?"
+      }
+    },
+    {
+      "id": 125,
+      "type": "v.m.",
+      "word": "要",
+      "pinyin": {
+        "ch": "yào",
+        "en": "wont , niid",
+        "th": "ao , tong-kan",
+        "lo": "ao , tong-kan",
+        "vi": "muon , can",
+        "id": "ma-u"
+      },
+      "translations": {
+        "en": "to want , to need , will",
+        "th": "เอา , ต้องการ",
+        "lo": "ເອົາ , ຕ້ອງການ",
+        "vi": "muốn , cần , phải",
+        "id": "mau , ingin , harus"
+      },
+      "example": {
+        "zh": "我要买这个。",
+        "pinyin": "Wǒ yào mǎi zhège.",
+        "en": "I want to buy this.",
+        "th": "ฉันต้องการซื้อสิ่งนี้",
+        "lo": "ຂ້ອຍຕ້ອງການຊື້ສິ່ງນີ້",
+        "vi": "Tôi muốn mua cái này.",
+        "id": "Saya mau beli ini."
+      }
+    },
+    {
+      "id": 126,
+      "type": "adv.",
+      "word": "也",
+      "pinyin": {
+        "ch": "yě",
+        "en": "ol-so , tu",
+        "th": "kor-duay",
+        "lo": "kor-duay",
+        "vi": "cung",
+        "id": "ju-ga"
+      },
+      "translations": {
+        "en": "also , too",
+        "th": "ก็...ด้วย , เหมือนกัน",
+        "lo": "ກໍ...ດ້ວຍ , ຄືກັນ",
+        "vi": "cũng",
+        "id": "juga"
+      },
+      "example": {
+        "zh": "我也喜欢吃面条。",
+        "pinyin": "Wǒ yě xǐhuan chī miàntiáo.",
+        "en": "I also like eating noodles.",
+        "th": "ฉันก็ชอบกินก๋วยเตี๋ยวเหมือนกัน",
+        "lo": "ຂ້ອຍກໍມັກກິນເຂົ້າປຽກຄືກັນ",
+        "vi": "Tôi cũng thích ăn mì.",
+        "id": "Saya juga suka makan mie."
+      }
+    },
+    {
+      "id": 127,
+      "type": "n. num.",
+      "word": "一下",
+      "pinyin": {
+        "ch": "yīxià",
+        "en": "a-wa-yal , a-bit",
+        "th": "paep-nueng",
+        "lo": "paep-nueng",
+        "vi": "mot chut",
+        "id": "se-ben-tar"
+      },
+      "translations": {
+        "en": "a bit , a short while , once",
+        "th": "สักครู่ , แป๊บหนึ่ง",
+        "lo": "ບຶດໜຶ່ງ , ແປບໜຶ່ງ",
+        "vi": "một chút , một lát",
+        "id": "sebentar , sekejap"
+      },
+      "example": {
+        "zh": "请等一下。",
+        "pinyin": "Qǐng děng yīxià.",
+        "en": "Please wait a moment.",
+        "th": "กรุณารอสักครู่นะ",
+        "lo": "ກະລຸນາຖ້າບຶດໜຶ່ງເດີ້",
+        "vi": "Làm ơn đợi một lát.",
+        "id": "Tolong tunggu sebentar."
+      }
+    },
+    {
+      "id": 128,
+      "type": "adv.",
+      "word": "已经",
+      "pinyin": {
+        "ch": "yǐjīng",
+        "en": "ol-re-dee",
+        "th": "laew",
+        "lo": "laew",
+        "vi": "da",
+        "id": "su-dah"
+      },
+      "translations": {
+        "en": "already",
+        "th": "แล้ว , เรียบร้อยแล้ว",
+        "lo": "ແລ້ວ , ຮຽບຮ້ອຍແລ້ວ",
+        "vi": "đã",
+        "id": "sudah"
+      },
+      "example": {
+        "zh": "我已经吃过饭了。",
+        "pinyin": "Wǒ yǐjīng chīguò fàn le.",
+        "en": "I have already eaten.",
+        "th": "ฉันกินข้าวเรียบร้อยแล้ว",
+        "lo": "ຂ້ອຍກິນເຂົ້າຮຽບຮ້ອຍແລ້ວ",
+        "vi": "Tôi đã ăn cơm rồi.",
+        "id": "Saya sudah makan."
+      }
+    },
+    {
+      "id": 129,
+      "type": "adv.",
+      "word": "一起",
+      "pinyin": {
+        "ch": "yīqǐ",
+        "en": "tu-ge-ther",
+        "th": "duay-kan",
+        "lo": "duay-kan",
+        "vi": "cung nhau",
+        "id": "ber-sa-ma"
+      },
+      "translations": {
+        "en": "together",
+        "th": "ด้วยกัน , พร้อมกัน",
+        "lo": "ດ້ວຍກັນ , ພ້ອມກັນ",
+        "vi": "cùng nhau",
+        "id": "bersama , bersama-sama"
+      },
+      "example": {
+        "zh": "我们一起去旅游吧。",
+        "pinyin": "Wǒmen yīqǐ qù lǚyóu ba.",
+        "en": "Let's go travel together.",
+        "th": "พวกเราไปเที่ยวด้วยกันเถอะ",
+        "lo": "ພວກເຮົາໄປທ່ຽວດ້ວຍກັນເຖີດ",
+        "vi": "Chúng ta cùng nhau đi du lịch đi.",
+        "id": "Ayo kita pergi berwisata bersama."
+      }
+    },
+    {
+      "id": 130,
+      "type": "n.",
+      "word": "意思",
+      "pinyin": {
+        "ch": "yìsi",
+        "en": "mee-ning",
+        "th": "kuam-mai",
+        "lo": "khuam-mai",
+        "vi": "y nghia",
+        "id": "ar-ti"
+      },
+      "translations": {
+        "en": "meaning",
+        "th": "ความหมาย",
+        "lo": "ຄວາມໝາຍ",
+        "vi": "ý nghĩa",
+        "id": "arti , makna"
+      },
+      "example": {
+        "zh": "这是什么意思？",
+        "pinyin": "Zhè shì shénme yìsi?",
+        "en": "What does this mean?",
+        "th": "นี่หมายความว่าอย่างไร",
+        "lo": "ນີ້ໝາຍຄວາມວ່າແນວໃດ",
+        "vi": "Cái này có nghĩa là gì?",
+        "id": "Ini apa artinya?"
+      }
+    },
+    {
+      "id": 131,
+      "type": "conj.",
+      "word": "因为...所以...",
+      "pinyin": {
+        "ch": "yīnwèi... suǒyǐ...",
+        "en": "bi-koz... so",
+        "th": "prua... jueng",
+        "lo": "phor... jueng",
+        "vi": "boi vi... cho nen",
+        "id": "ka-re-na... ja-di"
+      },
+      "translations": {
+        "en": "because... so...",
+        "th": "เพราะว่า... จึง...",
+        "lo": "ເພາະວ່າ... ຈຶ່ງ...",
+        "vi": "bởi vì... cho nên...",
+        "id": "karena... jadi..."
+      },
+      "example": {
+        "zh": "因为下雨，所以他没来。",
+        "pinyin": "Yīnwèi xià yǔ, suǒyǐ tā méi lái.",
+        "en": "Because it rained, so he didn't come.",
+        "th": "เพราะว่าฝนตก เขาจึงไม่มา",
+        "lo": "ເພາະວ່າຝົນຕົກ ລາວຈຶ່ງບໍ່ມາ",
+        "vi": "Bởi vì trời mưa cho nên anh ấy không đến.",
+        "id": "Karena hujan, jadi dia tidak datang."
+      }
+    },
+    {
+      "id": 132,
+      "type": "adj.",
+      "word": "阴",
+      "pinyin": {
+        "ch": "yīn",
+        "en": "klau-dee",
+        "th": "muet-kruem",
+        "lo": "mut-fon",
+        "vi": "troi am u",
+        "id": "men-dung"
+      },
+      "translations": {
+        "en": "cloudy , overcast",
+        "th": "มืดครึ้ม , ท้องฟ้ามืด",
+        "lo": "ມືດຄຶ້ມ , ຟ້າມືດ",
+        "vi": "trời âm u , nhiều mây",
+        "id": "mendung"
+      },
+      "example": {
+        "zh": "今天是阴天。",
+        "pinyin": "Jīntiān shì yīntiān.",
+        "en": "Today is a cloudy day.",
+        "th": "วันนี้ท้องฟ้ามืดครึ้ม",
+        "lo": "ມື້ນີ້ທ້ອງຟ້າມືດຄຶ້ມ",
+        "vi": "Hôm nay là một ngày âm u.",
+        "id": "Hari ini cuaca mendung."
+      }
+    },
+    {
+      "id": 133,
+      "type": "v.",
+      "word": "游泳",
+      "pinyin": {
+        "ch": "yóuyǒng",
+        "en": "swi-ming",
+        "th": "wai-nam",
+        "lo": "loi-nam",
+        "vi": "boi loi",
+        "id": "be-re-nang"
+      },
+      "translations": {
+        "en": "to swim",
+        "th": "ว่ายน้ำ",
+        "lo": "ລອຍນ້ຳ",
+        "vi": "bơi lội",
+        "id": "berenang"
+      },
+      "example": {
+        "zh": "你会游泳吗？",
+        "pinyin": "Nǐ huì yóuyǒng ma?",
+        "en": "Can you swim?",
+        "th": "คุณว่ายน้ำเป็นไหม",
+        "lo": "ເຈົ້າລອຍນ້ຳເປັນບໍ່",
+        "vi": "Bạn biết bơi không?",
+        "id": "Apakah Anda bisa berenang?"
+      }
+    },
+    {
+      "id": 134,
+      "type": "n.",
+      "word": "右边",
+      "pinyin": {
+        "ch": "yòubiān",
+        "en": "rait-said",
+        "th": "khang-kwa",
+        "lo": "khang-khua",
+        "vi": "ben phai",
+        "id": "se-be-lah ka-nan"
+      },
+      "translations": {
+        "en": "right side",
+        "th": "ข้างขวา",
+        "lo": "ຂ້າງຂວາ",
+        "vi": "bên phải",
+        "id": "sebelah kanan"
+      },
+      "example": {
+        "zh": "书店在学校右边。",
+        "pinyin": "Shūdiàn zài xuéxiào yòubiān.",
+        "en": "The bookstore is on the right of the school.",
+        "th": "ร้านหนังสืออยู่ทางขวาของโรงเรียน",
+        "lo": "ຮ້ານປຶ້ມຢູ່ທາງຂວາຂອງໂຮງຮຽນ",
+        "vi": "Hiệu sách ở bên phải trường học.",
+        "id": "Toko buku ada di sebelah kanan sekolah."
+      }
+    },
+    {
+      "id": 135,
+      "type": "n.",
+      "word": "鱼",
+      "pinyin": {
+        "ch": "yú",
+        "en": "fish",
+        "th": "pla",
+        "lo": "pa",
+        "vi": "ca",
+        "id": "i-kan"
+      },
+      "translations": {
+        "en": "fish",
+        "th": "ปลา",
+        "lo": "ປາ",
+        "vi": "cá",
+        "id": "ikan"
+      },
+      "example": {
+        "zh": "这儿的鱼很好吃。",
+        "pinyin": "Zhèr de yú hěn hǎochī.",
+        "en": "The fish here is very delicious.",
+        "th": "ปลาที่นี่อร่อยมาก",
+        "lo": "ປາຢູ່ນີ້ແຊບຫຼາຍ",
+        "vi": "Cá ở đây rất ngon.",
+        "id": "Ikan di sini sangat enak."
+      }
+    },
+    {
+      "id": 136,
+      "type": "adj.",
+      "word": "远",
+      "pinyin": {
+        "ch": "yuǎn",
+        "en": "fa-r",
+        "th": "klai",
+        "lo": "kai",
+        "vi": "xa",
+        "id": "ja-uh"
+      },
+      "translations": {
+        "en": "far , distant",
+        "th": "ไกล",
+        "lo": "ໄກ",
+        "vi": "xa",
+        "id": "jauh"
+      },
+      "example": {
+        "zh": "我家离学校很远。",
+        "pinyin": "Wǒ jiā lí xuéxiào hěn yuǎn.",
+        "en": "My house is far from the school.",
+        "th": "บ้านฉันอยู่ไกลจากโรงเรียนมาก",
+        "lo": "ບ້ານຂ້ອຍຢູ່ໄກຈາກໂຮງຮຽນຫຼາຍ",
+        "vi": "Nhà tôi cách trường học rất xa.",
+        "id": "Rumah saya jauh dari sekolah."
+      }
+    },
+    {
+      "id": 137,
+      "type": "v. n.",
+      "word": "运动",
+      "pinyin": {
+        "ch": "yùndòng",
+        "en": "ex-er-saiz , spo-rt",
+        "th": "ok-kam-lang-kai",
+        "lo": "ok-kam-lang-kai",
+        "vi": "van dong , the thao",
+        "id": "o-lah-ra-ga"
+      },
+      "translations": {
+        "en": "to exercise , sports",
+        "th": "ออกกำลังกาย , กีฬา",
+        "lo": "ອອກກຳລັງກາຍ , ກິລາ",
+        "vi": "vận động , thể thao",
+        "id": "olahraga"
+      },
+      "example": {
+        "zh": "我们要多运动。",
+        "pinyin": "Wǒmen yào duō yùndòng.",
+        "en": "We need to exercise more.",
+        "th": "พวกเราต้องออกกำลังกายให้มาก",
+        "lo": "ພວກເຮົາຕ້ອງອອກກຳລັງກາຍໃຫ້ຫຼາຍ",
+        "vi": "Chúng ta phải vận động nhiều hơn.",
+        "id": "Kita harus banyak berolahraga."
+      }
+    },
+    {
+      "id": 138,
+      "type": "adv.",
+      "word": "再",
+      "pinyin": {
+        "ch": "zài",
+        "en": "a-gen , mo-r",
+        "th": "eek , eek-krang",
+        "lo": "eek , eek-khang",
+        "vi": "nua , lai",
+        "id": "la-gi"
+      },
+      "translations": {
+        "en": "again , once more",
+        "th": "อีก , อีกครั้ง",
+        "lo": "ອີກ , ອີກຄັ້ງ",
+        "vi": "nữa , lại",
+        "id": "lagi , sekali lagi"
+      },
+      "example": {
+        "zh": "请再说一遍。",
+        "pinyin": "Qǐng zài shuō yī biàn.",
+        "en": "Please say it again.",
+        "th": "กรุณาพูดอีกครั้งหนึ่ง",
+        "lo": "ກະລຸນາເວົ້າອີກຄັ້ງໜຶ່ງ",
+        "vi": "Làm ơn nói lại một lần nữa.",
+        "id": "Tolong katakan sekali lagi."
+      }
+    },
+    {
+      "id": 139,
+      "type": "n.",
+      "word": "早上",
+      "pinyin": {
+        "ch": "zǎoshang",
+        "en": "mor-ning",
+        "th": "ton-chao",
+        "lo": "ton-chao",
+        "vi": "buoi sang",
+        "id": "pa-gi ha-ri"
+      },
+      "translations": {
+        "en": "early morning",
+        "th": "ตอนเช้า",
+        "lo": "ຕອນເຊົ້າ",
+        "vi": "buổi sáng",
+        "id": "pagi , pagi hari"
+      },
+      "example": {
+        "zh": "我早上喝一杯水。",
+        "pinyin": "Wǒ zǎoshang hē yī bēi shuǐ.",
+        "en": "I drink a glass of water in the morning.",
+        "th": "ฉันดื่มน้ำหนึ่งแก้วตอนเช้า",
+        "lo": "ຂ້ອຍດື່ມນ້ຳໜຶ່ງຈອກຕອນເຊົ້າ",
+        "vi": "Buổi sáng tôi uống một ly nước.",
+        "id": "Saya minum segelas air di pagi hari."
+      }
+    },
+    {
+      "id": 140,
+      "type": "n.",
+      "word": "丈夫",
+      "pinyin": {
+        "ch": "zhàngfu",
+        "en": "haz-band",
+        "th": "sa-mee",
+        "lo": "pua",
+        "vi": "chong",
+        "id": "su-a-mi"
+      },
+      "translations": {
+        "en": "husband",
+        "th": "สามี , ผัว",
+        "lo": "ຜົວ , ສາມີ",
+        "vi": "chồng",
+        "id": "suami"
+      },
+      "example": {
+        "zh": "她丈夫在医院工作。",
+        "pinyin": "Tā zhàngfu zài yīyuàn gōngzuò.",
+        "en": "Her husband works in the hospital.",
+        "th": "สามีของเขาทำงานที่โรงพยาบาล",
+        "lo": "ຜົວຂອງລາວເຮັດວຽກຢູ່ໂຮງໝໍ",
+        "vi": "Chồng của cô ấy làm việc ở bệnh viện.",
+        "id": "Suaminya bekerja di rumah sakit."
+      }
+    },
+    {
+      "id": 141,
+      "type": "v.",
+      "word": "找",
+      "pinyin": {
+        "ch": "zhǎo",
+        "en": "look-for , faind",
+        "th": "ha",
+        "lo": "ha",
+        "vi": "tim",
+        "id": "men-ca-ri"
+      },
+      "translations": {
+        "en": "to look for , to find",
+        "th": "หา , ตามหา",
+        "lo": "ຊອກ , ຫາ",
+        "vi": "tìm",
+        "id": "mencari"
+      },
+      "example": {
+        "zh": "你在找什么？",
+        "pinyin": "Nǐ zài zhǎo shénme?",
+        "en": "What are you looking for?",
+        "th": "คุณกำลังหาอะไรอยู่",
+        "lo": "ເຈົ້າກຳລັງຊອກຫຍັງຢູ່",
+        "vi": "Bạn đang tìm gì vậy?",
+        "id": "Apa yang sedang kamu cari?"
+      }
+    },
+    {
+      "id": 142,
+      "type": "v. aux.",
+      "word": "着",
+      "pinyin": {
+        "ch": "zhe",
+        "en": "in-jee , a-theks",
+        "th": "yu , wai",
+        "lo": "yu , wai",
+        "vi": "dang",
+        "id": "se-dang"
+      },
+      "translations": {
+        "en": "(indicates continuous state)",
+        "th": "อยู่ , ไว้ (แสดงอาการต่อเนื่อง)",
+        "lo": "ຢູ່ , ໄວ້ (ສະແດງອາການຕໍ່ເນື່ອງ)",
+        "vi": "đang",
+        "id": "sedang , dalam keadaan"
+      },
+      "example": {
+        "zh": "门开着呢。",
+        "pinyin": "Mén kāizhe ne.",
+        "en": "The door is open.",
+        "th": "ประตูเปิดอยู่",
+        "lo": "ປະຕູເປີດຢູ່",
+        "vi": "Cửa đang mở.",
+        "id": "Pintunya sedang terbuka."
+      }
+    },
+    {
+      "id": 143,
+      "type": "adv.",
+      "word": "真",
+      "pinyin": {
+        "ch": "zhēn",
+        "en": "ri-lee , re-al",
+        "th": "jing-jing",
+        "lo": "jing-jing",
+        "vi": "that , qua",
+        "id": "sung-guh"
+      },
+      "translations": {
+        "en": "really , truly , real",
+        "th": "จริง , จริงๆ",
+        "lo": "ແທ້ , ຈິງໆ",
+        "vi": "thật , thực sự",
+        "id": "sungguh , benar-benar"
+      },
+      "example": {
+        "zh": "今天天气真好！",
+        "pinyin": "Jīntiān tiānqì zhēn hǎo!",
+        "en": "The weather is really good today!",
+        "th": "วันนี้อากาศดีจริงๆ",
+        "lo": "ມື້ນີ້ອາກາດດີແທ້ໆ",
+        "vi": "Hôm nay thời tiết thật tốt!",
+        "id": "Hari ini cuaca sungguh bagus!"
+      }
+    },
+    {
+      "id": 144,
+      "type": "adv.",
+      "word": "正在",
+      "pinyin": {
+        "ch": "zhèngzài",
+        "en": "in-the-mid-ul-ov",
+        "th": "kum-lung",
+        "lo": "kum-lung",
+        "vi": "dang",
+        "id": "se-dang"
+      },
+      "translations": {
+        "en": "in the middle of (doing something)",
+        "th": "กำลัง , กำลัง...อยู่",
+        "lo": "ກຳລັງ , ກຳລັງ...ຢູ່",
+        "vi": "đang",
+        "id": "sedang , sedang melakukan"
+      },
+      "example": {
+        "zh": "我正在看书呢。",
+        "pinyin": "Wǒ zhèngzài kànshū ne.",
+        "en": "I am reading a book.",
+        "th": "ฉันกำลังอ่านหนังสืออยู่",
+        "lo": "ຂ້ອຍກຳລັງອ່ານປຶ້ມຢູ່",
+        "vi": "Tôi đang đọc sách.",
+        "id": "Saya sedang membaca buku."
+      }
+    },
+    {
+      "id": 145,
+      "type": "v.",
+      "word": "知道",
+      "pinyin": {
+        "ch": "zhīdào",
+        "en": "no",
+        "th": "roo",
+        "lo": "hoo",
+        "vi": "biet",
+        "id": "ta-hu"
+      },
+      "translations": {
+        "en": "to know , to realize",
+        "th": "รู้ , ทราบ",
+        "lo": "ຮູ້ , ຊາບ",
+        "vi": "biết",
+        "id": "tahu , mengetahui"
+      },
+      "example": {
+        "zh": "你知道他在哪儿吗？",
+        "pinyin": "Nǐ zhīdào tā zài nǎr ma?",
+        "en": "Do you know where he is?",
+        "th": "คุณรู้ไหมว่าเขาอยู่ที่ไหน",
+        "lo": "ເຈົ້າຮູ້ບໍ່ວ່າລາວຢູ່ໃສ",
+        "vi": "Bạn có biết anh ấy ở đâu không?",
+        "id": "Apakah kamu tahu dia ada di mana?"
+      }
+    },
+    {
+      "id": 146,
+      "type": "v. n.",
+      "word": "准备",
+      "pinyin": {
+        "ch": "zhǔnbèi",
+        "en": "pri-per",
+        "th": "triam",
+        "lo": "tiam",
+        "vi": "chuan bi",
+        "id": "ber-si-ap"
+      },
+      "translations": {
+        "en": "to prepare , preparation",
+        "th": "เตรียม , เตรียมตัว",
+        "lo": "ຕຽມ , ກຽມ",
+        "vi": "chuẩn bị",
+        "id": "bersiap , persiapan"
+      },
+      "example": {
+        "zh": "你在准备考试吗？",
+        "pinyin": "Nǐ zài zhǔnbèi kǎoshì ma?",
+        "en": "Are you preparing for the exam?",
+        "th": "คุณกำลังเตรียมตัวสอบอยู่หรือเปล่า",
+        "lo": "ເຈົ້າກຳລັງຕຽມສອບເສັງຢູ່ບໍ່",
+        "vi": "Bạn đang chuẩn bị thi à?",
+        "id": "Apakah kamu sedang bersiap untuk ujian?"
+      }
+    },
+    {
+      "id": 147,
+      "type": "v.",
+      "word": "走",
+      "pinyin": {
+        "ch": "zǒu",
+        "en": "wok , liv",
+        "th": "dern , pai",
+        "lo": "yang , pai",
+        "vi": "di",
+        "id": "ber-ja-lan"
+      },
+      "translations": {
+        "en": "to walk , to go , to leave",
+        "th": "เดิน , ไป , ออกไป",
+        "lo": "ຍ່າງ , ໄປ , ອອກໄປ",
+        "vi": "đi , đi bộ",
+        "id": "berjalan , pergi , berangkat"
+      },
+      "example": {
+        "zh": "我们走吧。",
+        "pinyin": "Wǒmen zǒu ba.",
+        "en": "Let's go.",
+        "th": "พวกเราไปกันเถอะ",
+        "lo": "ພວກເຮົາໄປກັນເຖີດ",
+        "vi": "Chúng ta đi thôi.",
+        "id": "Ayo kita pergi."
+      }
+    },
+    {
+      "id": 148,
+      "type": "adv.",
+      "word": "最",
+      "pinyin": {
+        "ch": "zuì",
+        "en": "most , best",
+        "th": "thee-soot",
+        "lo": "thee-soot",
+        "vi": "nhat",
+        "id": "pa-ling"
+      },
+      "translations": {
+        "en": "most , -est",
+        "th": "ที่สุด",
+        "lo": "ທີ່ສຸດ",
+        "vi": "nhất",
+        "id": "paling"
+      },
+      "example": {
+        "zh": "他是我最好的朋友。",
+        "pinyin": "Tā shì wǒ zuì hǎo de péngyou.",
+        "en": "He is my best friend.",
+        "th": "เขาคือเพื่อนที่ดีที่สุดของฉัน",
+        "lo": "ລາວແມ່ນໝູ່ທີ່ດີທີ່ສຸດຂອງຂ້ອຍ",
+        "vi": "Anh ấy là người bạn tốt nhất của tôi.",
+        "id": "Dia adalah teman terbaik saya."
+      }
+    },
+    {
+      "id": 149,
+      "type": "n.",
+      "word": "左边",
+      "pinyin": {
+        "ch": "zuǒbiān",
+        "en": "left-said",
+        "th": "khang-sai",
+        "lo": "khang-say",
+        "vi": "ben trai",
+        "id": "se-be-lah ki-ri"
+      },
+      "translations": {
+        "en": "left side",
+        "th": "ข้างซ้าย",
+        "lo": "ຂ້າງຊ້າຍ",
+        "vi": "bên trái",
+        "id": "sebelah kiri"
+      },
+      "example": {
+        "zh": "你的左边是谁？",
+        "pinyin": "Nǐ de zuǒbiān shì shéi?",
+        "en": "Who is on your left?",
+        "th": "ทางซ้ายของคุณคือใคร",
+        "lo": "ທາງຊ້າຍຂອງເຈົ້າແມ່ນໃຜ",
+        "vi": "Bên trái của bạn là ai?",
+        "id": "Siapa yang ada di sebelah kirimu?"
+      }
+    },
+    {
+      "id": 150,
+      "type": "n.",
+      "word": "总结",
+      "pinyin": {
+        "ch": "zǒngjié",
+        "en": "sa-ma-ri",
+        "th": "su-rup",
+        "lo": "su-lup",
+        "vi": "tong ket",
+        "id": "ring-kas-an"
+      },
+      "translations": {
+        "en": "summary",
+        "th": "สรุป",
+        "lo": "ສະຫຼຸບ",
+        "vi": "tổng kết",
+        "id": "ringkasan"
+      },
+      "example": {
+        "zh": "这是一个总结。",
+        "pinyin": "Zhè shì yī gè zǒngjié.",
+        "en": "This is a summary.",
+        "th": "นี่คือบทสรุป",
+        "lo": "ນີ້ແມ່ນບົດສະຫຼຸບ",
+        "vi": "Đây là một bản tổng kết.",
+        "id": "Ini adalah sebuah ringkasan."
+      }
+    }
+  ]
+}

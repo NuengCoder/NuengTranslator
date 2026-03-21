@@ -8,7 +8,10 @@ import com.nueng.translator.data.local.entity.User
 import com.nueng.translator.data.repository.FirebaseWordRepository
 import com.nueng.translator.data.repository.LanguageWordRepository
 import com.nueng.translator.data.repository.UserRepository
+import android.content.Context
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import com.nueng.translator.util.HskWordLoader
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,6 +28,7 @@ data class HomeUiState(
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val userRepository: UserRepository,
     private val languageWordRepository: LanguageWordRepository,
     private val firebaseWordRepository: FirebaseWordRepository,
@@ -37,6 +41,10 @@ class HomeViewModel @Inject constructor(
     init {
         // Start real-time sync (runs once, listens continuously)
         firebaseWordRepository.startRealtimeSync()
+        // Load HSK words into local DB (no Firebase)
+        viewModelScope.launch {
+            HskWordLoader.loadHsk1(context, languageWordRepository.getDao())
+        }
         loadUserAndWords()
     }
 

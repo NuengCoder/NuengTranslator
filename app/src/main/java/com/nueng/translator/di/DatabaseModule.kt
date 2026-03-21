@@ -10,6 +10,7 @@ import com.nueng.translator.data.local.dao.ChatMessageDao
 import com.nueng.translator.data.local.dao.LanguageWordDao
 import com.nueng.translator.data.local.dao.UserDao
 import com.nueng.translator.data.local.dao.UserDataDao
+import com.nueng.translator.data.local.dao.UserDirectoryDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,35 +39,35 @@ object DatabaseModule {
             NuengTranslatorDatabase::class.java,
             "NuengTranslator.db"
         )
-        .fallbackToDestructiveMigration(dropAllTables = true)
-        .addCallback(object : RoomDatabase.Callback() {
-            override fun onCreate(db: SupportSQLiteDatabase) {
-                super.onCreate(db)
-                CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
-                    val userDao = userDaoProvider.get()
-                    val hash = hashPassword("362@Admin621DotNueng")
-                    userDao.insertUser(
-                        com.nueng.translator.data.local.entity.User(
-                            username = "NuengAdmin",
-                            passwordHash = hash,
-                            role = "admin"
+            .addMigrations(NuengTranslatorDatabase.MIGRATION_5_6)
+            .fallbackToDestructiveMigration(dropAllTables = true)
+            .addCallback(object : RoomDatabase.Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
+                        val userDao = userDaoProvider.get()
+                        val hash = hashPassword("362@Admin621DotNueng")
+                        userDao.insertUser(
+                            com.nueng.translator.data.local.entity.User(
+                                username = "NuengAdmin",
+                                passwordHash = hash,
+                                role = "admin"
+                            )
                         )
-                    )
-                    // Push admin to Firebase
-                    try {
-                        val fbDb = FirebaseDatabase.getInstance("https://nuengtranslator-default-rtdb.asia-southeast1.firebasedatabase.app")
-                        val userMap = mapOf(
-                            "username" to "NuengAdmin",
-                            "role" to "admin",
-                            "createdAt" to System.currentTimeMillis(),
-                            "lastOnline" to System.currentTimeMillis()
-                        )
-                        fbDb.getReference("users").child("NuengAdmin").setValue(userMap)
-                    } catch (_: Exception) {}
+                        try {
+                            val fbDb = FirebaseDatabase.getInstance("https://nuengtranslator-default-rtdb.asia-southeast1.firebasedatabase.app")
+                            val userMap = mapOf(
+                                "username" to "NuengAdmin",
+                                "role" to "admin",
+                                "createdAt" to System.currentTimeMillis(),
+                                "lastOnline" to System.currentTimeMillis()
+                            )
+                            fbDb.getReference("users").child("NuengAdmin").setValue(userMap)
+                        } catch (_: Exception) {}
+                    }
                 }
-            }
-        })
-        .build()
+            })
+            .build()
     }
 
     private fun hashPassword(password: String): String {
@@ -82,4 +83,6 @@ object DatabaseModule {
     fun provideUserDataDao(database: NuengTranslatorDatabase): UserDataDao = database.userDataDao()
     @Provides @Singleton
     fun provideChatMessageDao(database: NuengTranslatorDatabase): ChatMessageDao = database.chatMessageDao()
+    @Provides @Singleton
+    fun provideUserDirectoryDao(database: NuengTranslatorDatabase): UserDirectoryDao = database.userDirectoryDao()
 }

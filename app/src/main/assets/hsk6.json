@@ -1,0 +1,36 @@
+{
+  "pack": "HSK6",
+  "version": "1.0",
+  "source_lang": "zh",
+  "words": [
+    {
+      "id": 1,
+      "type": "v.",
+      "word": "贡献",
+      "pinyin": {
+        "ch": "gòngxiàn",
+        "en": "to contribute",
+        "th": "u-thit",
+        "lo": "u-thit",
+        "vi": "dong-gop",
+        "id": "berkontribusi"
+      },
+      "translations": {
+        "en": "to contribute",
+        "th": "อุทิศ",
+        "lo": "ອຸທິດ",
+        "vi": "đóng góp",
+        "id": "berkontribusi"
+      },
+      "example": {
+        "zh": "他为社会做出了贡献。",
+        "pinyin": "Tā wèi shèhuì zuòchū le gòngxiàn.",
+        "en": "He contributed to society.",
+        "th": "เขาอุทิศให้สังคม",
+        "lo": "ລາວອຸທິດໃຫ້ສັງຄົມ",
+        "vi": "Anh ấy đã đóng góp cho xã hội.",
+        "id": "Dia berkontribusi untuk masyarakat."
+      }
+    }
+  ]
+}

@@ -32,4 +32,6 @@ class LanguageWordRepository @Inject constructor(
     suspend fun updateWord(word: LanguageWord) = languageWordDao.updateWord(word)
 
     suspend fun deleteWord(word: LanguageWord) = languageWordDao.deleteWord(word)
+
+    fun getDao(): com.nueng.translator.data.local.dao.LanguageWordDao = languageWordDao
 }

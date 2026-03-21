@@ -1,0 +1,35 @@
+{
+  "pack": "IELTS5",
+  "version": "1.0",
+  "source_lang": "en",
+  "words": [
+    {
+      "id": 1,
+      "type": "adj.",
+      "word": "comprehensive",
+      "pinyin": {
+        "en": "/ˌkɑːmprɪˈhɛnsɪv/",
+        "zh": "全面的",
+        "th": "krob-klum",
+        "lo": "khob-khum",
+        "vi": "toan-dien",
+        "id": "komprehensif"
+      },
+      "translations": {
+        "zh": "全面的",
+        "th": "ครอบคลุม",
+        "lo": "ຄອບຄຸມ",
+        "vi": "toàn diện",
+        "id": "komprehensif"
+      },
+      "example": {
+        "en": "We need a comprehensive solution.",
+        "zh": "我们需要一个全面的解决方案。",
+        "th": "เราต้องการแก้ไขที่ครอบคลุม",
+        "lo": "ພວກເຮົາຕ້ອງການແກ້ໄຂທີ່ຄອບຄຸມ",
+        "vi": "Chúng ta cần một giải pháp toàn diện.",
+        "id": "Kita butuh solusi yang komprehensif."
+      }
+    }
+  ]
+}

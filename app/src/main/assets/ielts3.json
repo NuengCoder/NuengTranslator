@@ -1,0 +1,35 @@
+{
+  "pack": "IELTS3",
+  "version": "1.0",
+  "source_lang": "en",
+  "words": [
+    {
+      "id": 1,
+      "type": "adj.",
+      "word": "significant",
+      "pinyin": {
+        "en": "/sɪɡˈnɪfɪkənt/",
+        "zh": "重要的",
+        "th": "sam-khan",
+        "lo": "sam-khan",
+        "vi": "quan-trong",
+        "id": "signifikan"
+      },
+      "translations": {
+        "zh": "重要的",
+        "th": "สำคัญ",
+        "lo": "ສຳຄັນ",
+        "vi": "quan trọng",
+        "id": "signifikan"
+      },
+      "example": {
+        "en": "This is a significant achievement.",
+        "zh": "这是一个重要的成就。",
+        "th": "นี่คือความสำเร็จที่สำคัญ",
+        "lo": "ນີ້ແມ່ນຜົນສຳເລັດທີ່ສຳຄັນ",
+        "vi": "Đây là một thành tựu quan trọng.",
+        "id": "Ini adalah pencapaian yang signifikan."
+      }
+    }
+  ]
+}
