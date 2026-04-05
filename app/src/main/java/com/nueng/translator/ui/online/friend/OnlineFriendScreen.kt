@@ -371,7 +371,17 @@ private fun GroupChatCard(group: GroupItem, onClick: () -> Unit, unreadCount: In
                 }
             }
         ) {
-            AvatarCircle(letter = group.avatarLetter, sizeDp = 48)
+            if (group.avatarUrl.isNotBlank()) {
+                coil.compose.SubcomposeAsyncImage(
+                    model = coil.request.ImageRequest.Builder(androidx.compose.ui.platform.LocalContext.current)
+                        .data(group.avatarUrl).crossfade(true).build(),
+                    contentDescription = "Group",
+                    contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+                    modifier = Modifier.size(48.dp).clip(androidx.compose.foundation.shape.CircleShape)
+                )
+            } else {
+                AvatarCircle(letter = group.avatarLetter, sizeDp = 48)
+            }
         }
         Spacer(modifier = Modifier.width(14.dp))
         Column(modifier = Modifier.weight(1f)) {

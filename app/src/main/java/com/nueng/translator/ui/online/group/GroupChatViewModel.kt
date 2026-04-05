@@ -56,13 +56,15 @@ data class GroupChatMsg(
     // image
     val imageData: String = "",
     val imageWidth: Int = 0,
-    val imageHeight: Int = 0
+    val imageHeight: Int = 0,
+    val imageUrl: String = ""
 )
 
 data class GroupChatUiState(
     val groupId: String = "",
     val groupName: String = "",
     val groupAvatarLetter: Char = 'G',
+    val groupAvatarUrl: String = "",
     val myUserId: String = "",
     val myDisplayName: String = "",
     val myRole: String = "member",
@@ -112,10 +114,10 @@ class GroupChatViewModel @Inject constructor(
         if (_uiState.value.groupId == groupId && !_uiState.value.isLoading) return
         removeListener()
         viewModelScope.launch {
-            val userId  = preferencesManager.loggedInUserId.first()
+            val userId = preferencesManager.loggedInUserId.first()
             val isGuest = preferencesManager.isGuest.first()
-            val user    = if (userId > 0 && !isGuest) userRepository.getUserById(userId) else null
-            val myId    = user?.username ?: ""
+            val user = if (userId > 0 && !isGuest) userRepository.getUserById(userId) else null
+            val myId = user?.username ?: ""
             myRoomUserId = userId
 
             _uiState.value = _uiState.value.copy(
@@ -125,18 +127,23 @@ class GroupChatViewModel @Inject constructor(
 
             db.getReference("user_groups").child(myId).child(groupId).get()
                 .addOnSuccessListener { snap ->
-                    val name   = snap.child("group_name").getValue(String::class.java) ?: "Group"
-                    val role   = snap.child("role").getValue(String::class.java) ?: "member"
+                    val name = snap.child("group_name").getValue(String::class.java) ?: "Group"
+                    val role = snap.child("role").getValue(String::class.java) ?: "member"
                     val letter = name.firstOrNull()?.uppercaseChar() ?: 'G'
                     _uiState.value = _uiState.value.copy(
                         groupName = name, groupAvatarLetter = letter, myRole = role
                     )
+                    db.getReference("group_chats").child(groupId).child("avatarUrl").get()
+                        .addOnSuccessListener { avatarSnap ->
+                            val url = avatarSnap.getValue(String::class.java) ?: ""
+                            _uiState.value = _uiState.value.copy(groupAvatarUrl = url)
+                        }
                 }
 
             if (myId.isNotEmpty()) {
                 db.getReference("online_profiles").child(myId).get()
                     .addOnSuccessListener { snap ->
-                        val nick  = snap.child("nickname").getValue(String::class.java) ?: ""
+                        val nick = snap.child("nickname").getValue(String::class.java) ?: ""
                         val uname = snap.child("username").getValue(String::class.java) ?: myId
                         _uiState.value = _uiState.value.copy(myDisplayName = nick.ifBlank { uname })
                     }
@@ -168,14 +175,16 @@ class GroupChatViewModel @Inject constructor(
                     .addOnSuccessListener { snap ->
                         val usernames = snap.children.mapNotNull { it.key }
                         if (usernames.isEmpty()) return@addOnSuccessListener
-                        val members = mutableListOf<Pair<String,String>>()
-                        var loaded  = 0
+                        val members = mutableListOf<Pair<String, String>>()
+                        var loaded = 0
                         for (uname in usernames) {
                             db.getReference("online_profiles").child(uname).get()
                                 .addOnSuccessListener { pSnap ->
-                                    val nick    = pSnap.child("nickname").getValue(String::class.java) ?: ""
+                                    val nick =
+                                        pSnap.child("nickname").getValue(String::class.java) ?: ""
                                     val display = nick.ifBlank { uname }
-                                    val letter  = display.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
+                                    val letter =
+                                        display.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
                                     members.add(Pair(uname, letter))
                                     loaded++
                                     if (loaded == usernames.size) {
@@ -185,7 +194,8 @@ class GroupChatViewModel @Inject constructor(
                                     }
                                 }
                                 .addOnFailureListener {
-                                    val letter = uname.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
+                                    val letter =
+                                        uname.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
                                     members.add(Pair(uname, letter))
                                     loaded++
                                     if (loaded == usernames.size) {
@@ -202,11 +212,12 @@ class GroupChatViewModel @Inject constructor(
 
     private fun listenMessages(groupId: String, myId: String) {
         msgRef = db.getReference("group_chats").child(groupId).child("messages")
+        // Auto-wipe removed (requires Firebase index)
         val joinedAt = _uiState.value.myJoinedAt
         val query = if (joinedAt > 0L)
-            msgRef!!.orderByChild("timestamp").startAt(joinedAt.toDouble()).limitToLast(100)
+            msgRef!!.orderByChild("timestamp").startAt(joinedAt.toDouble()).limitToLast(50)
         else
-            msgRef!!.orderByChild("timestamp").limitToLast(100)
+            msgRef!!.orderByChild("timestamp").limitToLast(50)
         msgListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val msgs = mutableListOf<GroupChatMsg?>()
@@ -273,7 +284,8 @@ class GroupChatViewModel @Inject constructor(
                                 replyToPreview = replyToPreview, replyToDataType = replyToDataType,
                                 imageData   = child.child("imageData").getValue(String::class.java) ?: "",
                                 imageWidth  = child.child("imageWidth").getValue(Int::class.java) ?: 0,
-                                imageHeight = child.child("imageHeight").getValue(Int::class.java) ?: 0
+                                imageHeight = child.child("imageHeight").getValue(Int::class.java) ?: 0,
+                                imageUrl    = child.child("imageUrl").getValue(String::class.java) ?: ""
                             )
                         }
                         else -> {
@@ -381,44 +393,49 @@ class GroupChatViewModel @Inject constructor(
         val state = _uiState.value
         if (base64Jpeg.isBlank() || state.myUserId.isEmpty()) return
         val preview = "\uD83D\uDDBC\uFE0F Image"
-        val payload = mutableMapOf(
-            "senderId"    to state.myUserId,
-            "senderName"  to state.myDisplayName,
-            "dataType"    to "image",
-            "imageData"   to base64Jpeg,
-            "imageWidth"  to width,
-            "imageHeight" to height,
-            "text"        to preview,
-            "timestamp"   to ServerValue.TIMESTAMP
-        )
-        val reply = state.replyingTo
-        if (reply != null) {
-            payload["replyToId"]       = reply.id
-            payload["replyToPreview"]  = reply.replyToPreview.ifBlank { reply.text.take(60) }
-            payload["replyToDataType"] = reply.dataType
-            payload["replyToSender"]   = reply.senderName
-            _uiState.value = _uiState.value.copy(replyingTo = null)
-        }
-        val msgRef = db.getReference("group_chats").child(state.groupId).child("messages").push()
-        msgRef.setValue(payload).addOnSuccessListener {
-            db.getReference("group_members").child(state.groupId).get()
-                .addOnSuccessListener { snap ->
-                    val now = System.currentTimeMillis()
-                    val updates = mutableMapOf<String, Any>()
-                    for (child in snap.children) {
-                        val uid = child.key ?: continue
-                        val display = if (uid == state.myUserId) "You: $preview"
-                        else "${state.myDisplayName}: $preview"
-                        updates["user_groups/$uid/${state.groupId}/lastMsg"]     = display
-                        updates["user_groups/$uid/${state.groupId}/lastMsgTime"] = now
+        viewModelScope.launch {
+            val imgUrl = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                uploadToImgBB(base64Jpeg)
+            }
+            val payload = mutableMapOf(
+                "senderId" to state.myUserId,
+                "senderName" to state.myDisplayName,
+                "dataType" to "image",
+                "imageWidth" to width,
+                "imageHeight" to height,
+                "text" to preview,
+                "timestamp" to ServerValue.TIMESTAMP
+            )
+            if (imgUrl != null) payload["imageUrl"] = imgUrl else payload["imageData"] = base64Jpeg
+            val reply = state.replyingTo
+            if (reply != null) {
+                payload["replyToId"] = reply.id
+                payload["replyToPreview"] = reply.replyToPreview.ifBlank { reply.text.take(60) }
+                payload["replyToDataType"] = reply.dataType
+                payload["replyToSender"] = reply.senderName
+                _uiState.value = _uiState.value.copy(replyingTo = null)
+            }
+            val msgRef =
+                db.getReference("group_chats").child(state.groupId).child("messages").push()
+            msgRef.setValue(payload).addOnSuccessListener {
+                db.getReference("group_members").child(state.groupId).get()
+                    .addOnSuccessListener { snap ->
+                        val now = System.currentTimeMillis()
+                        val updates = mutableMapOf<String, Any>()
+                        for (child in snap.children) {
+                            val uid = child.key ?: continue
+                            val display = if (uid == state.myUserId) "You: $preview"
+                            else "${state.myDisplayName}: $preview"
+                            updates["user_groups/$uid/${state.groupId}/lastMsg"] = display
+                            updates["user_groups/$uid/${state.groupId}/lastMsgTime"] = now
+                        }
+                        if (updates.isNotEmpty()) db.reference.updateChildren(updates)
                     }
-                    if (updates.isNotEmpty()) db.reference.updateChildren(updates)
-                }
+            }
         }
     }
-
-    private var onlineRef: com.google.firebase.database.DatabaseReference? = null
-    private var onlineListener: ValueEventListener? = null
+        private var onlineRef: com.google.firebase.database.DatabaseReference? = null
+        private var onlineListener: ValueEventListener? = null
 
     fun setMyOnlineStatus(online: Boolean) {
         val myId = _uiState.value.myUserId; if (myId.isEmpty()) return
@@ -682,6 +699,42 @@ class GroupChatViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    private fun uploadToImgBB(base64Jpeg: String): String? {
+        return try {
+            val apiKey = com.nueng.translator.BuildConfig.IMGBB_API_KEY
+            val url = java.net.URL("https://api.imgbb.com/1/upload")
+            val boundary = "----FormBoundary${System.currentTimeMillis()}"
+            val conn = url.openConnection() as java.net.HttpURLConnection
+            conn.requestMethod = "POST"
+            conn.doOutput = true
+            conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=$boundary")
+            conn.connectTimeout = 30000
+            conn.readTimeout    = 30000
+            val os = conn.outputStream
+            val nl = "\r\n".toByteArray(Charsets.UTF_8)
+            val dd = "--".toByteArray(Charsets.UTF_8)
+            val b  = boundary.toByteArray(Charsets.UTF_8)
+            // key field
+            os.write(dd); os.write(b); os.write(nl)
+            os.write("Content-Disposition: form-data; name=\"key\"".toByteArray(Charsets.UTF_8))
+            os.write(nl); os.write(nl)
+            os.write(apiKey.toByteArray(Charsets.UTF_8)); os.write(nl)
+            // image field
+            os.write(dd); os.write(b); os.write(nl)
+            os.write("Content-Disposition: form-data; name=\"image\"".toByteArray(Charsets.UTF_8))
+            os.write(nl); os.write(nl)
+            os.write(base64Jpeg.toByteArray(Charsets.UTF_8)); os.write(nl)
+            // closing boundary
+            os.write(dd); os.write(b); os.write(dd); os.write(nl)
+            os.flush(); os.close()
+            val resp = conn.inputStream.bufferedReader().readText()
+            conn.disconnect()
+            val unescaped = resp.replace("\\/", "/")
+            val match = Regex("\"display_url\":\"([^\"]+)\"").find(unescaped)
+            match?.groupValues?.get(1)
+        } catch (_: Exception) { null }
     }
 
     fun clearSnackMessage() { _uiState.value = _uiState.value.copy(snackMessage = "") }

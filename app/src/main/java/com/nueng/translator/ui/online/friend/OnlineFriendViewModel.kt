@@ -20,6 +20,7 @@ data class FriendItem(
     val userId: String,
     val displayName: String,
     val avatarLetter: Char,
+    val avatarUrl: String = "",
     val lastMessage: String = "",
     val lastMessageTime: Long = 0L,
     val chatId: String = "",
@@ -30,6 +31,7 @@ data class GroupItem(
     val groupId: String,
     val groupName: String,
     val avatarLetter: Char,
+    val avatarUrl: String = "",
     val lastMessage: String = "",
     val lastMessageTime: Long = 0L,
     val memberCount: Int = 0,
@@ -121,7 +123,10 @@ class OnlineFriendViewModel @Inject constructor(
 
                     if (displayName != null) {
                         val letter = displayName.firstOrNull()?.uppercaseChar() ?: '?'
-                        friends.add(FriendItem(friendUsername, displayName, letter, lastMsg, lastTime, chatId))
+                        friends.add(FriendItem(
+                            userId = friendUsername, displayName = displayName, avatarLetter = letter,
+                            lastMessage = lastMsg, lastMessageTime = lastTime, chatId = chatId
+                        ))
                         // Real-time unread listener for this friend chat
                         val myUname = myUsername
                         val cId = chatId
@@ -184,7 +189,10 @@ class OnlineFriendViewModel @Inject constructor(
                 val letter  = name.firstOrNull()?.uppercaseChar() ?: '?'
                 val current = _uiState.value.friends.toMutableList()
                 if (current.none { it.userId == friendUsername }) {
-                    current.add(FriendItem(friendUsername, name, letter, "", 0L, chatId))
+                    current.add(FriendItem(
+                        userId = friendUsername, displayName = name, avatarLetter = letter,
+                        lastMessage = "", lastMessageTime = 0L, chatId = chatId
+                    ))
                     _uiState.value = _uiState.value.copy(
                         friends   = current.sortedByDescending { it.lastMessageTime },
                         isLoading = false
@@ -206,7 +214,21 @@ class OnlineFriendViewModel @Inject constructor(
                     val count     = child.child("memberCount").getValue(Int::class.java) ?: 0
                     if (groupName != null) {
                         val letter = groupName.firstOrNull()?.uppercaseChar() ?: 'G'
-                        groups.add(GroupItem(groupId, groupName, letter, lastMsg, lastTime, count))
+                        // avatarUrl lives in group_chats, fetch it
+                        groups.add(GroupItem(
+                            groupId = groupId, groupName = groupName, avatarLetter = letter,
+                            lastMessage = lastMsg, lastMessageTime = lastTime, memberCount = count
+                        ))
+                        db.getReference("group_chats").child(groupId).child("avatarUrl").get()
+                            .addOnSuccessListener { avatarSnap ->
+                                val url = avatarSnap.getValue(String::class.java) ?: ""
+                                if (url.isNotBlank()) {
+                                    val updated = _uiState.value.groups.map {
+                                        if (it.groupId == groupId) it.copy(avatarUrl = url) else it
+                                    }
+                                    _uiState.value = _uiState.value.copy(groups = updated)
+                                }
+                            }
                         if (count == 0) fetchAndDenormalizeGroup(myUsername, groupId)
                         // Real-time unread listener for this group
                         val myUname = myUsername
@@ -269,7 +291,10 @@ class OnlineFriendViewModel @Inject constructor(
                 val letter  = name.firstOrNull()?.uppercaseChar() ?: 'G'
                 val current = _uiState.value.groups.toMutableList()
                 if (current.none { it.groupId == groupId }) {
-                    current.add(GroupItem(groupId, name, letter, lastMsg, lastTime, count))
+                    current.add(GroupItem(
+                        groupId = groupId, groupName = name, avatarLetter = letter,
+                        lastMessage = lastMsg, lastMessageTime = lastTime, memberCount = count
+                    ))
                     _uiState.value = _uiState.value.copy(groups = current)
                 }
             }

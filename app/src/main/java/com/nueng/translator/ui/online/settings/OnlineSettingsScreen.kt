@@ -97,14 +97,14 @@ fun OnlineSettingsScreen(
                 val original = BitmapFactory.decodeStream(stream)
                 stream.close()
                 // Scale down to max 256x256 and compress to JPEG
-                val maxSize = 256
+                val maxSize = 128
                 val scale = minOf(maxSize.toFloat() / original.width, maxSize.toFloat() / original.height, 1f)
                 val scaled = if (scale < 1f) original.scale(
                     (original.width * scale).toInt(),
                     (original.height * scale).toInt()
                 ) else original
                 val out = java.io.ByteArrayOutputStream()
-                scaled.compress(Bitmap.CompressFormat.JPEG, 75, out)
+                scaled.compress(Bitmap.CompressFormat.JPEG, 60, out)
                 val base64 = Base64.encodeToString(out.toByteArray(), Base64.DEFAULT)
                 viewModel.uploadAvatar(base64)
             } catch (_: Exception) {}

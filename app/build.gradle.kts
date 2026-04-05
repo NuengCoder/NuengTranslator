@@ -1,3 +1,4 @@
+import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,19 +7,27 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.google.services)
 }
-
+val localProps = Properties()
+localProps.load((rootProject.file("local.properties").inputStream()))
 android {
     namespace = "com.nueng.translator"
     compileSdk = 36
-
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
     defaultConfig {
         applicationId = "com.nueng.translator"
         minSdk = 26
         targetSdk = 36
         versionCode = 3
-        versionName = "1.2.0"
+        versionName = "1.3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "IMGBB_API_KEY", "\"${localProps["imgbb.api.key"]}\"")
+        buildConfigField("String", "ADMIN_USERNAME", "\"${localProps["admin.username"]}\"")
+        buildConfigField("String", "ADMIN_PASSWORD", "\"${localProps["admin.password"]}\"")
     }
 
     signingConfigs {
@@ -109,6 +118,9 @@ dependencies {
 
     // Pinyin4j — offline Chinese pinyin lookup
     implementation("com.github.houbb:pinyin:0.4.0")
+
+    // Coil — async image loading from URL
+    implementation("io.coil-kt:coil-compose:2.6.0")
 
     // Firebase
     implementation(platform(libs.firebase.bom))

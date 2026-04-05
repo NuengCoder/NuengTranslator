@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -49,6 +50,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -152,7 +154,17 @@ fun GroupInfoScreen(
                     strokeWidth = 3.dp
                 )
             } else {
-                AvatarCircle(letter = uiState.groupAvatarLetter, sizeDp = 80)
+                if (uiState.groupAvatarUrl.isNotBlank()) {
+                    coil.compose.SubcomposeAsyncImage(
+                        model = coil.request.ImageRequest.Builder(androidx.compose.ui.platform.LocalContext.current)
+                            .data(uiState.groupAvatarUrl).crossfade(true).build(),
+                        contentDescription = "Group",
+                        contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+                        modifier = Modifier.size(80.dp).clip(CircleShape)
+                    )
+                } else {
+                    AvatarCircle(letter = uiState.groupAvatarLetter, sizeDp = 80)
+                }
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(uiState.groupName, fontSize = 22.sp, fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface, textAlign = TextAlign.Center)

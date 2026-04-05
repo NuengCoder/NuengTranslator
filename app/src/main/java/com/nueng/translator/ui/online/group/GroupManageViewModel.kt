@@ -50,7 +50,8 @@ data class GroupManageUiState(
     val requestsExpanded: Boolean = true,
     val autoAccept: Boolean = false,
     val snackMessage: String = "",
-    val shouldNavigateBack: Boolean = false
+    val shouldNavigateBack: Boolean = false,
+    val groupAvatarUrl: String = ""
 )
 
 @HiltViewModel
@@ -80,8 +81,9 @@ class GroupManageViewModel @Inject constructor(
             // Load group name
             db.getReference("group_chats").child(groupId).get()
                 .addOnSuccessListener { snap ->
-                    val name = snap.child("name").getValue(String::class.java) ?: "Group"
-                    _uiState.value = _uiState.value.copy(groupName = name)
+                    val name      = snap.child("name").getValue(String::class.java) ?: "Group"
+                    val avatarUrl = snap.child("avatarUrl").getValue(String::class.java) ?: ""
+                    _uiState.value = _uiState.value.copy(groupName = name, groupAvatarUrl = avatarUrl)
                 }
 
             // Load auto-accept setting
@@ -358,6 +360,51 @@ class GroupManageViewModel @Inject constructor(
 
     fun toggleMembersExpanded() {
         _uiState.value = _uiState.value.copy(membersExpanded = !_uiState.value.membersExpanded)
+    }
+
+    fun uploadGroupAvatar(base64Jpeg: String) {
+        val state = _uiState.value
+        if (state.myRole !in listOf("creator","admin")) return
+        viewModelScope.launch {
+            val imgUrl = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                try {
+                    val apiKey   = com.nueng.translator.BuildConfig.IMGBB_API_KEY
+                    val url      = java.net.URL("https://api.imgbb.com/1/upload")
+                    val boundary = "----FormBoundary" + System.currentTimeMillis().toString()
+                    val conn     = url.openConnection() as java.net.HttpURLConnection
+                    conn.requestMethod = "POST"
+                    conn.doOutput     = true
+                    conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary)
+                    conn.connectTimeout = 30000
+                    conn.readTimeout    = 30000
+                    val os = conn.outputStream
+                    val nl = "\r\n".toByteArray(Charsets.UTF_8)
+                    val dd = "--".toByteArray(Charsets.UTF_8)
+                    val b  = boundary.toByteArray(Charsets.UTF_8)
+                    os.write(dd); os.write(b); os.write(nl)
+                    os.write("Content-Disposition: form-data; name=\"key\"".toByteArray(Charsets.UTF_8))
+                    os.write(nl); os.write(nl)
+                    os.write(apiKey.toByteArray(Charsets.UTF_8)); os.write(nl)
+                    os.write(dd); os.write(b); os.write(nl)
+                    os.write("Content-Disposition: form-data; name=\"image\"".toByteArray(Charsets.UTF_8))
+                    os.write(nl); os.write(nl)
+                    os.write(base64Jpeg.toByteArray(Charsets.UTF_8)); os.write(nl)
+                    os.write(dd); os.write(b); os.write(dd); os.write(nl)
+                    os.flush(); os.close()
+                    val resp      = conn.inputStream.bufferedReader().readText()
+                    conn.disconnect()
+                    val unescaped = resp.replace("\\/", "/")
+                    val match     = Regex("\"display_url\":\"([^\"]+)\"").find(unescaped)
+                    match?.groupValues?.get(1)
+                } catch (_: Exception) { null }
+            }
+            if (imgUrl != null) {
+                db.getReference("group_chats").child(state.groupId).child("avatarUrl").setValue(imgUrl)
+                _uiState.value = _uiState.value.copy(groupAvatarUrl = imgUrl, snackMessage = "Group photo updated!")
+            } else {
+                _uiState.value = _uiState.value.copy(snackMessage = "Upload failed, try again")
+            }
+        }
     }
 
     fun clearSnack() { _uiState.value = _uiState.value.copy(snackMessage = "") }

@@ -19,7 +19,6 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.ui.input.pointer.pointerInput
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.util.Base64
@@ -160,6 +159,7 @@ fun FriendChatScreen(
     val uiState       by viewModel.uiState.collectAsState()
     val listState      = rememberLazyListState()
     val snackbarState  = remember { SnackbarHostState() }
+    @Suppress("DEPRECATION")
     val clipboard      = LocalClipboardManager.current
     var inputText      by remember { mutableStateOf(TextFieldValue("")) }
     var msgToDownload  by remember { mutableStateOf<ChatMsg?>(null) }
@@ -198,15 +198,16 @@ fun FriendChatScreen(
                 val stream   = context.contentResolver.openInputStream(uri) ?: return@let
                 val original = BitmapFactory.decodeStream(stream)
                 stream.close()
-                val maxSize  = 800
-                val scale    = minOf(maxSize.toFloat() / original.width, maxSize.toFloat() / original.height, 1f)
-                val scaled   = if (scale < 1f) Bitmap.createScaledBitmap(
+                // Scale to max 1920px for upload (visually lossless, avoids EOFException)
+                val maxSize = 1920
+                val scale = minOf(maxSize.toFloat() / original.width, maxSize.toFloat() / original.height, 1f)
+                val upload = if (scale < 1f) android.graphics.Bitmap.createScaledBitmap(
                     original, (original.width * scale).toInt(), (original.height * scale).toInt(), true
                 ) else original
                 val out = java.io.ByteArrayOutputStream()
-                scaled.compress(Bitmap.CompressFormat.JPEG, 80, out)
+                upload.compress(android.graphics.Bitmap.CompressFormat.JPEG, 85, out)
                 val b64 = Base64.encodeToString(out.toByteArray(), Base64.DEFAULT)
-                viewModel.sendImage(b64, scaled.width, scaled.height)
+                viewModel.sendImage(b64, upload.width, upload.height)
             } catch (_: Exception) {}
         }
     }
@@ -597,6 +598,7 @@ fun FriendChatScreen(
                                 ) {
                                     ImageChatBubble(
                                         imageData    = msg.imageData,
+                                        imageUrl     = msg.imageUrl,
                                         isOwn        = msg.isOwn,
                                         senderName   = msg.senderName,
                                         senderLetter = msg.senderAvatarLetter,

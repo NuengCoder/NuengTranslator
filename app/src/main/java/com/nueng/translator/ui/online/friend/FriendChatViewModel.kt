@@ -57,6 +57,7 @@ data class ChatMsg(
     val imageData: String = "",
     val imageWidth: Int = 0,
     val imageHeight: Int = 0,
+    val imageUrl: String = "",
     // group_invite
     val groupId: String = "",
     val groupName: String = "",
@@ -241,7 +242,8 @@ class FriendChatViewModel @Inject constructor(
 
     private fun listenMessages(chatId: String, myId: String) {
         msgRef = db.getReference("friend_chats").child(chatId).child("messages")
-        val query = msgRef!!.orderByChild("timestamp").limitToLast(100)
+        // Auto-wipe removed (requires Firebase index)
+        val query = msgRef!!.orderByChild("timestamp").limitToLast(50)
         msgListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val msgs = mutableListOf<ChatMsg>()
@@ -361,6 +363,7 @@ class FriendChatViewModel @Inject constructor(
                 imageData = child.child("imageData").getValue(String::class.java) ?: "",
                 imageWidth = child.child("imageWidth").getValue(Int::class.java) ?: 0,
                 imageHeight = child.child("imageHeight").getValue(Int::class.java) ?: 0,
+                imageUrl = child.child("imageUrl").getValue(String::class.java) ?: "",
                 isDeleted = fDeleted, deletedBy = fDeletedBy,
                 replyToId = child.child("replyToId").getValue(String::class.java) ?: "",
                 replyToPreview = child.child("replyToPreview").getValue(String::class.java) ?: "",
@@ -454,32 +457,37 @@ class FriendChatViewModel @Inject constructor(
 
     fun sendImage(base64Jpeg: String, width: Int, height: Int) {
         val state = _uiState.value
+        android.util.Log.d("SENDIMG", "sendImage called b64len=${base64Jpeg.length} userId=${state.myUserId} chatId=${state.chatId}")
         if (base64Jpeg.isBlank() || state.myUserId.isEmpty()) return
         val preview = "\uD83D\uDDBC\uFE0F Image"
-        val payload = mutableMapOf(
-            "senderId"    to state.myUserId,
-            "senderName"  to state.myDisplayName,
-            "dataType"    to "image",
-            "imageData"   to base64Jpeg,
-            "imageWidth"  to width,
-            "imageHeight" to height,
-            "text"        to preview,
-            "timestamp"   to ServerValue.TIMESTAMP
-        )
-        val reply = state.replyingTo
-        if (reply != null) {
-            payload["replyToId"]       = reply.id
-            payload["replyToPreview"]  = reply.replyToPreview.ifBlank { reply.text.take(60) }
-            payload["replyToDataType"] = reply.dataType
-            payload["replyToSender"]   = reply.senderName
-            _uiState.value = _uiState.value.copy(replyingTo = null)
+        viewModelScope.launch {
+            val imgUrl = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { uploadToImgBB(base64Jpeg) }
+            android.util.Log.d("SENDIMG", "imgUrl=$imgUrl")
+            val payload = mutableMapOf(
+                "senderId"    to state.myUserId,
+                "senderName"  to state.myDisplayName,
+                "dataType"    to "image",
+                "imageWidth"  to width,
+                "imageHeight" to height,
+                "text"        to preview,
+                "timestamp"   to ServerValue.TIMESTAMP
+            )
+            if (imgUrl != null) payload["imageUrl"] = imgUrl else payload["imageData"] = base64Jpeg
+            val reply = state.replyingTo
+            if (reply != null) {
+                payload["replyToId"]       = reply.id
+                payload["replyToPreview"]  = reply.replyToPreview.ifBlank { reply.text.take(60) }
+                payload["replyToDataType"] = reply.dataType
+                payload["replyToSender"]   = reply.senderName
+                _uiState.value = _uiState.value.copy(replyingTo = null)
+            }
+            db.getReference("friend_chats").child(state.chatId).child("messages").push().setValue(payload)
+            val now = System.currentTimeMillis()
+            db.getReference("friends").child(state.myUserId).child(state.friendUserId)
+                .updateChildren(mapOf("lastMsg" to "You: $preview", "lastMsgTime" to now))
+            db.getReference("friends").child(state.friendUserId).child(state.myUserId)
+                .updateChildren(mapOf("lastMsg" to "${state.myDisplayName}: $preview", "lastMsgTime" to now))
         }
-        db.getReference("friend_chats").child(state.chatId).child("messages").push().setValue(payload)
-        val now = System.currentTimeMillis()
-        db.getReference("friends").child(state.myUserId).child(state.friendUserId)
-            .updateChildren(mapOf("lastMsg" to "You: $preview", "lastMsgTime" to now))
-        db.getReference("friends").child(state.friendUserId).child(state.myUserId)
-            .updateChildren(mapOf("lastMsg" to "${state.myDisplayName}: $preview", "lastMsgTime" to now))
     }
 
     fun acceptGroupInvite(msg: ChatMsg) {
@@ -744,6 +752,42 @@ class FriendChatViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    private fun uploadToImgBB(base64Jpeg: String): String? {
+        return try {
+            val apiKey = com.nueng.translator.BuildConfig.IMGBB_API_KEY
+            val url = java.net.URL("https://api.imgbb.com/1/upload")
+            val boundary = "----FormBoundary${System.currentTimeMillis()}"
+            val conn = url.openConnection() as java.net.HttpURLConnection
+            conn.requestMethod = "POST"
+            conn.doOutput = true
+            conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=$boundary")
+            conn.connectTimeout = 30000
+            conn.readTimeout    = 30000
+            val os = conn.outputStream
+            val nl = "\r\n".toByteArray(Charsets.UTF_8)
+            val dd = "--".toByteArray(Charsets.UTF_8)
+            val b  = boundary.toByteArray(Charsets.UTF_8)
+            // key field
+            os.write(dd); os.write(b); os.write(nl)
+            os.write("Content-Disposition: form-data; name=\"key\"".toByteArray(Charsets.UTF_8))
+            os.write(nl); os.write(nl)
+            os.write(apiKey.toByteArray(Charsets.UTF_8)); os.write(nl)
+            // image field
+            os.write(dd); os.write(b); os.write(nl)
+            os.write("Content-Disposition: form-data; name=\"image\"".toByteArray(Charsets.UTF_8))
+            os.write(nl); os.write(nl)
+            os.write(base64Jpeg.toByteArray(Charsets.UTF_8)); os.write(nl)
+            // closing boundary
+            os.write(dd); os.write(b); os.write(dd); os.write(nl)
+            os.flush(); os.close()
+            val resp = conn.inputStream.bufferedReader().readText()
+            conn.disconnect()
+            val unescaped = resp.replace("\\/", "/")
+            val match = Regex("\"display_url\":\"([^\"]+)\"").find(unescaped)
+            match?.groupValues?.get(1)
+        } catch (e: Exception) { android.util.Log.e("IMGBB", "Upload failed", e); null }
     }
 
     fun clearSnackMessage() { _uiState.value = _uiState.value.copy(snackMessage = "") }

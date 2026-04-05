@@ -213,21 +213,67 @@ class OnlineSettingsViewModel @Inject constructor(
         val username = _uiState.value.username
         if (username.isBlank()) return
         _uiState.value = _uiState.value.copy(isSaving = true)
-        db.getReference("online_profiles").child(username)
-            .updateChildren(mapOf("avatarBase64" to base64Jpeg))
-            .addOnSuccessListener {
-                _uiState.value = _uiState.value.copy(
-                    isSaving     = false,
-                    avatarBase64 = base64Jpeg,
-                    saveMessage  = "Profile photo updated!"
-                )
+        viewModelScope.launch {
+            val imgUrl = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                try {
+                    val apiKey   = com.nueng.translator.BuildConfig.IMGBB_API_KEY
+                    val url      = java.net.URL("https://api.imgbb.com/1/upload")
+                    val boundary = "----FormBoundary" + System.currentTimeMillis().toString()
+                    val conn     = url.openConnection() as java.net.HttpURLConnection
+                    conn.requestMethod = "POST"
+                    conn.doOutput     = true
+                    conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary)
+                    conn.connectTimeout = 30000
+                    conn.readTimeout    = 30000
+                    val os = conn.outputStream
+                    val nl = "\r\n".toByteArray(Charsets.UTF_8)
+                    val dd = "--".toByteArray(Charsets.UTF_8)
+                    val b  = boundary.toByteArray(Charsets.UTF_8)
+                    os.write(dd); os.write(b); os.write(nl)
+                    os.write("Content-Disposition: form-data; name=\"key\"".toByteArray(Charsets.UTF_8))
+                    os.write(nl); os.write(nl)
+                    os.write(apiKey.toByteArray(Charsets.UTF_8)); os.write(nl)
+                    os.write(dd); os.write(b); os.write(nl)
+                    os.write("Content-Disposition: form-data; name=\"image\"".toByteArray(Charsets.UTF_8))
+                    os.write(nl); os.write(nl)
+                    os.write(base64Jpeg.toByteArray(Charsets.UTF_8)); os.write(nl)
+                    os.write(dd); os.write(b); os.write(dd); os.write(nl)
+                    os.flush(); os.close()
+                    val resp      = conn.inputStream.bufferedReader().readText()
+                    conn.disconnect()
+                    val unescaped = resp.replace("\\/", "/")
+                    val match     = Regex("\"display_url\":\"([^\"]+)\"").find(unescaped)
+                    match?.groupValues?.get(1)
+                } catch (_: Exception) { null }
             }
-            .addOnFailureListener { e ->
-                _uiState.value = _uiState.value.copy(
-                    isSaving    = false,
-                    saveMessage = "Upload failed: " + (e.message ?: "error")
-                )
+            if (imgUrl != null) {
+                db.getReference("online_profiles").child(username)
+                    .updateChildren(mapOf("avatarUrl" to imgUrl))
+                    .addOnSuccessListener {
+                        _uiState.value = _uiState.value.copy(
+                            isSaving     = false,
+                            avatarBase64 = base64Jpeg,
+                            saveMessage  = "Profile photo updated!"
+                        )
+                    }
+            } else {
+                db.getReference("online_profiles").child(username)
+                    .updateChildren(mapOf("avatarBase64" to base64Jpeg))
+                    .addOnSuccessListener {
+                        _uiState.value = _uiState.value.copy(
+                            isSaving     = false,
+                            avatarBase64 = base64Jpeg,
+                            saveMessage  = "Profile photo updated!"
+                        )
+                    }
+                    .addOnFailureListener { e ->
+                        _uiState.value = _uiState.value.copy(
+                            isSaving    = false,
+                            saveMessage = "Upload failed: " + (e.message ?: "error")
+                        )
+                    }
             }
+        }
     }
 
     fun clearSaveMessage() { _uiState.value = _uiState.value.copy(saveMessage = "") }

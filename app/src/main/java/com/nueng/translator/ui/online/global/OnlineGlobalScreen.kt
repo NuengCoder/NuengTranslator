@@ -144,6 +144,7 @@ fun OnlineGlobalScreen(
     val uiState   by viewModel.uiState.collectAsState()
     val listState  = rememberLazyListState()
     var inputText  by remember { mutableStateOf(TextFieldValue("")) }
+    @Suppress("DEPRECATION")
     val clipboard  = LocalClipboardManager.current
 
     var actionMsg              by remember { mutableStateOf<GlobalMsg?>(null) }

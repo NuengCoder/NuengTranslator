@@ -11,3 +11,4 @@ local.properties
 /app/build
 /app/keystore/
 /app/google-services.json
+database.rules.json

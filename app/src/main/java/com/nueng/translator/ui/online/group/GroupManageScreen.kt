@@ -3,6 +3,14 @@ package com.nueng.translator.ui.online.group
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.util.Base64
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -22,6 +30,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AdminPanelSettings
+import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Switch
 import androidx.compose.material.icons.filled.Close
@@ -69,8 +78,9 @@ import com.nueng.translator.ui.online.settings.AvatarCircle
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.core.graphics.scale
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun GroupManageScreen(
     groupId: String,
@@ -85,6 +95,29 @@ fun GroupManageScreen(
     var promoteTarget by remember { mutableStateOf<ManageMemberItem?>(null) }
     var demoteTarget  by remember { mutableStateOf<ManageMemberItem?>(null) }
     var showWipeDlg   by remember { mutableStateOf(false) }
+
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val avatarLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        uri?.let {
+            try {
+                val stream   = context.contentResolver.openInputStream(uri) ?: return@let
+                val original = BitmapFactory.decodeStream(stream)
+                stream.close()
+                val maxSize  = 256
+                val scale    = minOf(maxSize.toFloat() / original.width, maxSize.toFloat() / original.height, 1f)
+                val scaled   = if (scale < 1f) original.scale(
+                    (original.width * scale).toInt(),
+                    (original.height * scale).toInt()
+                ) else original
+                val out = java.io.ByteArrayOutputStream()
+                scaled.compress(Bitmap.CompressFormat.JPEG, 80, out)
+                val b64 = Base64.encodeToString(out.toByteArray(), Base64.DEFAULT)
+                viewModel.uploadGroupAvatar(b64)
+            } catch (_: Exception) {}
+        }
+    }
 
     LaunchedEffect(groupId) { viewModel.load(groupId) }
     LaunchedEffect(uiState.snackMessage) {
@@ -169,13 +202,52 @@ fun GroupManageScreen(
                     Spacer(Modifier.height(16.dp))
                     Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                         horizontalAlignment = Alignment.CenterHorizontally) {
-                        Box(modifier = Modifier.size(80.dp).clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.primary),
-                            contentAlignment = Alignment.Center) {
-                            Text(uiState.groupName.firstOrNull()?.uppercaseChar()?.toString() ?: "G",
-                                fontSize = 36.sp, fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onPrimary,
-                                lineHeight = 36.sp)
+                        val canEditAvatar = uiState.myRole in listOf("creator","admin")
+                        Box(contentAlignment = Alignment.BottomEnd) {
+                            Box(
+                                modifier = Modifier
+                                    .size(80.dp)
+                                    .clip(CircleShape)
+                                    .then(if (canEditAvatar)
+                                        Modifier.combinedClickable(
+                                            onClick = {},
+                                            onLongClick = { avatarLauncher.launch("image/*") }
+                                        )
+                                    else Modifier),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                if (uiState.groupAvatarUrl.isNotBlank()) {
+                                    coil.compose.SubcomposeAsyncImage(
+                                        model   = coil.request.ImageRequest.Builder(context)
+                                            .data(uiState.groupAvatarUrl).crossfade(true).build(),
+                                        contentDescription = "Group avatar",
+                                        contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+                                        modifier = Modifier.size(80.dp).clip(CircleShape)
+                                    )
+                                } else {
+                                    Box(modifier = Modifier.size(80.dp).clip(CircleShape)
+                                        .background(MaterialTheme.colorScheme.primary),
+                                        contentAlignment = Alignment.Center) {
+                                        Text(uiState.groupName.firstOrNull()?.uppercaseChar()?.toString() ?: "G",
+                                            fontSize = 36.sp, fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.onPrimary,
+                                            lineHeight = 36.sp)
+                                    }
+                                }
+                            }
+                            if (canEditAvatar) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(24.dp)
+                                        .clip(CircleShape)
+                                        .background(MaterialTheme.colorScheme.primary),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Icon(Icons.Default.CameraAlt, "Change photo",
+                                        tint = MaterialTheme.colorScheme.onPrimary,
+                                        modifier = Modifier.size(14.dp))
+                                }
+                            }
                         }
                         Spacer(Modifier.height(12.dp))
                         if (uiState.myRole in listOf("creator","admin")) {

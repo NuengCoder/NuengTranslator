@@ -1,5 +1,6 @@
 package com.nueng.translator.ui.online.group
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
@@ -124,6 +125,7 @@ import androidx.core.graphics.scale
 
 private val GC_QUICK_EMOJIS = listOf("\u2764\uFE0F","\uD83D\uDE02","\uD83D\uDE2E","\uD83D\uDE22","\uD83D\uDE21","\uD83D\uDC4D")
 
+@SuppressLint("UseKtx")
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class, ExperimentalLayoutApi::class)
 @Composable
 fun GroupChatScreen(
@@ -136,6 +138,7 @@ fun GroupChatScreen(
     val uiState      by viewModel.uiState.collectAsState()
     val listState     = rememberLazyListState()
     val snackbarState = remember { SnackbarHostState() }
+    @Suppress("DEPRECATION")
     val clipboard     = LocalClipboardManager.current
     var inputText     by remember { mutableStateOf(TextFieldValue("")) }
     var msgToDownload by remember { mutableStateOf<GroupChatMsg?>(null) }
@@ -153,15 +156,17 @@ fun GroupChatScreen(
                 val stream   = context.contentResolver.openInputStream(uri) ?: return@let
                 val original = BitmapFactory.decodeStream(stream)
                 stream.close()
-                val maxSize  = 800
-                val scale    = minOf(maxSize.toFloat() / original.width, maxSize.toFloat() / original.height, 1f)
-                val scaled   = if (scale < 1f) original.scale((original.width * scale).toInt(),
+                // Scale to max 1920px for upload (visually lossless, avoids EOFException)
+                val maxSize = 1920
+                val scale = minOf(maxSize.toFloat() / original.width, maxSize.toFloat() / original.height, 1f)
+                val upload = if (scale < 1f) original.scale(
+                    (original.width * scale).toInt(),
                     (original.height * scale).toInt()
                 ) else original
                 val out = java.io.ByteArrayOutputStream()
-                scaled.compress(Bitmap.CompressFormat.JPEG, 80, out)
+                upload.compress(Bitmap.CompressFormat.JPEG, 85, out)
                 val b64 = Base64.encodeToString(out.toByteArray(), Base64.DEFAULT)
-                viewModel.sendImage(b64, scaled.width, scaled.height)
+                viewModel.sendImage(b64, upload.width, upload.height)
             } catch (_: Exception) {}
         }
     }
@@ -329,7 +334,17 @@ fun GroupChatScreen(
                 TopAppBar(
                     title = {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            AvatarCircle(letter = uiState.groupAvatarLetter, sizeDp = 34)
+                            if (uiState.groupAvatarUrl.isNotBlank()) {
+                                coil.compose.SubcomposeAsyncImage(
+                                    model = coil.request.ImageRequest.Builder(androidx.compose.ui.platform.LocalContext.current)
+                                        .data(uiState.groupAvatarUrl).crossfade(true).build(),
+                                    contentDescription = "Group",
+                                    contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+                                    modifier = Modifier.size(34.dp).clip(CircleShape)
+                                )
+                            } else {
+                                AvatarCircle(letter = uiState.groupAvatarLetter, sizeDp = 34)
+                            }
                             Spacer(Modifier.width(10.dp))
                             Column {
                                 Text(uiState.groupName.ifBlank { "..." }, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, maxLines = 1)
@@ -449,7 +464,7 @@ fun GroupChatScreen(
                                     canDeleteAll=viewModel.canDeleteForEveryone(msg)
                                 ) {
                                     com.nueng.translator.ui.online.friend.ImageChatBubble(
-                                        imageData=msg.imageData, isOwn=msg.isOwn,
+                                        imageData=msg.imageData, imageUrl=msg.imageUrl, isOwn=msg.isOwn,
                                         senderName=msg.senderName, senderLetter=msg.senderAvatarLetter,
                                         senderId=msg.senderId, timestamp=msg.timestamp,
                                         isDeleted=msg.isDeleted, deletedBy=msg.deletedBy

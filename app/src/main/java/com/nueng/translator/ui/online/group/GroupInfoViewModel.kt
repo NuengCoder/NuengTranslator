@@ -24,6 +24,7 @@ data class GroupInfoUiState(
     val groupId: String = "",
     val groupName: String = "",
     val groupAvatarLetter: Char = 'G',
+    val groupAvatarUrl: String = "",
     val members: List<GroupMemberItem> = emptyList(),
     val myUserId: String = "",
     val myRole: String = "member",
@@ -64,6 +65,11 @@ class GroupInfoViewModel @Inject constructor(
                     val name   = snap.child("name").getValue(String::class.java) ?: "Group"
                     val letter = if (name.isNotEmpty()) name.first().uppercaseChar() else 'G'
                     _uiState.value = _uiState.value.copy(groupName = name, groupAvatarLetter = letter)
+                    db.getReference("group_chats").child(groupId).child("avatarUrl").get()
+                        .addOnSuccessListener { avatarSnap ->
+                            val url = avatarSnap.getValue(String::class.java) ?: ""
+                            _uiState.value = _uiState.value.copy(groupAvatarUrl = url)
+                        }
                 }
 
             // Load members + roles
