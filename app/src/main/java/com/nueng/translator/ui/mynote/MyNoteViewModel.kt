@@ -3,6 +3,7 @@ package com.nueng.translator.ui.mynote
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nueng.translator.data.local.PreferencesManager
+import com.nueng.translator.data.local.dao.UserDao
 import com.nueng.translator.data.local.entity.UserDirectory
 import com.nueng.translator.data.repository.UserDirectoryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,7 +26,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MyNoteViewModel @Inject constructor(
     private val userDirectoryRepository: UserDirectoryRepository,
-    private val preferencesManager: PreferencesManager
+    private val preferencesManager: PreferencesManager,
+    private val userDao: UserDao
 ) : ViewModel() {
 
     private val _searchQuery = MutableStateFlow("")
@@ -36,6 +38,8 @@ class MyNoteViewModel @Inject constructor(
 
     private val _userId = MutableStateFlow(-1L)
     val userId: StateFlow<Long> = _userId.asStateFlow()
+
+    private val _username = MutableStateFlow("")
 
     val directories: StateFlow<List<UserDirectory>> = combine(
         _searchQuery.debounce(300),
@@ -49,8 +53,12 @@ class MyNoteViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            _userId.value = preferencesManager.loggedInUserId.first()
+            val uid = preferencesManager.loggedInUserId.first()
+            _userId.value = uid
             _isGuest.value = preferencesManager.isGuest.first()
+            if (uid > 0) {
+                _username.value = userDao.getUserById(uid)?.username ?: ""
+            }
         }
     }
 
@@ -59,13 +67,16 @@ class MyNoteViewModel @Inject constructor(
     fun addDirectory(name: String) {
         if (name.isBlank()) return
         viewModelScope.launch {
+            // Wait for username to be loaded (avoids race condition)
+            val username = _username.value.ifBlank { _username.first { it.isNotBlank() } }
             val count = userDirectoryRepository.getDirectoryCount(_userId.value)
             userDirectoryRepository.addDirectory(
                 UserDirectory(
-                    userId = _userId.value,
-                    name = name.trim(),
+                    userId    = _userId.value,
+                    name      = name.trim(),
                     sortIndex = count
-                )
+                ),
+                username = username
             )
         }
     }
@@ -73,22 +84,31 @@ class MyNoteViewModel @Inject constructor(
     fun renameDirectory(directory: UserDirectory, newName: String) {
         if (newName.isBlank()) return
         viewModelScope.launch {
-            userDirectoryRepository.updateDirectory(directory.copy(name = newName.trim()))
+            val username = _username.value.ifBlank { _username.first { it.isNotBlank() } }
+            userDirectoryRepository.updateDirectory(
+                directory.copy(name = newName.trim()),
+                username = username
+            )
         }
     }
 
     fun deleteDirectory(directory: UserDirectory) {
         viewModelScope.launch {
-            userDirectoryRepository.deleteDirectory(directory)
+            val username = _username.value.ifBlank { _username.first { it.isNotBlank() } }
+            userDirectoryRepository.deleteDirectory(directory, username = username)
         }
     }
 
-    // Called after drag-to-reorder: save new order to DB
     fun reorderDirectories(reordered: List<UserDirectory>) {
         viewModelScope.launch {
+            val username = _username.value.ifBlank { _username.first { it.isNotBlank() } }
             reordered.forEachIndexed { index, dir ->
                 if (dir.sortIndex != index) {
                     userDirectoryRepository.updateSortIndex(dir.id, index)
+                    // Sync reorder to Firebase too
+                    userDirectoryRepository.updateDirectory(
+                        dir.copy(sortIndex = index), username = username
+                    )
                 }
             }
         }

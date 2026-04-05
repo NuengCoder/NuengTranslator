@@ -41,7 +41,4 @@ val NoteCardDarkBg = Color(0xFF2A2A2A)
 val DarkNoteBorder = Color(0xFF64B5F6) // Light blue
 val LightNoteBorder = Color(0xFFC2185B) // Magenta
 
-// Admin colors (fixed)
-val AdminAqua = Color(0xFF00BCD4)
-val AdminDarkBlue = Color(0xFF0A1929)
-val AdminDarkBlueSurface = Color(0xFF0D47A1)
+

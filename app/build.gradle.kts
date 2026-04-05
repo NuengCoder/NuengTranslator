@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material.icons.extended)
+    implementation(libs.androidx.animation.core)
     debugImplementation(libs.androidx.ui.tooling)
 
     // Navigation
@@ -101,6 +102,13 @@ dependencies {
     implementation(libs.camerax.camera2)
     implementation(libs.camerax.lifecycle)
     implementation(libs.camerax.view)
+
+    // QR Code generate + scan
+    implementation("com.google.zxing:core:3.5.3")
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar") { isTransitive = true }
+
+    // Pinyin4j — offline Chinese pinyin lookup
+    implementation("com.github.houbb:pinyin:0.4.0")
 
     // Firebase
     implementation(platform(libs.firebase.bom))

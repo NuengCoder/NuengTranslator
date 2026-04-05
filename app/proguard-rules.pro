@@ -13,3 +13,5 @@
 -dontwarn com.google.mlkit.**
 -keep class androidx.camera.** { *; }
 -dontwarn androidx.camera.**
+
+

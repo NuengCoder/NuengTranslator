@@ -105,7 +105,7 @@ private fun launchSpeechRecognizer(
 
     try {
         launcher.launch(intent)
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         // Speech recognizer not available on this device
     }
 }

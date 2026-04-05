@@ -2,7 +2,6 @@ package com.nueng.translator.ui.mynote
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
@@ -19,7 +18,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -330,5 +328,5 @@ fun DirectoryNameDialog(
     )
 }
 
-private fun androidx.compose.ui.graphics.Color.luminance(): Float =
+private fun Color.luminance(): Float =
     (0.299f * red + 0.587f * green + 0.114f * blue)

@@ -209,5 +209,5 @@ private fun NoteCard(note: UserData, onEdit: (UserData) -> Unit, onDelete: (User
     }
 }
 
-private fun androidx.compose.ui.graphics.Color.luminance(): Float =
+private fun Color.luminance(): Float =
     (0.299f * red + 0.587f * green + 0.114f * blue)

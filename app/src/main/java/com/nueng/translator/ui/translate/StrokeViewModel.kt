@@ -3,7 +3,6 @@ package com.nueng.translator.ui.translate
 import android.util.Log
 import androidx.compose.ui.geometry.Offset
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.google.mlkit.common.MlKitException
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.common.model.RemoteModelManager
@@ -16,7 +15,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class StrokeUiState(
@@ -68,7 +66,7 @@ class StrokeViewModel @Inject constructor() : ViewModel() {
         val modelIdentifier: DigitalInkRecognitionModelIdentifier?
         try {
             modelIdentifier = DigitalInkRecognitionModelIdentifier.fromLanguageTag(langTag)
-        } catch (e: MlKitException) {
+        } catch (_: MlKitException) {
             _uiState.value = _uiState.value.copy(
                 isDownloading = false,
                 errorMessage = "Language not supported: $langTag"

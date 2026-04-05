@@ -5,7 +5,6 @@ import android.util.Log
 import com.nueng.translator.data.local.dao.LanguageWordDao
 import com.nueng.translator.data.local.entity.LanguageWord
 import com.nueng.translator.data.model.Hsk1Words
-import com.nueng.translator.data.model.HskWord
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

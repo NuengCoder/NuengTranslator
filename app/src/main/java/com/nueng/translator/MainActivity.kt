@@ -21,28 +21,30 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var userDao: UserDao
-
-    @Inject
-    lateinit var preferencesManager: PreferencesManager
+    @Inject lateinit var userDao: UserDao
+    @Inject lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val isDarkMode by preferencesManager.isDarkMode.collectAsState(initial = true)
+            val isDarkMode  by preferencesManager.isDarkMode.collectAsState(initial = true)
+            val colorFg     by preferencesManager.colorFg.collectAsState(initial = 0L)
+            val colorBg     by preferencesManager.colorBg.collectAsState(initial = 0L)
+            val colorText   by preferencesManager.colorText.collectAsState(initial = 0L)
+            val colorAppText by preferencesManager.colorAppText.collectAsState(initial = 0L)
 
-            NuengTranslatorTheme(darkTheme = isDarkMode) {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
+            NuengTranslatorTheme(
+                darkTheme     = isDarkMode,
+                customFg      = colorFg,
+                customBg      = colorBg,
+                customText    = colorText,
+                customAppText = colorAppText
+            ) {
+                Surface(modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background) {
                     val navController = rememberNavController()
-                    NavGraph(
-                        navController = navController,
-                        userDao = userDao
-                    )
+                    NavGraph(navController = navController, userDao = userDao)
                 }
             }
         }

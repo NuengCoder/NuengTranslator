@@ -1,0 +1,97 @@
+{
+  "rules": {
+    "online_profiles": {
+      "$userId": {
+        ".read":  true,
+        ".write": "auth == null || auth.uid == $userId",
+        ".validate": "newData.hasChildren(['username'])"
+      }
+    },
+
+    "friends": {
+      "$userId": {
+        ".read":  "auth == null || auth.uid == $userId",
+        ".write": "auth == null || auth.uid == $userId"
+      }
+    },
+
+   "friend_requests": {
+      "$userId": {
+        ".read":  "auth == null || auth.uid == $userId",
+        ".write": "auth == null || auth.uid == $userId"
+      }
+    },
+
+  "friend_chats": {
+      "$chatId": {
+        ".read":  "auth == null || $chatId.contains(auth.uid)",
+        ".write": "auth == null || $chatId.contains(auth.uid)",
+        "messages": {
+          "$msgId": {
+            ".validate": "newData.hasChildren(['senderId','senderName','text','timestamp']) && newData.child('text').val().length <= 2000"
+          }
+        }
+      }
+    },
+
+    "group_chats": {
+      "$groupId": {
+        ".read":  "auth == null || root.child('group_members').child($groupId).child(auth.uid).exists()",
+        ".write": "auth == null || root.child('group_members').child($groupId).child(auth.uid).exists()",
+        "messages": {
+          "$msgId": {
+            ".validate": "newData.hasChildren(['senderId','senderName','text','timestamp']) && newData.child('text').val().length <= 2000"
+          }
+        }
+      }
+    },
+
+    "group_members": {
+      "$groupId": {
+        ".read":  "auth == null || root.child('group_members').child($groupId).child(auth.uid).exists()",
+        ".write": "auth == null || root.child('group_members').child($groupId).child(auth.uid).child('role').val() == 'admin'"
+      }
+    },
+
+   "user_groups": {
+      "$userId": {
+        ".read":  "auth == null || auth.uid == $userId",
+        ".write": "auth == null || auth.uid == $userId"
+      }
+    },
+
+   "block_list": {
+      "$userId": {
+        ".read":  "auth == null || auth.uid == $userId",
+        ".write": "auth == null || auth.uid == $userId"
+      }
+    },
+
+    "global_chat": {
+      ".read": true,
+      "last_wipe": {
+        ".write": true
+      },
+      "messages": {
+        "$msgId": {
+          ".write": "auth == null || auth.uid != null",
+          ".validate": "newData.hasChildren(['senderId','senderName','text','timestamp']) && newData.child('text').val().length <= 500"
+        }
+      }
+    },
+
+    "users": {
+      "$username": {
+        ".read":  true,
+        ".write": "auth == null || auth.uid == $username"
+      }
+    },
+
+    "language_words": {
+      ".read": true,
+      "$wordId": {
+        ".write": "auth == null || root.child('users').child(auth.uid).child('role').val() == 'admin'"
+      }
+    }
+  }
+}

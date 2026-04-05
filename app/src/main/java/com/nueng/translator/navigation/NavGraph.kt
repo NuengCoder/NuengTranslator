@@ -9,17 +9,19 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.nueng.translator.data.local.dao.UserDao
 import com.nueng.translator.ui.auth.LoginScreen
 import com.nueng.translator.ui.auth.RegisterScreen
-import com.nueng.translator.ui.chat.ChatScreen
 import com.nueng.translator.ui.components.MainScaffold
 import com.nueng.translator.ui.home.HomeScreen
 import com.nueng.translator.ui.mynote.DirectoryWordsScreen
 import com.nueng.translator.ui.mynote.MyNoteScreen
+import com.nueng.translator.ui.online.OnlineNavGraph
 import com.nueng.translator.ui.settings.AdminPanelScreen
 import com.nueng.translator.ui.settings.SettingsScreen
+import com.nueng.translator.ui.qr.QrCodeScreen
 import com.nueng.translator.ui.settings.SettingsViewModel
 import com.nueng.translator.ui.splash.SplashScreen
 import com.nueng.translator.ui.study.GenericStudyScreen
@@ -39,7 +41,7 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
         composable(Screen.Splash.route) {
             SplashScreen(
                 onNavigateToLogin = { navController.navigate(Screen.Login.route) { popUpTo(Screen.Splash.route) { inclusive = true } } },
-                onNavigateToHome = { navController.navigate(Screen.Home.route) { popUpTo(Screen.Splash.route) { inclusive = true } } }
+                onNavigateToHome  = { navController.navigate(Screen.Home.route)  { popUpTo(Screen.Splash.route) { inclusive = true } } }
             )
         }
 
@@ -52,14 +54,17 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
 
         composable(Screen.Register.route) {
             RegisterScreen(
-                onNavigateBack = { navController.popBackStack() },
+                onNavigateBack   = { navController.popBackStack() },
                 onNavigateToHome = { navController.navigate(Screen.Home.route) { popUpTo(Screen.Login.route) { inclusive = true } } }
             )
         }
 
         composable(Screen.Home.route) {
             MainScaffold(navController = navController) { paddingModifier ->
-                HomeScreen(modifier = paddingModifier, onNavigateToChat = { navController.navigate(Screen.Chat.route) })
+                HomeScreen(
+                    modifier         = paddingModifier,
+                    onNavigateToChat = { navController.navigate(Screen.Online.route) }
+                )
             }
         }
 
@@ -71,9 +76,8 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
                 LaunchedEffect(strokeResult) { strokeResult?.let { translateVm.onSearchQueryChange(it); backStackEntry.savedStateHandle.remove<String>("stroke_result") } }
                 LaunchedEffect(cameraResult) { cameraResult?.let { translateVm.onSearchQueryChange(it); backStackEntry.savedStateHandle.remove<String>("camera_result") } }
                 TranslateScreen(
-                    modifier = paddingModifier,
+                    modifier               = paddingModifier,
                     onNavigateToStrokeDraw = { lang -> navController.navigate("stroke_draw/$lang") },
-                    onNavigateToCamera = { lang -> navController.navigate("camera_ocr/$lang") }
                 )
             }
         }
@@ -93,18 +97,18 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
         composable(
             route = "directory_words/{directoryId}/{directoryName}",
             arguments = listOf(
-                navArgument("directoryId") { type = NavType.LongType },
+                navArgument("directoryId")   { type = NavType.LongType },
                 navArgument("directoryName") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val dirId = backStackEntry.arguments?.getLong("directoryId") ?: 0L
+            val dirId   = backStackEntry.arguments?.getLong("directoryId") ?: 0L
             val dirName = URLDecoder.decode(
                 backStackEntry.arguments?.getString("directoryName") ?: "",
                 StandardCharsets.UTF_8.toString()
             )
             DirectoryWordsScreen(
-                directoryId = dirId,
-                directoryName = dirName,
+                directoryId    = dirId,
+                directoryName  = dirName,
                 onNavigateBack = { navController.popBackStack() }
             )
         }
@@ -123,21 +127,47 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
         composable(Screen.Settings.route) {
             MainScaffold(navController = navController) { paddingModifier ->
                 SettingsScreen(
-                    modifier = paddingModifier,
-                    onNavigateToLogin = { navController.navigate(Screen.Login.route) { popUpTo(Screen.Home.route) { inclusive = true } } },
-                    onNavigateToAdminPanel = { navController.navigate(Screen.AdminPanel.route) }
+                    modifier               = paddingModifier,
+                    onNavigateToLogin      = { navController.navigate(Screen.Login.route) { popUpTo(Screen.Home.route) { inclusive = true } } },
+                    onNavigateToAdminPanel = { navController.navigate(Screen.AdminPanel.route) },
+                    onNavigateToQr         = { username ->
+                        val encoded = URLEncoder.encode(username, StandardCharsets.UTF_8.toString())
+                        navController.navigate("qr_code/$encoded")
+                    }
                 )
             }
+        }
+
+        composable(
+            route     = "qr_code/{username}",
+            arguments = listOf(navArgument("username") { type = NavType.StringType })
+        ) { back ->
+            val username = URLDecoder.decode(
+                back.arguments?.getString("username") ?: "", StandardCharsets.UTF_8.toString())
+            QrCodeScreen(username = username, onNavigateBack = { navController.popBackStack() })
         }
 
         composable(Screen.AdminPanel.route) {
             val settingsVm: SettingsViewModel = hiltViewModel()
             val uiState by settingsVm.uiState.collectAsState()
-            AdminPanelScreen(onNavigateBack = { navController.popBackStack() }, adminUserId = uiState.user?.id ?: 0L)
+            AdminPanelScreen(
+                onNavigateBack = { navController.popBackStack() },
+                adminUserId    = uiState.user?.id ?: 0L
+            )
         }
 
-        composable(Screen.Chat.route) {
-            ChatScreen(onNavigateBack = { navController.popBackStack() })
+        // Online sub-app — replaces old Chat route
+        composable(Screen.Online.route) {
+            val onlineNavController = rememberNavController()
+            OnlineNavGraph(
+                onlineNavController  = onlineNavController,
+                onNavigateBackToHome = { navController.popBackStack() },
+                onNavigateToLogin    = {
+                    navController.navigate(Screen.Login.route) {
+                        popUpTo(Screen.Home.route) { inclusive = true }
+                    }
+                }
+            )
         }
 
         composable(
@@ -148,23 +178,21 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
                 navArgument("type") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val pack = backStackEntry.arguments?.getString("pack") ?: ""
-            val file = backStackEntry.arguments?.getString("file") ?: ""
-            val type = backStackEntry.arguments?.getString("type") ?: "hsk"
+            val pack  = backStackEntry.arguments?.getString("pack") ?: ""
+            val file  = backStackEntry.arguments?.getString("file") ?: ""
+            val type  = backStackEntry.arguments?.getString("type") ?: "hsk"
             val isHsk = type == "hsk"
-
             val displayName = buildString {
                 for (i in pack.indices) {
                     if (i > 0 && pack[i].isDigit() && !pack[i - 1].isDigit()) append(" ")
                     append(pack[i])
                 }
             }
-
             GenericStudyScreen(
-                onNavigateBack = { navController.popBackStack() },
-                packName = displayName,
-                jsonFileName = file,
-                availableLangs = if (isHsk) listOf("en", "th", "lo", "vi", "id") else listOf("zh", "th", "lo", "vi", "id"),
+                onNavigateBack  = { navController.popBackStack() },
+                packName        = displayName,
+                jsonFileName    = file,
+                availableLangs  = if (isHsk) listOf("en","th","lo","vi","id") else listOf("zh","th","lo","vi","id"),
                 isSourceChinese = isHsk
             )
         }
@@ -174,7 +202,7 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
             arguments = listOf(navArgument("lang") { type = NavType.StringType; defaultValue = "zh" })
         ) { entry ->
             StrokeDrawScreen(
-                onNavigateBack = { navController.popBackStack() },
+                onNavigateBack      = { navController.popBackStack() },
                 onCharacterSelected = { navController.previousBackStackEntry?.savedStateHandle?.set("stroke_result", it); navController.popBackStack() },
                 lang1 = entry.arguments?.getString("lang") ?: "zh"
             )
@@ -185,7 +213,7 @@ fun NavGraph(navController: NavHostController, userDao: UserDao) {
             arguments = listOf(navArgument("lang") { type = NavType.StringType; defaultValue = "en" })
         ) { entry ->
             CameraOcrScreen(
-                onNavigateBack = { navController.popBackStack() },
+                onNavigateBack  = { navController.popBackStack() },
                 onTextExtracted = { navController.previousBackStackEntry?.savedStateHandle?.set("camera_result", it); navController.popBackStack() },
                 lang1 = entry.arguments?.getString("lang") ?: "en"
             )

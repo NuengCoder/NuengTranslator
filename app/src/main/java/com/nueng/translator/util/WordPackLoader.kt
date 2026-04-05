@@ -11,7 +11,7 @@ object WordPackLoader {
             val actualFile = if (fileName.endsWith(".json")) fileName else "$fileName.json"
             val jsonString = context.assets.open(actualFile).bufferedReader().use { it.readText() }
             parseJson(jsonString)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             emptyList()
         }
     }
@@ -26,7 +26,7 @@ object WordPackLoader {
 
             // Parse pinyin - can be string or object
             val pinyinMap = mutableMapOf<String, String>()
-            var pinyinStr = ""
+            var pinyinStr: String
             val pinyinRaw = w.get("pinyin")
             if (pinyinRaw is JSONObject) {
                 pinyinRaw.keys().forEach { key -> pinyinMap[key] = pinyinRaw.getString(key) }

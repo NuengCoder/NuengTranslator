@@ -20,7 +20,12 @@ data class SettingsUiState(
     val user: User? = null,
     val isGuest: Boolean = false,
     val isAdmin: Boolean = false,
-    val deleteSuccess: Boolean = false
+    val deleteSuccess: Boolean = false,
+    val colorFg: Long = 0L,
+    val colorBg: Long = 0L,
+    val colorText: Long = 0L,
+    val colorAppText: Long = 0L,
+    val colorSaved: Boolean = false
 )
 
 @HiltViewModel
@@ -46,6 +51,13 @@ class SettingsViewModel @Inject constructor(
     private fun loadUser() {
         viewModelScope.launch {
             val userId = preferencesManager.loggedInUserId.first()
+            // Also load saved colors
+            val fg      = preferencesManager.colorFg.first()
+            val bg      = preferencesManager.colorBg.first()
+            val text    = preferencesManager.colorText.first()
+            val appText = preferencesManager.colorAppText.first()
+            _uiState.value = _uiState.value.copy(colorFg=fg, colorBg=bg, colorText=text, colorAppText=appText)
+
             val isGuest = preferencesManager.isGuest.first()
 
             if (userId > 0 && !isGuest) {
@@ -82,6 +94,15 @@ class SettingsViewModel @Inject constructor(
             }
         }
     }
+
+    fun saveColors(fg: Long, bg: Long, text: Long, appText: Long) {
+        viewModelScope.launch {
+            preferencesManager.setColors(fg, bg, text, appText)
+            _uiState.value = _uiState.value.copy(colorSaved = true)
+        }
+    }
+
+    fun clearColorSaved() { _uiState.value = _uiState.value.copy(colorSaved = false) }
 
     fun clearDeleteSuccess() {
         _uiState.value = _uiState.value.copy(deleteSuccess = false)

@@ -27,6 +27,9 @@ interface UserDirectoryDao {
     @Query("SELECT * FROM user_directories WHERE user_id = :userId AND name LIKE '%' || :query || '%' ORDER BY sort_index ASC")
     fun searchDirectories(userId: Long, query: String): Flow<List<UserDirectory>>
 
+    @Query("SELECT * FROM user_directories WHERE user_id = :userId ORDER BY sort_index ASC, created_at ASC")
+    suspend fun getDirectoriesOnceSuspend(userId: Long): List<UserDirectory>
+
     @Query("SELECT COUNT(*) FROM user_directories WHERE user_id = :userId")
     suspend fun getDirectoryCount(userId: Long): Int
 

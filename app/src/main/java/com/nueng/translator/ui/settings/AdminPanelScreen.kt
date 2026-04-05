@@ -70,7 +70,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.nueng.translator.data.local.entity.LanguageWord
 import com.nueng.translator.data.model.FirebaseUser
-import com.nueng.translator.data.repository.LanguageWordRepository
 import com.nueng.translator.ui.components.LanguageSelectorRow
 import com.nueng.translator.ui.translate.EditLanguageWordDialog
 import java.text.SimpleDateFormat

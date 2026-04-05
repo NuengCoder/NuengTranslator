@@ -3,6 +3,7 @@ package com.nueng.translator.ui.mynote
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nueng.translator.data.local.PreferencesManager
+import com.nueng.translator.data.local.dao.UserDao
 import com.nueng.translator.data.local.entity.UserData
 import com.nueng.translator.data.repository.UserDataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,7 +26,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DirectoryViewModel @Inject constructor(
     private val userDataRepository: UserDataRepository,
-    private val preferencesManager: PreferencesManager
+    private val preferencesManager: PreferencesManager,
+    private val userDao: UserDao
 ) : ViewModel() {
 
     private val _searchQuery = MutableStateFlow("")
@@ -33,6 +35,7 @@ class DirectoryViewModel @Inject constructor(
 
     private val _directoryId = MutableStateFlow(0L)
     private val _userId = MutableStateFlow(-1L)
+    private var _username = ""
 
     val notes: StateFlow<List<UserData>> = combine(
         _searchQuery.debounce(300),
@@ -47,7 +50,11 @@ class DirectoryViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            _userId.value = preferencesManager.loggedInUserId.first()
+            val uid = preferencesManager.loggedInUserId.first()
+            _userId.value = uid
+            if (uid > 0) {
+                _username = userDao.getUserById(uid)?.username ?: ""
+            }
         }
     }
 
@@ -68,26 +75,27 @@ class DirectoryViewModel @Inject constructor(
         viewModelScope.launch {
             userDataRepository.addNote(
                 UserData(
-                    userId = _userId.value,
-                    directoryId = _directoryId.value,
-                    word = word.trim(),
-                    wordType = wordType.trim(),
-                    pinyin = pinyin.trim(),
-                    langCode = langCode,
-                    translation = translation.trim(),
-                    translationLangCode = translationLangCode,
-                    exampleSentence = exampleSentence.trim(),
+                    userId                     = _userId.value,
+                    directoryId                = _directoryId.value,
+                    word                       = word.trim(),
+                    wordType                   = wordType.trim(),
+                    pinyin                     = pinyin.trim(),
+                    langCode                   = langCode,
+                    translation                = translation.trim(),
+                    translationLangCode        = translationLangCode,
+                    exampleSentence            = exampleSentence.trim(),
                     translationExampleSentence = translationExampleSentence.trim()
-                )
+                ),
+                username = _username
             )
         }
     }
 
     fun updateNote(note: UserData) {
-        viewModelScope.launch { userDataRepository.updateNote(note) }
+        viewModelScope.launch { userDataRepository.updateNote(note, username = _username) }
     }
 
     fun deleteNote(note: UserData) {
-        viewModelScope.launch { userDataRepository.deleteNote(note) }
+        viewModelScope.launch { userDataRepository.deleteNote(note, username = _username) }
     }
 }

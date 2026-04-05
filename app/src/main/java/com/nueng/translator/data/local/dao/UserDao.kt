@@ -7,7 +7,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.nueng.translator.data.local.entity.User
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {

@@ -5,5 +5,4 @@ object Hsk1Words {
     var words: List<HskWord> = emptyList()
         internal set
 
-    fun isLoaded(): Boolean = words.isNotEmpty()
 }

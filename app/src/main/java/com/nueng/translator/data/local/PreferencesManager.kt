@@ -26,6 +26,12 @@ class PreferencesManager @Inject constructor(
         val KEY_IS_GUEST = booleanPreferencesKey("is_guest")
         val KEY_LANG1 = stringPreferencesKey("lang1")
         val KEY_LANG2 = stringPreferencesKey("lang2")
+        // Custom colors stored as ARGB Long (0 = use default)
+        val KEY_COLOR_FG      = longPreferencesKey("color_fg")
+        val KEY_COLOR_BG      = longPreferencesKey("color_bg")
+        val KEY_COLOR_TEXT    = longPreferencesKey("color_text")
+        val KEY_COLOR_APPTEXT = longPreferencesKey("color_apptext")
+        val KEY_FAV_EMOJI     = stringPreferencesKey("fav_emoji")
     }
 
     val isDarkMode: Flow<Boolean> = context.dataStore.data.map { prefs ->
@@ -72,6 +78,26 @@ class PreferencesManager @Inject constructor(
 
     val lang2: Flow<String> = context.dataStore.data.map { prefs ->
         prefs[KEY_LANG2] ?: "zh"
+    }
+
+    val colorFg:      Flow<Long> = context.dataStore.data.map { it[KEY_COLOR_FG]      ?: 0L }
+    val colorBg:      Flow<Long> = context.dataStore.data.map { it[KEY_COLOR_BG]      ?: 0L }
+    val colorText:    Flow<Long> = context.dataStore.data.map { it[KEY_COLOR_TEXT]    ?: 0L }
+    val colorAppText: Flow<Long> = context.dataStore.data.map { it[KEY_COLOR_APPTEXT] ?: 0L }
+
+    val favEmoji: Flow<String> = context.dataStore.data.map { it[KEY_FAV_EMOJI] ?: "👍" }
+
+    suspend fun setFavEmoji(emoji: String) {
+        context.dataStore.edit { prefs -> prefs[KEY_FAV_EMOJI] = emoji }
+    }
+
+    suspend fun setColors(fg: Long, bg: Long, text: Long, appText: Long) {
+        context.dataStore.edit { prefs ->
+            prefs[KEY_COLOR_FG]      = fg
+            prefs[KEY_COLOR_BG]      = bg
+            prefs[KEY_COLOR_TEXT]    = text
+            prefs[KEY_COLOR_APPTEXT] = appText
+        }
     }
 
     suspend fun setLanguagePair(lang1: String, lang2: String) {

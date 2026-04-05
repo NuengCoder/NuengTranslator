@@ -1,7 +1,7 @@
 package com.nueng.translator.ui.translate
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,7 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Draw
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -28,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
@@ -48,7 +48,6 @@ import com.nueng.translator.ui.theme.LightCardBorder
 fun TranslateScreen(
     modifier: Modifier = Modifier,
     onNavigateToStrokeDraw: (String) -> Unit = {},
-    onNavigateToCamera: (String) -> Unit = {},
     viewModel: TranslateViewModel = hiltViewModel()
 ) {
     val searchQuery by viewModel.searchQuery.collectAsState()
@@ -73,9 +72,7 @@ fun TranslateScreen(
                 singleLine = true
             )
             VoiceInputButton(langCode = lang1, onResult = { viewModel.onSearchQueryChange(it) })
-            IconButton(onClick = { onNavigateToCamera(lang1) }) {
-                Icon(Icons.Default.CameraAlt, "Camera OCR", tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
-            }
+
             IconButton(onClick = { onNavigateToStrokeDraw(lang1) }) {
                 Icon(Icons.Default.Draw, "Draw", tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
             }
@@ -101,12 +98,15 @@ fun TranslateScreen(
 
 @Composable
 private fun CleanWordCard(word: LanguageWord) {
-    val isDark = MaterialTheme.colorScheme.background.luminance() < 0.5f
+    val isDark      = MaterialTheme.colorScheme.background.luminance() < 0.5f
     val borderColor = if (isDark) DarkCardBorder else LightCardBorder
+    val hasExtra    = word.exampleSentence.isNotBlank() || word.translationExampleSentence.isNotBlank()
+    var expanded    by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
 
     Card(
         Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp)
-            .border(2.dp, borderColor, RoundedCornerShape(12.dp)),
+            .border(2.dp, borderColor, RoundedCornerShape(12.dp))
+            .then(if (hasExtra) Modifier.clickable { expanded = !expanded } else Modifier),
         colors = CardDefaults.cardColors(containerColor = CardDarkBg),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -125,13 +125,24 @@ private fun CleanWordCard(word: LanguageWord) {
             }
             Spacer(Modifier.height(4.dp))
             Text(word.translation, fontSize = 16.sp, color = CardTextPrimary.copy(0.85f))
-            if (word.exampleSentence.isNotBlank()) {
-                Spacer(Modifier.height(8.dp))
-                Text(word.exampleSentence, fontSize = 13.sp, fontStyle = FontStyle.Italic, color = CardTextHint)
-            }
-            if (word.translationExampleSentence.isNotBlank()) {
-                Spacer(Modifier.height(2.dp))
-                Text(word.translationExampleSentence, fontSize = 13.sp, fontStyle = FontStyle.Italic, color = CardTextHint.copy(0.7f))
+
+            androidx.compose.animation.AnimatedVisibility(
+                visible = expanded,
+                enter   = androidx.compose.animation.expandVertically(),
+                exit    = androidx.compose.animation.shrinkVertically()
+            ) {
+                Column {
+                    if (word.exampleSentence.isNotBlank()) {
+                        Spacer(Modifier.height(8.dp))
+                        Text(word.exampleSentence, fontSize = 13.sp,
+                            fontStyle = FontStyle.Italic, color = CardTextHint)
+                    }
+                    if (word.translationExampleSentence.isNotBlank()) {
+                        Spacer(Modifier.height(2.dp))
+                        Text(word.translationExampleSentence, fontSize = 13.sp,
+                            fontStyle = FontStyle.Italic, color = CardTextHint.copy(0.7f))
+                    }
+                }
             }
         }
     }
